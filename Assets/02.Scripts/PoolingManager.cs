@@ -22,9 +22,10 @@ public class PoolingManager : MonoBehaviour
         for(int i = 0; i < dinoPrefabs.Length; i++)
         {
             List<GameObject> dinos = new List<GameObject>();
-            for(int j = 0; j < 10; j++)
+            for(int j = 0; j < 30; j++)
             {
                 GameObject dinosaur = Instantiate(dinoPrefabs[i], transform);
+                dinosaur.name = $"{j+1}¹øÂ° {dinoPrefabs[i].name.ToString()}";
                 dinosaur.SetActive(false);
                 dinos.Add(dinosaur);
             }
@@ -37,7 +38,7 @@ public class PoolingManager : MonoBehaviour
     {
         for(int i = 0; i < dinoPrefabs.Length; i++)
         {
-            for(int j = 0; j < 5; j++)
+            for(int j = 0; j < 30; j++)
             {
                 SpawnDino(i);
             }
@@ -50,7 +51,8 @@ public class PoolingManager : MonoBehaviour
         {
             if(dino.activeSelf == false)
             {
-                dino.transform.position = SpawnPoints[(Random.Range(0, SpawnPoints.Length))].position;
+                Vector3 pos = SpawnPoints[(Random.Range(0, SpawnPoints.Length))].position;
+                dino.transform.position = new Vector3(Random.Range(pos.x-30, pos.x+30), pos.y+10, Random.Range(pos.z-30, pos.z+30));
                 dino.transform.rotation = Quaternion.identity;
                 dino.gameObject.SetActive(true);
                 break;

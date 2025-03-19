@@ -4,7 +4,6 @@ using UnityEngine;
 
 public interface IDinosaur
 {
-    int size { get; } //크기
     void Move(); //이동
     void Interact(IDinosaur other); //상호작용
     void Display(); //정보 표시
@@ -19,7 +18,7 @@ public interface ICarnivore : IDinosaur
 
 public interface IHerbivore : IDinosaur
 {
-    void Flee(ICarnivore carnivore);
+    //void Flee(ICarnivore carnivore);
 }
 
 public interface IMovable
@@ -30,7 +29,6 @@ public interface IMovable
     float maxWanderAngle { get; set; }
     float wanderPeriodDuration { get; set; }
     float wanderProbability { get; set; }
-    float moveSpeed { get; set; }
     //void Wander();
     void UpdatePosition();
 }

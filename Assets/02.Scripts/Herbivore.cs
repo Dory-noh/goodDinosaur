@@ -14,19 +14,9 @@ public class Herbivore : Animal, IHerbivore
         size = sizes[Random.Range(0, sizes.Length)];
         base.OnEnable( );
     }
-    
-
-    public void Flee(ICarnivore carnivore)
-    {
-        Debug.Log("초식 동물 도망");
-    }
-
 
     public override void Interact(IDinosaur other)
     {
-        if(other is ICarnivore carnivore)
-        {
-            Flee(carnivore);
-        }
+        base.Interact(other);
     }
 }
