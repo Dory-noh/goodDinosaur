@@ -4,12 +4,40 @@ using UnityEngine;
 
 public class PoolingManager : MonoBehaviour
 {
+    private static PoolingManager instance;
+    public static PoolingManager Instance
+    {
+        get 
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<PoolingManager>();
+                if(instance == null)
+                {
+
+                }
+            }
+            return instance;
+        }
+    }
+
     [SerializeField] private Transform[] SpawnPoints;
     [SerializeField] GameObject[] dinoPrefabs;
     [SerializeField] List<List<GameObject>> dinoLists = new List<List<GameObject>>();
+
+    float respawnTime = 3f;
+    WaitForSeconds ws;
     void Awake()
     {
+        if (instance == null) { instance = this; }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
         createDinos();
+        ws = new WaitForSeconds(respawnTime);
     }
 
     void Update()
@@ -58,5 +86,12 @@ public class PoolingManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public IEnumerator waitSpawnDino(int i)
+    {
+        yield return ws;
+        SpawnDino(i);
+        Debug.Log($"{dinoPrefabs[i].name.ToString()}을 리스폰합니다.");
     }
 }

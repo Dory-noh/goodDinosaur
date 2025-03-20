@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4539424575323980947}
   - component: {fileID: 4539424575323980956}
   - component: {fileID: 4539424575323980951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\uCD08\uC2DD\uACF5\uB8E1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,10 +114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizes: c8000000e8030000
   size: 0
+  moveSpeed: 0
   isBumped: 0
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 1.5
-  playerSensingDistance: 5
+  playerSensingDistance: 10
 --- !u!54 &4539424575323980951
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -8,12 +8,12 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 {
     public int[] sizes;
     public int size;
-
+    public bool isDie;
     public float moveSpeed;
 
     public float moveSpeedMin { get; set; } = 3.0f; //최소 이동 속도
     public float moveSpeedMax { get; set; } = 8.0f; //최대 이동 속도
-    public float maxTurnRateY { get; set; } = 5f; //최대 회전 속도
+    public float maxTurnRateY { get; set; } = 15f; //최대 회전 속도
     public float maxWanderAngle { get; set; } = 45f; //최대 방황 각도
     public float wanderPeriodDuration { get; set; } = 0.8f; //방황 주기
     public float wanderProbability { get; set; } = 0.15f; //방황 확률
@@ -44,26 +44,37 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
     public float playerSensingDistance = 5f;
     protected List<IDinosaur> dinosaurs = new List<IDinosaur>(); // 오브젝트 캐싱
-    private Collider[] colliders = new Collider[10]; // 콜라이더 배열 재사용
+    private Collider[] colliders = new Collider[10]; // 콜라이더 배열
 
     //포식자 발견했는지 여부
     protected bool predatorDetected = false;
     Rigidbody rb;
 
+    //레이어 마스크 리스트
+    protected List<int> findLayerMask = new List<int>(); 
     void Awake()
     {
         //초기화 시에 오브젝트 검색 및 캐싱
         dinosaurs.AddRange(FindObjectsOfType<MonoBehaviour>().OfType<IDinosaur>());
         tankCenterGoal = GameObject.Find("center").transform;
         rb = GetComponent<Rigidbody>();
+        
+        //랩터인 경우 랩터는 추적 제외
+        findLayerMask.Add(LayerMask.GetMask("Carnivore"));
+        //포식자 레이어 마스크 설정
+        findLayerMask.Add(LayerMask.GetMask("Raptor"));
+        findLayerMask.Add(LayerMask.GetMask("Herbivore"));
+        findLayerMask.Add(LayerMask.GetMask("Obstacle"));
+        playerSensingDistance = 30f;
     }
 
     public virtual void OnEnable()
     {
         moveSpeed = CalculateSpeed(size);
         randomOffset = Random.value;
+        isDie = false;
     }
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         if (isBumped == true) Invoke("ResetBumpCheck", 3f);
         
@@ -78,11 +89,16 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         //2. 장애물 회피(두 번째 우선 순위)
         // 장애물을 피하는 방향으로 회전했을 수 있으므로, 이동 방향을 업데이트한다.
         AvoidObstacles();
+        if (obstacleDetected)
+        {
+            Move();
+            return;
+        }
 
         //3. 기본 움직임(방황)
-        //Wander();
-
+        Wander();
         Move();
+
     }
     void ResetBumpCheck()
     {
@@ -94,17 +110,17 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     void AvoidObstacles()
     {
         RaycastHit hit;
-        obstacleDetected = Physics.Raycast(transform.position, moveDirection, out hit, obstacleSensingDistance);
+        obstacleDetected = Physics.Raycast(transform.position, moveDirection, out hit, obstacleSensingDistance, findLayerMask[3]);
         if (obstacleDetected)
         {
-            Debug.Log("장애물 감지");
+            //Debug.Log("장애물 감지");
             hitPoint = hit.point;
             Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
             float goalPointMinDistanceFromHit = 1f;
             Vector3 reflectedPoint = hit.point + reflectionVector * Mathf.Max(hit.distance, goalPointMinDistanceFromHit);
             Debug.DrawRay(transform.position, moveDirection * obstacleSensingDistance, Color.red);
             goalPoint = (reflectedPoint + tankCenterGoal.position) / 2f;
-            Vector3 goalDirection = transform.position - goalPoint;
+            Vector3 goalDirection = goalPoint - transform.position;
             goalDirection.y = 0;
             goalLookRotation = Quaternion.LookRotation(goalDirection.normalized);
 
@@ -112,7 +128,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             dangerLevel = Mathf.Max(0.01f, dangerLevel);
 
             float turnRate = maxTurnRateY * dangerLevel;
-            Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime * turnRate);
+            //Debug.Log($"Turn Rate: {turnRate}");
+            Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * turnRate);
             Vector3 eulerAngles = rotation.eulerAngles;
             eulerAngles.x = 0;
             eulerAngles.z = 0;
@@ -141,16 +158,22 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             }
         }
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime / 2f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime / 2f);
     }
 
+    public virtual void Die()
+    {
+        isDie = true;
+        gameObject.SetActive(false);
+    }
 
     public void UpdatePosition()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.MovePosition(transform.position + moveDirection * (float)moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(transform.position + transform.forward * (float)moveSpeed * Time.fixedDeltaTime);
+            //rb.MovePosition(transform.position + moveDirection * (float)moveSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -166,7 +189,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             predatorDetected = true;
             Vector3 preditorDirection = (transform.position - ((MonoBehaviour)closestPredator).transform.position);
             goalLookRotation = Quaternion.LookRotation(preditorDirection);
-            Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime * maxTurnRateY);
+            Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * maxTurnRateY);
             // Y축 회전만 적용
             Vector3 eulerAngles = rotation.eulerAngles;
             eulerAngles.x = 0;
@@ -182,16 +205,11 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
     IDinosaur FindClosetPredator()
     {
-        List<int> findLayerMask = new List<int>();
-        //랩터인 경우 랩터는 추적 제외
-        findLayerMask.Add(LayerMask.GetMask("Carnivore"));
-        //포식자 레이어 마스크 설정
-        findLayerMask.Add(LayerMask.GetMask("Raptor"));
         int colliderCount;
             if (this is Raptor) colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, colliders, findLayerMask[0]);
             else colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, colliders, findLayerMask[0]| findLayerMask[1]);
             IDinosaur closestPredator = null;
-        float closestSqrDistance = 20f;
+        float closestSqrDistance = Mathf.Infinity;
             for (int i = 0; i < colliderCount; i++)
             {
                 IDinosaur dinosaur = colliders[i].GetComponent<IDinosaur>();
@@ -213,11 +231,21 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         if (rb != null)
         {
-            Vector3 horizontalVelocity = moveDirection * moveSpeed;
-            rb.velocity = (horizontalVelocity*3) + Physics.gravity; 
+            // 지면 노멀을 계산해서 경사면을 따라 이동할 수 있도록 한다.
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit))
+            {
+                Vector3 surfaceNormal = hit.normal; // 지면의 노멀 벡터
 
+                // 이동 방향을 지면 노멀을 반영하여 계산
+                Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, surfaceNormal).normalized;
+                Vector3 velocity = horizontalDirection * moveSpeed;
+
+                // Rigidbody를 사용해 이동. y 축 속도는 기존 값을 유지하고, x, z 축 속도만 수정
+                rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z); // y 축 속도는 그대로 유지
+            }
         }
-        //UpdatePosition();
+
     }
 
 
@@ -245,4 +273,5 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         //정보 표시
     }
+
 }
