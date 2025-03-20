@@ -106,9 +106,9 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentHeight: 3
+    agentSlope: 60
+    agentClimb: 0.5
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: c405ff28463466d488a810ff2531812d, type: 2}
 --- !u!1 &56148333
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 484421804}
   - component: {fileID: 484421803}
   - component: {fileID: 484421802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ MonoBehaviour:
   - {fileID: 482127114}
   - {fileID: 1808705593}
   dinoPrefabs:
-  - {fileID: 6140908588224420506, guid: b0b5aea3dcf454b43a02a44befa1b4f0, type: 3}
+  - {fileID: 9172639660192731782, guid: 0cead5562e1270c4fa60a31a0aa6e364, type: 3}
   - {fileID: 9172639660192731782, guid: ef164d6cd6aeaad45ac22f6de91a1083, type: 3}
   - {fileID: 4539424575323980958, guid: ffb922ed8eb63d54898130c8f1c83f6f, type: 3}
 --- !u!1 &615800019
@@ -735,7 +735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 615800020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1621,7 +1621,7 @@ GameObject:
   - component: {fileID: 1273128036}
   - component: {fileID: 1273128035}
   - component: {fileID: 1273128034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,13 +1867,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizes: 0a0000003200000064000000
   size: 100000
+  isDie: 0
   moveSpeed: 0
   isBumped: 0
   tankCenterGoal: {fileID: 2119488899}
   obstacleSensingDistance: 1.5
-  playerSensingDistance: 5
+  playerSensingDistance: 10
+  closestVictimObject: {fileID: 0}
   leader: {fileID: 0}
   followers: []
+  agent: {fileID: 0}
 --- !u!54 &1480931817
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2811,7 +2814,7 @@ GameObject:
   - component: {fileID: 1883371074}
   - component: {fileID: 1883371073}
   - component: {fileID: 1883371072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2908,7 +2911,7 @@ GameObject:
   - component: {fileID: 1920990223}
   - component: {fileID: 1920990222}
   - component: {fileID: 1920990221}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

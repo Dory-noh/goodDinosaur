@@ -19,4 +19,15 @@ public class Herbivore : Animal, IHerbivore
     {
         base.Interact(other);
     }
+
+    public override void Die()
+    {
+        base.Die();
+        if (isDie) StartCoroutine(PoolingManager.Instance.waitSpawnDino(2));
+    }
+
+    private void OnDisable()
+    {
+        
+    }
 }
