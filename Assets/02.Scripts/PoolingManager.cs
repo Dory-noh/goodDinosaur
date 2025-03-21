@@ -88,10 +88,15 @@ public class PoolingManager : MonoBehaviour
         }
     }
 
-    public IEnumerator waitSpawnDino(int i)
+    IEnumerator WaitSpawnDino(int i)
     {
         yield return ws;
         SpawnDino(i);
         Debug.Log($"{dinoPrefabs[i].name.ToString()}을 리스폰합니다.");
+    }
+
+    public void CallSpawn(int i)
+    {
+        StartCoroutine(PoolingManager.Instance.WaitSpawnDino(i));
     }
 }
