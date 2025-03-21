@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Animal : MonoBehaviour, IMovable, IDinosaur
 {
-    public int[] sizes;
+    public int[] sizes = new int[3] { 10, 50 ,100};
+    public float[] speeds = new float[3] {8, 5, 3};
+    public int[] HPs = new int[3] { 5, 10, 20 };
+    public float[] powers = new float[3] { 1, 2, 5 };
+    public int infoIdx = 0;
     public int size;
-    public bool isDie;
     public float moveSpeed;
+    public float hp;
+    public float power;
+
+    public bool isDie;
+    
 
     public float moveSpeedMin { get; set; } = 3.0f; //최소 이동 속도
     public float moveSpeedMax { get; set; } = 8.0f; //최대 이동 속도
@@ -52,7 +61,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
     //레이어 마스크 리스트
     protected List<int> findLayerMask = new List<int>(); 
-    void Awake()
+    public virtual void Awake()
     {
         //초기화 시에 오브젝트 검색 및 캐싱
         dinosaurs.AddRange(FindObjectsOfType<MonoBehaviour>().OfType<IDinosaur>());
@@ -66,18 +75,29 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         findLayerMask.Add(LayerMask.GetMask("Herbivore"));
         findLayerMask.Add(LayerMask.GetMask("Obstacle"));
         playerSensingDistance = 30f;
+        if (this is not Raptor) infoIdx = Random.Range(0, sizes.Length);
+        else infoIdx = 0;
+        //Debug.Log($"인덱스 번호 : {infoIdx}");
     }
 
     public virtual void OnEnable()
     {
-        moveSpeed = CalculateSpeed(size);
+        moveSpeed = CalculateSpeed(infoIdx);
+        hp = HPs[infoIdx];
+        power = powers[infoIdx];
         randomOffset = Random.value;
         isDie = false;
     }
     public virtual void FixedUpdate()
     {
-        if (isBumped == true) Invoke("ResetBumpCheck", 3f);
-        
+        //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
+        AvoidObstacles();
+        if (obstacleDetected)
+        {
+            Move();
+
+            return;
+        }
         //1. 포식자 회피(최우선 순위)
         AvoidPredator();
         if (predatorDetected)
@@ -88,12 +108,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
         //2. 장애물 회피(두 번째 우선 순위)
         // 장애물을 피하는 방향으로 회전했을 수 있으므로, 이동 방향을 업데이트한다.
-        AvoidObstacles();
-        if (obstacleDetected)
-        {
-            Move();
-            return;
-        }
+        
 
         //3. 기본 움직임(방황)
         Wander();
@@ -110,7 +125,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     void AvoidObstacles()
     {
         RaycastHit hit;
-        obstacleDetected = Physics.Raycast(transform.position, moveDirection, out hit, obstacleSensingDistance, findLayerMask[3]);
+        obstacleDetected = Physics.Raycast(transform.position, moveDirection, out hit, obstacleSensingDistance);
         if (obstacleDetected)
         {
             //Debug.Log("장애물 감지");
@@ -159,6 +174,10 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime / 2f);
+    }
+    void Attack(Animal animal)
+    {
+        animal.hp -= power;
     }
 
     public virtual void Die()
@@ -249,11 +268,12 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     }
 
 
-    protected float CalculateSpeed(int size)
+    protected float CalculateSpeed(int infoIdx)
     {
-        float speed = (float)200.0 / size; //크기가 클수록 스피드가 느리다.
+            return speeds[infoIdx];
+        
         //크기에 따른 속도 계산 로직
-        return Mathf.Clamp(speed, moveSpeedMin, moveSpeedMax);
+        //return Mathf.Clamp(speed, moveSpeedMin, moveSpeedMax);
     }
 
     public virtual void Interact(IDinosaur other)

@@ -15,7 +15,6 @@ public class Carnivore : Animal, ICarnivore
 
     void Start()
     {
-        
         eating = false;
     }
     
@@ -32,7 +31,7 @@ public class Carnivore : Animal, ICarnivore
     public override void OnEnable()
     {
         sizes = new int[3] { 10, 50, 100 };
-        size = sizes[Random.Range(0, sizes.Length)];
+        size = sizes[infoIdx];
         base.OnEnable();
         eatCooltime = 0;
     }
@@ -43,6 +42,26 @@ public class Carnivore : Animal, ICarnivore
         if (other is Raptor && this is Raptor) return false;
         else if(other is Carnivore carnivore)
         {
+            if(this is Raptor)
+            {
+                int count;
+                if(this.GetComponent<Raptor>().leader != null) count = this.GetComponent<Raptor>().leader.followers.Count+1; //리더 포함 팀원 수 세기
+                else
+                {
+                    count = 1;
+                }
+                if (count >= 5) return true;
+                else if (count >= 3)
+                {
+                    if (((MonoBehaviour)other).GetComponent<Animal>().infoIdx <= 1) return true;
+                    return false;
+                }
+                else
+                {
+                    if (((MonoBehaviour)other).GetComponent<Animal>().infoIdx == 0) return true;
+                    else return false;
+                }
+            }  
             return size >= ((MonoBehaviour)other).gameObject.GetComponent<Animal>().size; 
                 //&& this != carnivore;
         }
@@ -92,7 +111,7 @@ public class Carnivore : Animal, ICarnivore
         else
         {
             // 먹이를 쫓지 않을 때는 기본 속도 유지
-            moveSpeed = CalculateSpeed(size);
+            moveSpeed = CalculateSpeed(infoIdx);
         }
     }
     void TraceVictim()
@@ -177,8 +196,9 @@ public class Carnivore : Animal, ICarnivore
             Invoke("resetEating", eatCooltime);
             ((MonoBehaviour)other).GetComponent<Animal>().Die();
             Debug.Log($"{((MonoBehaviour)other).gameObject.name}을 {gameObject.name}이 잡아먹음");
-            size += ((MonoBehaviour)other).gameObject.GetComponent<Animal>().size; //먹은 공룡의 절반 크기만큼 사이즈 증가
-            moveSpeed = CalculateSpeed(size); //속도 재계산
+            if(this is Raptor) gameObject.GetComponent<Raptor>().raptorLevel++; //랩터 레벨 증가
+            //사이즈 비교 시 편의성을 위해 랩터를 제외한 나머지 공룡들은 사이즈가 변동되지 않도록 함.
+            //moveSpeed = CalculateSpeed(size); //속도 재계산 //사이즈 바뀌지 않으므로 필요없음.
             
         }
         else
@@ -213,7 +233,7 @@ public class Carnivore : Animal, ICarnivore
     public override void Die()
     {
         base.Die();
-        if (isDie) StartCoroutine(PoolingManager.Instance.waitSpawnDino(1));
+        if (isDie) PoolingManager.Instance.CallSpawn(1);
     }
 
     private void OnDisable()

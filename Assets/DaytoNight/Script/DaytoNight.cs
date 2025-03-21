@@ -73,7 +73,7 @@ public class DaytoNight : MonoBehaviour
         if (dayRatio > 0.2 && dayRatio < 0.7)
         {
             float num = dayRatio * 2;
-            Debug.Log("낮이에요.");
+            //Debug.Log("낮이에요.");
             sun.intensity = Mathf.Lerp(0.1f, 1f, dayRatio * 2); //해가 뜨는 연출 
             //태양의 빛 밀도가 0.1에서 1로, 낯비율의 2배 곱한 값만큼의 속도로 바뀐다.
             sun.color = Color.Lerp(Color.red, Color.white, dayRatio * 2);//일출 색 변화 
@@ -84,7 +84,7 @@ public class DaytoNight : MonoBehaviour
         else
         {
             float num = (dayRatio - 0.5f) * 2;
-            Debug.Log("밤이 되었습니다.");
+            //Debug.Log("밤이 되었습니다.");
             sun.intensity = Mathf.Lerp(1f, 0f, (dayRatio-0.5f) * 2); //해가 뜨는 연출 
             //태양의 빛 밀도가 1에서 0.1로, 밤비율의 2배 곱한 값만큼의 속도로 바뀐다.
             sun.color = Color.Lerp(Color.white, Color.red, (dayRatio - 0.5f) * 2); //일출 색 변화 
@@ -93,7 +93,7 @@ public class DaytoNight : MonoBehaviour
             skyChange(Day, Night, num);
         }
         DynamicGI.UpdateEnvironment();
-        Debug.Log($"현재 하늘 색상: {skyboxInstance.name}");
+        //Debug.Log($"현재 하늘 색상: {skyboxInstance.name}");
 
     }
     void skyChange(Material a, Material b, float num) 
@@ -117,7 +117,7 @@ public class DaytoNight : MonoBehaviour
         // 변경된 머티리얼 적용
         cloudMaterial_L = cloudMaterialInstance_L;
         cloudMaterial_H = cloudMaterialInstance_H;
-        Debug.Log($"\"현재 구름 색상: {currentCloudColor}");
+        //Debug.Log($"\"현재 구름 색상: {currentCloudColor}");
     }
 }
 

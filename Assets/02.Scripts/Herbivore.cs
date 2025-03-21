@@ -6,13 +6,13 @@ public class Herbivore : Animal, IHerbivore
 {
     void Start()
     {
-        sizes = new int[2] { 200, 1000 };
+        sizes = new int[3] { 200, 500, 1000 };
     }
 
     public override void OnEnable( )
     {
-        size = sizes[Random.Range(0, sizes.Length)];
-        base.OnEnable( );
+        base.OnEnable();
+        size = sizes[infoIdx];
     }
 
     public override void Interact(IDinosaur other)
@@ -23,7 +23,7 @@ public class Herbivore : Animal, IHerbivore
     public override void Die()
     {
         base.Die();
-        if (isDie) StartCoroutine(PoolingManager.Instance.waitSpawnDino(2));
+        if (isDie) PoolingManager.Instance.CallSpawn(2);
     }
 
     private void OnDisable()
