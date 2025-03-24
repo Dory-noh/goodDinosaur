@@ -11,16 +11,18 @@ public class Raptor : Carnivore
     public List<Raptor> followers = new List<Raptor>(); //추종자 랩터 목록
     [SerializeField] NavMeshAgent agent;
     public int raptorLevel = 0;
+    public float followingDistance = 2f; // 리더와의 유지 거리
+    public float rotationSpeed = 5f; // 회전 속도
 
     public override void OnEnable()
     {
         base.OnEnable();
         if (gameObject.CompareTag("Player")) leader = this;
-        
+        /*
         if (leader != null)
         {
             leader.AddFollower(this);
-        }
+        }*/
     }
 
     public void AddFollower(Raptor follower)
@@ -39,18 +41,44 @@ public class Raptor : Carnivore
         else if(leader != null)
         {
 
-            if (agent == null)
+            //if (agent == null)
+            //{
+            //    gameObject.AddComponent<NavMeshAgent>();
+            //    agent = GetComponent<NavMeshAgent>();
+            //    agent.stoppingDistance = 1.5f;
+            //    agent.speed = moveSpeed;
+            //}
+            //if (agent.isOnNavMesh) // NavMesh 상에 있을 때만 SetDestination을 호출
+            //{
+            //    agent.SetDestination(((MonoBehaviour)leader).gameObject.transform.position);
+            //}
+            // 리더 방향으로 회전
+            Vector3 directionToLeader = leader.transform.position - transform.position;
+            directionToLeader.y = 0; // 수직 방향은 무시
+
+            if (directionToLeader != Vector3.zero)
             {
-                gameObject.AddComponent<NavMeshAgent>();
-                agent = GetComponent<NavMeshAgent>();
-                agent.stoppingDistance = 1.5f;
-                agent.speed = moveSpeed;
+                Quaternion targetRotation = Quaternion.LookRotation(directionToLeader);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             }
-            if (agent.isOnNavMesh) // NavMesh 상에 있을 때만 SetDestination을 호출
+
+            // 리더와의 거리가 유지 거리보다 멀면 이동
+            float distanceToLeader = directionToLeader.magnitude;
+            if (distanceToLeader > followingDistance)
             {
-                agent.SetDestination(((MonoBehaviour)leader).gameObject.transform.position);
+                base.Move(); // Animal 클래스의 Move() 함수 호출 (전진 이동)
+            }
+            else
+            {
+                // 리더와의 거리가 가까우면 멈춤 (선택 사항)
+                Rigidbody rb = GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
         }
+    
         else
         {
             Debug.Log("랩터 예외 발생");
@@ -143,7 +171,7 @@ public class Raptor : Carnivore
         if (leader != null)
         {
             if (leader != this) leader.followers.Remove(this); //해당 Rapter가 리더가 아닐때, 리더의 Follow 목록에서 해당 Rapter를 지운다.
-            leader = null;
+            
             if (this == leader)
             {
                 foreach (var rapter in followers)
@@ -152,6 +180,7 @@ public class Raptor : Carnivore
                 }
 
             }
+            leader = null;
         }
         followers.Clear();
         

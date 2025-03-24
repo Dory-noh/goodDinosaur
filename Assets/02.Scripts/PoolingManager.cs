@@ -50,7 +50,7 @@ public class PoolingManager : MonoBehaviour
         for(int i = 0; i < dinoPrefabs.Length; i++)
         {
             List<GameObject> dinos = new List<GameObject>();
-            for(int j = 0; j < 30; j++)
+            for(int j = 0; j < 15; j++)
             {
                 GameObject dinosaur = Instantiate(dinoPrefabs[i], transform);
                 dinosaur.name = $"{j+1}¹øÂ° {dinoPrefabs[i].name.ToString()}";
@@ -66,7 +66,7 @@ public class PoolingManager : MonoBehaviour
     {
         for(int i = 0; i < dinoPrefabs.Length; i++)
         {
-            for(int j = 0; j < 30; j++)
+            for(int j = 0; j < 10; j++)
             {
                 SpawnDino(i);
             }

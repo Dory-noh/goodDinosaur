@@ -58,9 +58,23 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     //포식자 발견했는지 여부
     protected bool predatorDetected = false;
     Rigidbody rb;
+    CharacterController characterController; // CharacterController 변수 추가
+    private float gravity = -9.81f; // 중력
+    private Vector3 verticalVelocity; // 수직 속도
 
     //레이어 마스크 리스트
-    protected List<int> findLayerMask = new List<int>(); 
+    protected List<int> findLayerMask = new List<int>();
+
+    public float maxSlopeAngle = 0.1f; // 오를 수 있는 최대 경사 각도 (수정 가능)
+
+    private bool attemptingSecondaryAvoidance = false;
+    private Quaternion secondaryGoalLookRotation;
+    private bool initialAvoidanceTried = false;
+
+    private bool isGrounded;
+    private bool isOnSlope;
+    private Vector3 slopeNormal;
+
     public virtual void Awake()
     {
         //초기화 시에 오브젝트 검색 및 캐싱
@@ -74,6 +88,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         findLayerMask.Add(LayerMask.GetMask("Raptor"));
         findLayerMask.Add(LayerMask.GetMask("Herbivore"));
         findLayerMask.Add(LayerMask.GetMask("Obstacle"));
+        findLayerMask.Add(LayerMask.GetMask("Ground"));
+        
         playerSensingDistance = 30f;
         if (this is not Raptor) infoIdx = Random.Range(0, sizes.Length);
         else infoIdx = 0;
@@ -87,9 +103,22 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         power = powers[infoIdx];
         randomOffset = Random.value;
         isDie = false;
+        verticalVelocity.y = 0f; // 활성화 시 수직 속도 초기화
     }
     public virtual void FixedUpdate()
     {
+        //// 중력 적용
+        //if (characterController.isGrounded)
+        //{
+        //    verticalVelocity.y = -1f; // 바닥에 붙어있도록 작은 음수 값 설정
+        //}
+        //else
+        //{
+        //    verticalVelocity.y += gravity * Time.fixedDeltaTime;
+        //}
+
+        //Vector3 movement = Vector3.zero;
+
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
         AvoidObstacles();
         if (obstacleDetected)
@@ -126,31 +155,70 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         RaycastHit hit;
         obstacleDetected = Physics.Raycast(transform.position, moveDirection, out hit, obstacleSensingDistance);
+
         if (obstacleDetected)
         {
-            //Debug.Log("장애물 감지");
-            hitPoint = hit.point;
-            Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
-            float goalPointMinDistanceFromHit = 1f;
-            Vector3 reflectedPoint = hit.point + reflectionVector * Mathf.Max(hit.distance, goalPointMinDistanceFromHit);
-            Debug.DrawRay(transform.position, moveDirection * obstacleSensingDistance, Color.red);
-            goalPoint = (reflectedPoint + tankCenterGoal.position) / 2f;
-            Vector3 goalDirection = goalPoint - transform.position;
-            goalDirection.y = 0;
-            goalLookRotation = Quaternion.LookRotation(goalDirection.normalized);
+            if (!attemptingSecondaryAvoidance)
+            {
+                // Initial avoidance attempt (reflection)
+                hitPoint = hit.point;
+                Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
+                float goalPointMinDistanceFromHit = 1f;
+                Vector3 reflectedPoint = hit.point + reflectionVector * Mathf.Max(hit.distance, goalPointMinDistanceFromHit);
+                Debug.DrawRay(transform.position, moveDirection * obstacleSensingDistance, Color.red);
+                goalPoint = (reflectedPoint * 0.7f + tankCenterGoal.position * 0.3f); // tankCenterGoal 영향 감소
+                Vector3 goalDirection = goalPoint - transform.position;
+                goalDirection.y = 0;
+                goalLookRotation = Quaternion.LookRotation(goalDirection.normalized);
 
-            float dangerLevel = Mathf.Pow(1 - (hit.distance / obstacleSensingDistance), 4f);
-            dangerLevel = Mathf.Max(0.01f, dangerLevel);
+                float dangerLevel = Mathf.Clamp01(1 - (hit.distance / obstacleSensingDistance));
+                dangerLevel = Mathf.Max(0.01f, dangerLevel);
 
-            float turnRate = maxTurnRateY * dangerLevel;
-            //Debug.Log($"Turn Rate: {turnRate}");
-            Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * turnRate);
-            Vector3 eulerAngles = rotation.eulerAngles;
-            eulerAngles.x = 0;
-            eulerAngles.z = 0;
-            transform.rotation = Quaternion.Euler(eulerAngles);
+                float turnRate = maxTurnRateY * dangerLevel;
+                Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * turnRate);
+                Vector3 eulerAngles = rotation.eulerAngles;
+                eulerAngles.x = 0;
+                eulerAngles.z = 0;
+                transform.rotation = Quaternion.Euler(eulerAngles);
+                initialAvoidanceTried = true;
+                attemptingSecondaryAvoidance = false; // 초기 회피 시도 후 이차 시도 플래그 초기화
+            }
+            else
+            {
+                // Secondary avoidance attempt (turn opposite)
+                Vector3 oppositeDirection = -transform.forward;
+                secondaryGoalLookRotation = Quaternion.LookRotation(oppositeDirection);
+                Quaternion rotation = Quaternion.Slerp(transform.rotation, secondaryGoalLookRotation, Time.fixedDeltaTime * maxTurnRateY * 0.5f); // 약간 느린 회전
+                Vector3 eulerAngles = rotation.eulerAngles;
+                eulerAngles.x = 0;
+                eulerAngles.z = 0;
+                transform.rotation = Quaternion.Euler(eulerAngles);
+            }
+        }
+        else
+        {
+            attemptingSecondaryAvoidance = false; // 장애물 감지 안 되면 이차 시도 플래그 초기화
+            initialAvoidanceTried = false;
+        }
+
+        // 초기 회피 시도 후에도 여전히 장애물이 감지되면 이차 회피 시도
+        if (obstacleDetected && !attemptingSecondaryAvoidance && initialAvoidanceTried && Vector3.Distance(transform.position, goalPoint) < 2f)
+        {
+            attemptingSecondaryAvoidance = true;
+        }
+        else if (!obstacleDetected && attemptingSecondaryAvoidance)
+        {
+            attemptingSecondaryAvoidance = false;
+            initialAvoidanceTried = false;
+        }
+
+        // 높은 곳에서 떨어지면 "추락" 메시지 출력
+        if (!isGrounded && verticalVelocity.y < -5f) // 수직 속도가 일정 값보다 빠르게 떨어지면 추락으로 간주
+        {
+            Debug.Log("추락");
         }
     }
+
 
     public void Wander()
     {
@@ -250,23 +318,58 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         if (rb != null)
         {
-            // 지면 노멀을 계산해서 경사면을 따라 이동할 수 있도록 한다.
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit))
-            {
-                Vector3 surfaceNormal = hit.normal; // 지면의 노멀 벡터
+            float raycastDistance = 0.6f; // Raycast 거리 증가
 
-                // 이동 방향을 지면 노멀을 반영하여 계산
+            if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out hit, raycastDistance))
+            {
+                Vector3 surfaceNormal = hit.normal;
+                float slopeAngle = Vector3.Angle(Vector3.up, surfaceNormal);
+
+                if (slopeAngle > maxSlopeAngle)
+                {
+                    // 경사가 너무 심하면 수평 속도를 0으로 만들고, 아래로 약간의 힘을 가하여 미끄러지도록 유도
+                    rb.velocity = new Vector3(0, rb.velocity.y - 0.5f, 0); // y축 속도에 약간의 음수 값을 더함
+                    return;
+                }
+
                 Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, surfaceNormal).normalized;
                 Vector3 velocity = horizontalDirection * moveSpeed;
-
-                // Rigidbody를 사용해 이동. y 축 속도는 기존 값을 유지하고, x, z 축 속도만 수정
-                rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z); // y 축 속도는 그대로 유지
+                rb.velocity = new Vector3(velocity.x, 0f, velocity.z);
+            }
+            else
+            {
+                Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                Vector3 velocity = horizontalDirection * moveSpeed;
+                rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
             }
         }
-
     }
 
+
+    private void CheckSlope()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f, findLayerMask[4]))
+        {
+            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+            if (slopeAngle > maxSlopeAngle)
+            {
+                isOnSlope = false; // 너무 가파르면 경사 아님
+            }
+            else
+            {
+                isOnSlope = true;
+                slopeNormal = hit.normal;
+            }
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+            isOnSlope = false;
+        }
+    }
 
     protected float CalculateSpeed(int infoIdx)
     {

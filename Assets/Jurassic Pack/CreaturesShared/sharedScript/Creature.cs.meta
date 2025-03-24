@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 846732faa4140374da4cf31dbbfc52e2
+timeCreated: 1507709760
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - blood: {fileID: 19842344, guid: 5166e89fe5a139f4b834a11b4bf4577c, type: 2}
+  - splash: {fileID: 198568203811761954, guid: 9a6e4420b16603e42b3737b45d4b3536, type: 2}
+  - lod: {instanceID: 0}
+  - body: {instanceID: 0}
+  - anm: {instanceID: 0}
+  - objectTGT: {instanceID: 0}
+  - objectCOL: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,5538 @@
+fileFormatVersion: 2
+guid: b2ec0610ffbac524b972d0ad23d29b15
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: eyes
+  - first:
+      1: 100002
+    second: head
+  - first:
+      1: 100004
+    second: jaw1
+  - first:
+      1: 100006
+    second: jaw2
+  - first:
+      1: 100008
+    second: jaw2_end
+  - first:
+      1: 100010
+    second: left eye
+  - first:
+      1: 100012
+    second: left eye_end
+  - first:
+      1: 100014
+    second: leftarm1
+  - first:
+      1: 100016
+    second: leftarm2
+  - first:
+      1: 100018
+    second: leftarm3
+  - first:
+      1: 100020
+    second: leftarm4
+  - first:
+      1: 100022
+    second: leftarm4_end
+  - first:
+      1: 100024
+    second: leftfoot
+  - first:
+      1: 100026
+    second: lefthips
+  - first:
+      1: 100028
+    second: leftleg
+  - first:
+      1: 100030
+    second: lefttoes0
+  - first:
+      1: 100032
+    second: lefttoes1
+  - first:
+      1: 100034
+    second: lefttoes2
+  - first:
+      1: 100036
+    second: lefttoes2_end
+  - first:
+      1: 100038
+    second: lefttoes3
+  - first:
+      1: 100040
+    second: lefttoes4
+  - first:
+      1: 100042
+    second: lefttoes4_end
+  - first:
+      1: 100044
+    second: lefttoes5
+  - first:
+      1: 100046
+    second: lefttoes6
+  - first:
+      1: 100048
+    second: lefttoes6_end
+  - first:
+      1: 100050
+    second: neck1
+  - first:
+      1: 100052
+    second: neck2
+  - first:
+      1: 100054
+    second: neck3
+  - first:
+      1: 100056
+    second: right eye
+  - first:
+      1: 100058
+    second: right eye_end
+  - first:
+      1: 100060
+    second: rightarm1
+  - first:
+      1: 100062
+    second: rightarm2
+  - first:
+      1: 100064
+    second: rightarm3
+  - first:
+      1: 100066
+    second: rightarm4
+  - first:
+      1: 100068
+    second: rightarm4_end
+  - first:
+      1: 100070
+    second: rightfoot
+  - first:
+      1: 100072
+    second: righthips
+  - first:
+      1: 100074
+    second: rightleg
+  - first:
+      1: 100076
+    second: righttoes0
+  - first:
+      1: 100078
+    second: righttoes1
+  - first:
+      1: 100080
+    second: righttoes2
+  - first:
+      1: 100082
+    second: righttoes2_end
+  - first:
+      1: 100084
+    second: righttoes3
+  - first:
+      1: 100086
+    second: righttoes4
+  - first:
+      1: 100088
+    second: righttoes4_end
+  - first:
+      1: 100090
+    second: righttoes5
+  - first:
+      1: 100092
+    second: righttoes6
+  - first:
+      1: 100094
+    second: righttoes6_end
+  - first:
+      1: 100096
+    second: root
+  - first:
+      1: 100098
+    second: spine0
+  - first:
+      1: 100100
+    second: spine1
+  - first:
+      1: 100102
+    second: spine2
+  - first:
+      1: 100104
+    second: spine3
+  - first:
+      1: 100106
+    second: //RootNode
+  - first:
+      1: 100108
+    second: Spino
+  - first:
+      1: 100110
+    second: spino
+  - first:
+      1: 100112
+    second: tail
+  - first:
+      1: 100114
+    second: tail1
+  - first:
+      1: 100116
+    second: tail10
+  - first:
+      1: 100118
+    second: tail10_end
+  - first:
+      1: 100120
+    second: tail2
+  - first:
+      1: 100122
+    second: tail4
+  - first:
+      1: 100124
+    second: tail5
+  - first:
+      1: 100126
+    second: tail6
+  - first:
+      1: 100128
+    second: tail7
+  - first:
+      1: 100130
+    second: tail8
+  - first:
+      1: 100132
+    second: tongue1
+  - first:
+      1: 100134
+    second: tongue2
+  - first:
+      1: 100136
+    second: tongue3
+  - first:
+      1: 100138
+    second: tongue4
+  - first:
+      1: 100140
+    second: tongue4_end
+  - first:
+      1: 100142
+    second: spino_LOD_0
+  - first:
+      1: 100144
+    second: spino_LOD_1
+  - first:
+      1: 100146
+    second: spino_LOD_2
+  - first:
+      1: 100148
+    second: gums0
+  - first:
+      1: 100150
+    second: gums1
+  - first:
+      1: 100152
+    second: jaw0
+  - first:
+      1: 100154
+    second: left arm0
+  - first:
+      1: 100156
+    second: left arm1
+  - first:
+      1: 100158
+    second: left arm2
+  - first:
+      1: 100160
+    second: left foot0
+  - first:
+      1: 100162
+    second: left foot1
+  - first:
+      1: 100164
+    second: left hand
+  - first:
+      1: 100166
+    second: left hips
+  - first:
+      1: 100168
+    second: left leg
+  - first:
+      1: 100170
+    second: left toe0
+  - first:
+      1: 100172
+    second: left toe1
+  - first:
+      1: 100174
+    second: left toe2
+  - first:
+      1: 100176
+    second: left toe3
+  - first:
+      1: 100178
+    second: left toe4
+  - first:
+      1: 100180
+    second: left toe5
+  - first:
+      1: 100182
+    second: neck0
+  - first:
+      1: 100184
+    second: right arm0
+  - first:
+      1: 100186
+    second: right arm1
+  - first:
+      1: 100188
+    second: right arm2
+  - first:
+      1: 100190
+    second: right foot0
+  - first:
+      1: 100192
+    second: right foot1
+  - first:
+      1: 100194
+    second: right hand
+  - first:
+      1: 100196
+    second: right hips
+  - first:
+      1: 100198
+    second: right leg
+  - first:
+      1: 100200
+    second: right toe0
+  - first:
+      1: 100202
+    second: right toe1
+  - first:
+      1: 100204
+    second: right toe2
+  - first:
+      1: 100206
+    second: right toe3
+  - first:
+      1: 100208
+    second: right toe4
+  - first:
+      1: 100210
+    second: right toe5
+  - first:
+      1: 100212
+    second: tail0
+  - first:
+      1: 100214
+    second: tail3
+  - first:
+      1: 100216
+    second: tongue0
+  - first:
+      4: 400000
+    second: eyes
+  - first:
+      4: 400002
+    second: head
+  - first:
+      4: 400004
+    second: jaw1
+  - first:
+      4: 400006
+    second: jaw2
+  - first:
+      4: 400008
+    second: jaw2_end
+  - first:
+      4: 400010
+    second: left eye
+  - first:
+      4: 400012
+    second: left eye_end
+  - first:
+      4: 400014
+    second: leftarm1
+  - first:
+      4: 400016
+    second: leftarm2
+  - first:
+      4: 400018
+    second: leftarm3
+  - first:
+      4: 400020
+    second: leftarm4
+  - first:
+      4: 400022
+    second: leftarm4_end
+  - first:
+      4: 400024
+    second: leftfoot
+  - first:
+      4: 400026
+    second: lefthips
+  - first:
+      4: 400028
+    second: leftleg
+  - first:
+      4: 400030
+    second: lefttoes0
+  - first:
+      4: 400032
+    second: lefttoes1
+  - first:
+      4: 400034
+    second: lefttoes2
+  - first:
+      4: 400036
+    second: lefttoes2_end
+  - first:
+      4: 400038
+    second: lefttoes3
+  - first:
+      4: 400040
+    second: lefttoes4
+  - first:
+      4: 400042
+    second: lefttoes4_end
+  - first:
+      4: 400044
+    second: lefttoes5
+  - first:
+      4: 400046
+    second: lefttoes6
+  - first:
+      4: 400048
+    second: lefttoes6_end
+  - first:
+      4: 400050
+    second: neck1
+  - first:
+      4: 400052
+    second: neck2
+  - first:
+      4: 400054
+    second: neck3
+  - first:
+      4: 400056
+    second: right eye
+  - first:
+      4: 400058
+    second: right eye_end
+  - first:
+      4: 400060
+    second: rightarm1
+  - first:
+      4: 400062
+    second: rightarm2
+  - first:
+      4: 400064
+    second: rightarm3
+  - first:
+      4: 400066
+    second: rightarm4
+  - first:
+      4: 400068
+    second: rightarm4_end
+  - first:
+      4: 400070
+    second: rightfoot
+  - first:
+      4: 400072
+    second: righthips
+  - first:
+      4: 400074
+    second: rightleg
+  - first:
+      4: 400076
+    second: righttoes0
+  - first:
+      4: 400078
+    second: righttoes1
+  - first:
+      4: 400080
+    second: righttoes2
+  - first:
+      4: 400082
+    second: righttoes2_end
+  - first:
+      4: 400084
+    second: righttoes3
+  - first:
+      4: 400086
+    second: righttoes4
+  - first:
+      4: 400088
+    second: righttoes4_end
+  - first:
+      4: 400090
+    second: righttoes5
+  - first:
+      4: 400092
+    second: righttoes6
+  - first:
+      4: 400094
+    second: righttoes6_end
+  - first:
+      4: 400096
+    second: root
+  - first:
+      4: 400098
+    second: spine0
+  - first:
+      4: 400100
+    second: spine1
+  - first:
+      4: 400102
+    second: spine2
+  - first:
+      4: 400104
+    second: spine3
+  - first:
+      4: 400106
+    second: Spino
+  - first:
+      4: 400108
+    second: //RootNode
+  - first:
+      4: 400110
+    second: spino
+  - first:
+      4: 400112
+    second: tail
+  - first:
+      4: 400114
+    second: tail1
+  - first:
+      4: 400116
+    second: tail10
+  - first:
+      4: 400118
+    second: tail10_end
+  - first:
+      4: 400120
+    second: tail2
+  - first:
+      4: 400122
+    second: tail4
+  - first:
+      4: 400124
+    second: tail5
+  - first:
+      4: 400126
+    second: tail6
+  - first:
+      4: 400128
+    second: tail7
+  - first:
+      4: 400130
+    second: tail8
+  - first:
+      4: 400132
+    second: tongue1
+  - first:
+      4: 400134
+    second: tongue2
+  - first:
+      4: 400136
+    second: tongue3
+  - first:
+      4: 400138
+    second: tongue4
+  - first:
+      4: 400140
+    second: tongue4_end
+  - first:
+      4: 400142
+    second: spino_LOD_0
+  - first:
+      4: 400144
+    second: spino_LOD_1
+  - first:
+      4: 400146
+    second: spino_LOD_2
+  - first:
+      4: 400148
+    second: gums0
+  - first:
+      4: 400150
+    second: gums1
+  - first:
+      4: 400152
+    second: jaw0
+  - first:
+      4: 400154
+    second: left arm0
+  - first:
+      4: 400156
+    second: left arm1
+  - first:
+      4: 400158
+    second: left arm2
+  - first:
+      4: 400160
+    second: left foot0
+  - first:
+      4: 400162
+    second: left foot1
+  - first:
+      4: 400164
+    second: left hand
+  - first:
+      4: 400166
+    second: left hips
+  - first:
+      4: 400168
+    second: left leg
+  - first:
+      4: 400170
+    second: left toe0
+  - first:
+      4: 400172
+    second: left toe1
+  - first:
+      4: 400174
+    second: left toe2
+  - first:
+      4: 400176
+    second: left toe3
+  - first:
+      4: 400178
+    second: left toe4
+  - first:
+      4: 400180
+    second: left toe5
+  - first:
+      4: 400182
+    second: neck0
+  - first:
+      4: 400184
+    second: right arm0
+  - first:
+      4: 400186
+    second: right arm1
+  - first:
+      4: 400188
+    second: right arm2
+  - first:
+      4: 400190
+    second: right foot0
+  - first:
+      4: 400192
+    second: right foot1
+  - first:
+      4: 400194
+    second: right hand
+  - first:
+      4: 400196
+    second: right hips
+  - first:
+      4: 400198
+    second: right leg
+  - first:
+      4: 400200
+    second: right toe0
+  - first:
+      4: 400202
+    second: right toe1
+  - first:
+      4: 400204
+    second: right toe2
+  - first:
+      4: 400206
+    second: right toe3
+  - first:
+      4: 400208
+    second: right toe4
+  - first:
+      4: 400210
+    second: right toe5
+  - first:
+      4: 400212
+    second: tail0
+  - first:
+      4: 400214
+    second: tail3
+  - first:
+      4: 400216
+    second: tongue0
+  - first:
+      43: 4300000
+    second: spino
+  - first:
+      43: 4300002
+    second: spino_LOD_1
+  - first:
+      43: 4300004
+    second: spino_LOD_2
+  - first:
+      43: 4300006
+    second: spino_LOD_0
+  - first:
+      74: 7400000
+    second: Spino|Die1
+  - first:
+      74: 7400002
+    second: Spino|Die2
+  - first:
+      74: 7400004
+    second: Spino|EatA
+  - first:
+      74: 7400006
+    second: Spino|EatAToStand1
+  - first:
+      74: 7400008
+    second: Spino|EatB
+  - first:
+      74: 7400010
+    second: Spino|Sleep
+  - first:
+      74: 7400012
+    second: Spino|Spino
+  - first:
+      74: 7400014
+    second: Spino|Stand1A
+  - first:
+      74: 7400016
+    second: Spino|Stand1Attack
+  - first:
+      74: 7400018
+    second: Spino|Stand1B
+  - first:
+      74: 7400020
+    second: Spino|Stand1C
+  - first:
+      74: 7400022
+    second: Spino|Stand1ToWalk
+  - first:
+      74: 7400024
+    second: Spino|Stand2A
+  - first:
+      74: 7400026
+    second: Spino|Stand2Attack
+  - first:
+      74: 7400028
+    second: Spino|Stand2B
+  - first:
+      74: 7400030
+    second: Spino|Stand2C
+  - first:
+      74: 7400032
+    second: Spino|Stand2D
+  - first:
+      74: 7400034
+    second: Spino|Stand2ToSleep
+  - first:
+      74: 7400036
+    second: Spino|Stand2ToWalk
+  - first:
+      74: 7400038
+    second: Spino|StandSwitch
+  - first:
+      74: 7400040
+    second: Spino|Step1Strafe
+  - first:
+      74: 7400042
+    second: Spino|Step2Strafe
+  - first:
+      74: 7400044
+    second: Spino|Steps1
+  - first:
+      74: 7400046
+    second: Spino|Steps1Attack
+  - first:
+      74: 7400048
+    second: Spino|Steps1AttackB
+  - first:
+      74: 7400050
+    second: Spino|Steps2
+  - first:
+      74: 7400052
+    second: Spino|Steps2Attack
+  - first:
+      74: 7400054
+    second: Spino|Steps2AttackB
+  - first:
+      74: 7400056
+    second: Spino|Walk
+  - first:
+      74: 7400058
+    second: Spino|WalkAttackA
+  - first:
+      74: 7400060
+    second: Spino|WalkAttackB
+  - first:
+      74: 7400062
+    second: Spino|WalkGrowl
+  - first:
+      74: 7400064
+    second: Spino|WalkShake
+  - first:
+      74: 7400066
+    second: Spino|WalkToStand1
+  - first:
+      74: 7400068
+    second: Spino|WalkToStand2
+  - first:
+      74: 7400070
+    second: Spino|EatC
+  - first:
+      74: 7400072
+    second: Spino|SleepLoop
+  - first:
+      74: 7400074
+    second: Spino|Step1
+  - first:
+      74: 7400076
+    second: Spino|Step1Attack
+  - first:
+      74: 7400078
+    second: Spino|Step2
+  - first:
+      74: 7400080
+    second: Spino|Step2Attack
+  - first:
+      74: 7400082
+    second: Spino|Strafe1
+  - first:
+      74: 7400084
+    second: Spino|Strafe2
+  - first:
+      74: 7400086
+    second: Spino|Idle1A
+  - first:
+      74: 7400088
+    second: Spino|Idle1B
+  - first:
+      74: 7400090
+    second: Spino|Idle1C
+  - first:
+      74: 7400092
+    second: Spino|Idle2A
+  - first:
+      74: 7400094
+    second: Spino|Idle2B
+  - first:
+      74: 7400096
+    second: Spino|Idle2C
+  - first:
+      74: 7400098
+    second: Spino|Idle2D
+  - first:
+      74: 7400100
+    second: Spino|IdleAtk1
+  - first:
+      74: 7400102
+    second: Spino|IdleAtk2
+  - first:
+      74: 7400104
+    second: Spino|StepAtk1
+  - first:
+      74: 7400106
+    second: Spino|StepAtk2
+  - first:
+      74: 7400108
+    second: Spino|ToSleep
+  - first:
+      74: 7400110
+    second: Spino|WalkAtk1
+  - first:
+      74: 7400112
+    second: Spino|WalkAtk2
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: spino
+  - first:
+      137: 13700002
+    second: spino_LOD_0
+  - first:
+      137: 13700004
+    second: spino_LOD_1
+  - first:
+      137: 13700006
+    second: spino_LOD_2
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Spino|Die1
+      takeName: Spino|Die1
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Die2
+      takeName: Spino|Die2
+      internalID: 7400002
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|EatA
+      takeName: Spino|EatA
+      internalID: 7400004
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|EatB
+      takeName: Spino|EatB
+      internalID: 7400008
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|EatC
+      takeName: Spino|EatC
+      internalID: 7400070
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle1A
+      takeName: Spino|Idle1A
+      internalID: 7400086
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle1B
+      takeName: Spino|Idle1B
+      internalID: 7400088
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle1C
+      takeName: Spino|Idle1C
+      internalID: 7400090
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle2A
+      takeName: Spino|Idle2A
+      internalID: 7400092
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle2B
+      takeName: Spino|Idle2B
+      internalID: 7400094
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle2C
+      takeName: Spino|Idle2C
+      internalID: 7400096
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Idle2D
+      takeName: Spino|Idle2D
+      internalID: 7400098
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|IdleAtk1
+      takeName: Spino|IdleAtk1
+      internalID: 7400100
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|IdleAtk2
+      takeName: Spino|IdleAtk2
+      internalID: 7400102
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Sleep
+      takeName: Spino|Sleep
+      internalID: 7400010
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Spino
+      takeName: Spino|Spino
+      internalID: 7400012
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Step1
+      takeName: Spino|Step1
+      internalID: 7400074
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Step2
+      takeName: Spino|Step2
+      internalID: 7400078
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|StepAtk1
+      takeName: Spino|StepAtk1
+      internalID: 7400104
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|StepAtk2
+      takeName: Spino|StepAtk2
+      internalID: 7400106
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Strafe1
+      takeName: Spino|Strafe1
+      internalID: 7400082
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Strafe2
+      takeName: Spino|Strafe2
+      internalID: 7400084
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|ToSleep
+      takeName: Spino|ToSleep
+      internalID: 7400108
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|Walk
+      takeName: Spino|Walk
+      internalID: 7400056
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|WalkAtk1
+      takeName: Spino|WalkAtk1
+      internalID: 7400110
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|WalkAtk2
+      takeName: Spino|WalkAtk2
+      internalID: 7400112
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spino|WalkGrowl
+      takeName: Spino|WalkGrowl
+      internalID: 7400062
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spino
+        weight: 1
+      - path: Spino/root
+        weight: 1
+      - path: Spino/root/spine0
+        weight: 1
+      - path: Spino/root/spine0/spine1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/left arm0/left arm1/left arm2/left
+          hand
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/left
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/eyes/right
+          eye
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/gums0/gums1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/jaw1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/neck0/neck1/neck2/head/jaw0/tongue0/tongue1/tongue2/tongue3
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2
+        weight: 1
+      - path: Spino/root/spine0/spine1/spine2/spine3/right arm0/right arm1/right
+          arm2/right hand
+        weight: 1
+      - path: Spino/root/tail0
+        weight: 1
+      - path: Spino/root/tail0/tail1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe0/left toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe2/left toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/left hips/left leg/left foot0/left foot1/left
+          toe4/left toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe0/right toe1
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe2/right toe3
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4
+        weight: 1
+      - path: Spino/root/tail0/tail1/right hips/right leg/right foot0/right foot1/right
+          toe4/right toe5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+        weight: 1
+      - path: Spino/root/tail0/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+        weight: 1
+      - path: spino_LOD_0
+        weight: 1
+      - path: spino_LOD_1
+        weight: 1
+      - path: spino_LOD_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 180
+    normalImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
