@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class PlayerControl : Raptor
 {
     private Camera playerCamera;
-    private Rigidbody rb;
+    private Rigidbody rb_player;
     public InputActionProperty continuousMoveAction;
 
     // PlayerMove 스크립트에서 가져온 변수들
@@ -26,8 +26,9 @@ public class PlayerControl : Raptor
     {
         base.Awake();
         playerCamera = GetComponentInChildren<Camera>();
-        rb = GetComponent<Rigidbody>();
-        if (rb == null)
+        rb_player = GetComponent<Rigidbody>();
+        Debug.Log($"이 오브젝트는 랩터인가요? : {this is Raptor}");
+        if (rb_player == null)
         {
             Debug.LogError("Player 오브젝트에 Rigidbody 컴포넌트가 없습니다.");
         }
@@ -36,7 +37,7 @@ public class PlayerControl : Raptor
 
     public override void FixedUpdate()
     {
-        if (playerCamera == null || rb == null) return;
+        if (playerCamera == null || rb_player == null) return;
 
         // 로코모션 입력 값 읽기
         Vector2 input = continuousMoveAction.action.ReadValue<Vector2>();
@@ -57,30 +58,30 @@ public class PlayerControl : Raptor
         if (desiredMove != Vector3.zero && currentSpeed > 0)
         {
             // 장애물 감지
-            obstacleDetected = Physics.Raycast(rb.position, desiredMove.normalized, obstacleSensingDistance, obstacleLayer);
+            obstacleDetected = Physics.Raycast(rb_player.position, desiredMove.normalized, obstacleSensingDistance, obstacleLayer);
 
             if (!obstacleDetected)
             {
                 Vector3 movement = desiredMove * currentSpeed * Time.deltaTime;
                 targetPosition += movement;
-                rb.MovePosition(Vector3.Lerp(rb.position, targetPosition, Time.deltaTime * smoothSpeed));
+                rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
             }
             else
             {
                 currentSpeed = 0f;
                 Debug.Log("장애물 감지됨");
-                rb.MovePosition(Vector3.Lerp(rb.position, targetPosition, Time.deltaTime * smoothSpeed));
+                rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
             }
         }
         else
         {
-            rb.MovePosition(Vector3.Lerp(rb.position, targetPosition, Time.deltaTime * smoothSpeed));
+            rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
         }
 
         // 회전 처리 (조이스틱 좌우 입력)
         float turnAmount = input.x * turnSpeed * Time.fixedDeltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turnAmount, 0f);
-        rb.MoveRotation(rb.rotation * turnRotation);
+        rb_player.MoveRotation(rb_player.rotation * turnRotation);
     }
 
     Vector3 ComputeDesiredMove(Vector2 input)

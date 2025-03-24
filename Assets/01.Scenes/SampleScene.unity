@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: c405ff28463466d488a810ff2531812d, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &56148333
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,9 +729,9 @@ MonoBehaviour:
   - {fileID: 482127114}
   - {fileID: 1808705593}
   dinoPrefabs:
-  - {fileID: 9172639660192731782, guid: 0cead5562e1270c4fa60a31a0aa6e364, type: 3}
-  - {fileID: 9172639660192731782, guid: ef164d6cd6aeaad45ac22f6de91a1083, type: 3}
-  - {fileID: 4539424575323980958, guid: ffb922ed8eb63d54898130c8f1c83f6f, type: 3}
+  - {fileID: 1929983073016581675, guid: 221d411ccfad0794f93833454f24c69c, type: 3}
+  - {fileID: 7641692121933870670, guid: ecbede5debcc3684bb7864d435f7b769, type: 3}
+  - {fileID: 5193045648678418378, guid: 8cbd8e4c75394c44481072e5bd83ac46, type: 3}
 --- !u!1 &615800019
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826319647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 1139750334}
   - component: {fileID: 1139750333}
   - component: {fileID: 1139750332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1817,9 +1817,9 @@ GameObject:
   - component: {fileID: 1480931818}
   - component: {fileID: 1480931817}
   - component: {fileID: 1480931816}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1839,8 +1839,8 @@ MonoBehaviour:
   m_Camera: {fileID: 1823027008}
   m_OriginBaseGameObject: {fileID: 1480931811}
   m_CameraFloorOffsetObject: {fileID: 826319646}
-  m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1176
+  m_RequestedTrackingOriginMode: 1
+  m_CameraYOffset: 4
 --- !u!4 &1480931813
 Transform:
   m_ObjectHideFlags: 0
@@ -1882,8 +1882,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.5
+  m_Height: 5
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -1913,10 +1913,10 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480931811}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1
-  m_Height: 3
+  m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1480931818
@@ -1951,11 +1951,14 @@ MonoBehaviour:
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 1.5
   playerSensingDistance: 5
+  maxSlopeAngle: 5
   closestVictimObject: {fileID: 0}
   leader: {fileID: 0}
   followers: []
   agent: {fileID: 0}
   raptorLevel: 0
+  followingDistance: 2
+  rotationSpeed: 5
   continuousMoveAction:
     m_UseReference: 0
     m_Action:
@@ -1991,7 +1994,7 @@ GameObject:
   - component: {fileID: 1565668072}
   - component: {fileID: 1565668071}
   - component: {fileID: 1565668070}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,10 +2654,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1932185230}
     m_Modifications:
+    - target: {fileID: 525578242842913596, guid: 734fb7d8ca26815468aa397bb807233a,
+        type: 3}
+      propertyPath: m_TreeDistance
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 525578242842913596, guid: 734fb7d8ca26815468aa397bb807233a,
+        type: 3}
+      propertyPath: m_SplatMapDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 525578242842913596, guid: 734fb7d8ca26815468aa397bb807233a,
+        type: 3}
+      propertyPath: m_HeightmapPixelError
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 525578242842913596, guid: 734fb7d8ca26815468aa397bb807233a,
+        type: 3}
+      propertyPath: m_DetailObjectDistance
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 525578242842913598, guid: 734fb7d8ca26815468aa397bb807233a,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 525578242842913598, guid: 734fb7d8ca26815468aa397bb807233a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1416110660187117082, guid: 734fb7d8ca26815468aa397bb807233a,
         type: 3}
@@ -2763,17 +2791,17 @@ PrefabInstance:
     - target: {fileID: 4947413595174896576, guid: 32fd444a34b886449a03d818bd0cb089,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 368
       objectReference: {fileID: 0}
     - target: {fileID: 4947413595174896576, guid: 32fd444a34b886449a03d818bd0cb089,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 4947413595174896576, guid: 32fd444a34b886449a03d818bd0cb089,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 332
       objectReference: {fileID: 0}
     - target: {fileID: 4947413595174896576, guid: 32fd444a34b886449a03d818bd0cb089,
         type: 3}
@@ -2861,7 +2889,7 @@ GameObject:
   - component: {fileID: 1823027007}
   - component: {fileID: 1823027006}
   - component: {fileID: 1823027005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

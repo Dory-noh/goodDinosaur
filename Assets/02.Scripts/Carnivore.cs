@@ -67,8 +67,28 @@ public class Carnivore : Animal, ICarnivore
         }
         else if(other is Herbivore herbivore)
         {
+            if (this is Raptor)
+            {
+                int count;
+                if (this.GetComponent<Raptor>().leader != null) count = this.GetComponent<Raptor>().leader.followers.Count + 1; //∏Æ¥ı ∆˜«‘ ∆¿ø¯ ºˆ ºº±‚
+                else
+                {
+                    count = 1;
+                }
+                if (count >= 5) return true;
+                else if (count >= 3)
+                {
+                    if (((MonoBehaviour)other).GetComponent<Animal>().infoIdx <= 1) return true;
+                    return false;
+                }
+                else
+                {
+                    if (((MonoBehaviour)other).GetComponent<Animal>().infoIdx == 0) return true;
+                    else return false;
+                }
+            }
             //return size >= herbivore.size;
-            return true;
+            else return true;
         }
         return false;
     }
@@ -97,15 +117,22 @@ public class Carnivore : Animal, ICarnivore
 
     void ChaseVictim()
     {
-        if (victimDetected)
+        if (victimDetected && closestVictim != null)
         {
-            if (closestVictim != null) 
+            if (canEat(closestVictim))
             {
                 if (victimDirection != Vector3.zero)
                 {
                     goalLookRotation = Quaternion.LookRotation(victimDirection);
-                    moveSpeed = Mathf.Lerp(moveSpeed, moveSpeedMax , Time.deltaTime);
+                    moveSpeed = Mathf.Lerp(moveSpeed, moveSpeedMax, Time.deltaTime);
                 }
+            }
+            else
+            {
+                // Move away from the target
+                Vector3 awayDirection = transform.position - ((MonoBehaviour)closestVictim).transform.position;
+                goalLookRotation = Quaternion.LookRotation(awayDirection);
+                moveSpeed = Mathf.Lerp(moveSpeed, moveSpeedMax * 1.5f, Time.deltaTime); // Move away faster
             }
         }
         else
@@ -157,6 +184,7 @@ public class Carnivore : Animal, ICarnivore
 
     IDinosaur FindClosetVictim()
     {
+        
         if (this is Raptor && gameObject.GetComponent<Raptor>().leader != null)
         {
             if (gameObject.GetComponent<Raptor>().leader.followers.Contains(((MonoBehaviour)this).GetComponent<Raptor>())) { return null; }
@@ -182,7 +210,8 @@ public class Carnivore : Animal, ICarnivore
                 }
             }
         }
-
+        if (closestVictim != null) Debug.Log($"≥ª ∏‘¿Ã : {((MonoBehaviour)closestVictim).name.ToString()}");
+        else Debug.Log("∏‘¿Ã ¿ΩΩø");
         return closestVictim;
     }
 

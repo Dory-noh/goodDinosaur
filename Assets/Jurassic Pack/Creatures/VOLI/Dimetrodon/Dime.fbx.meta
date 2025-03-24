@@ -1,0 +1,1537 @@
+fileFormatVersion: 2
+guid: d6055effd1140314c97acce40fdfe99a
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: dime.ms3d.mo
+  - first:
+      1: 100004
+    second: Dime
+  - first:
+      1: 100006
+    second: dime
+  - first:
+      1: 100008
+    second: eyes
+  - first:
+      1: 100010
+    second: head
+  - first:
+      1: 100012
+    second: jaw0
+  - first:
+      1: 100014
+    second: jaw1
+  - first:
+      1: 100016
+    second: left arm0
+  - first:
+      1: 100018
+    second: left arm1
+  - first:
+      1: 100020
+    second: left eye
+  - first:
+      1: 100022
+    second: left finger0
+  - first:
+      1: 100024
+    second: left finger1
+  - first:
+      1: 100026
+    second: left finger2
+  - first:
+      1: 100028
+    second: left fingerA0
+  - first:
+      1: 100030
+    second: left fingerA1
+  - first:
+      1: 100032
+    second: left fingerB0
+  - first:
+      1: 100034
+    second: left fingerB1
+  - first:
+      1: 100036
+    second: left foot0
+  - first:
+      1: 100038
+    second: left foot1
+  - first:
+      1: 100040
+    second: left hand0
+  - first:
+      1: 100042
+    second: left hand1
+  - first:
+      1: 100044
+    second: left hips
+  - first:
+      1: 100046
+    second: left leg
+  - first:
+      1: 100048
+    second: left toe0
+  - first:
+      1: 100050
+    second: left toe1
+  - first:
+      1: 100052
+    second: left toe2
+  - first:
+      1: 100054
+    second: left toeA0
+  - first:
+      1: 100056
+    second: left toeA1
+  - first:
+      1: 100058
+    second: left toeB0
+  - first:
+      1: 100060
+    second: left toeB1
+  - first:
+      1: 100062
+    second: left toeC0
+  - first:
+      1: 100064
+    second: left toeC1
+  - first:
+      1: 100066
+    second: neck0
+  - first:
+      1: 100068
+    second: neck1
+  - first:
+      1: 100070
+    second: neck2
+  - first:
+      1: 100072
+    second: pelvis
+  - first:
+      1: 100074
+    second: right arm0
+  - first:
+      1: 100076
+    second: right arm1
+  - first:
+      1: 100078
+    second: right eye
+  - first:
+      1: 100080
+    second: right finger0
+  - first:
+      1: 100082
+    second: right finger1
+  - first:
+      1: 100084
+    second: right finger2
+  - first:
+      1: 100086
+    second: right fingerA0
+  - first:
+      1: 100088
+    second: right fingerA1
+  - first:
+      1: 100090
+    second: right fingerB0
+  - first:
+      1: 100092
+    second: right fingerB1
+  - first:
+      1: 100094
+    second: right foot0
+  - first:
+      1: 100096
+    second: right foot1
+  - first:
+      1: 100098
+    second: right hand0
+  - first:
+      1: 100100
+    second: right hand1
+  - first:
+      1: 100102
+    second: right hips
+  - first:
+      1: 100104
+    second: right leg
+  - first:
+      1: 100106
+    second: right toe0
+  - first:
+      1: 100108
+    second: right toe1
+  - first:
+      1: 100110
+    second: right toe2
+  - first:
+      1: 100112
+    second: right toeA0
+  - first:
+      1: 100114
+    second: right toeA1
+  - first:
+      1: 100116
+    second: right toeB0
+  - first:
+      1: 100118
+    second: right toeB1
+  - first:
+      1: 100120
+    second: right toeC0
+  - first:
+      1: 100122
+    second: right toeC1
+  - first:
+      1: 100124
+    second: root
+  - first:
+      1: 100126
+    second: spine0
+  - first:
+      1: 100128
+    second: spine1
+  - first:
+      1: 100130
+    second: spine2
+  - first:
+      1: 100132
+    second: spine3
+  - first:
+      1: 100134
+    second: spine4
+  - first:
+      1: 100136
+    second: tail0
+  - first:
+      1: 100138
+    second: tail1
+  - first:
+      1: 100140
+    second: tail2
+  - first:
+      1: 100142
+    second: tail3
+  - first:
+      1: 100144
+    second: tail4
+  - first:
+      1: 100146
+    second: tail5
+  - first:
+      1: 100148
+    second: tail6
+  - first:
+      1: 100150
+    second: tail7
+  - first:
+      1: 100152
+    second: tail8
+  - first:
+      1: 100154
+    second: tail9
+  - first:
+      1: 100156
+    second: tongue0
+  - first:
+      1: 100158
+    second: tongue1
+  - first:
+      1: 100160
+    second: tongue2
+  - first:
+      1: 100162
+    second: tongue3
+  - first:
+      1: 100164
+    second: dime_LOD_0
+  - first:
+      1: 100166
+    second: dime_LOD_1
+  - first:
+      1: 100168
+    second: dime_LOD_2
+  - first:
+      1: 100170
+    second: jaw1_end
+  - first:
+      1: 100172
+    second: left eye_end
+  - first:
+      1: 100174
+    second: left finger2_end
+  - first:
+      1: 100176
+    second: left fingerA1_end
+  - first:
+      1: 100178
+    second: left fingerB1_end
+  - first:
+      1: 100180
+    second: left toe2_end
+  - first:
+      1: 100182
+    second: left toeA1_end
+  - first:
+      1: 100184
+    second: left toeB1_end
+  - first:
+      1: 100186
+    second: left toeC1_end
+  - first:
+      1: 100188
+    second: right eye_end
+  - first:
+      1: 100190
+    second: right finger2_end
+  - first:
+      1: 100192
+    second: right fingerA1_end
+  - first:
+      1: 100194
+    second: right fingerB1_end
+  - first:
+      1: 100196
+    second: right toe2_end
+  - first:
+      1: 100198
+    second: right toeA1_end
+  - first:
+      1: 100200
+    second: right toeB1_end
+  - first:
+      1: 100202
+    second: right toeC1_end
+  - first:
+      1: 100204
+    second: tail9_end
+  - first:
+      1: 100206
+    second: tongue3_end
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: dime.ms3d.mo
+  - first:
+      4: 400004
+    second: Dime
+  - first:
+      4: 400006
+    second: dime
+  - first:
+      4: 400008
+    second: eyes
+  - first:
+      4: 400010
+    second: head
+  - first:
+      4: 400012
+    second: jaw0
+  - first:
+      4: 400014
+    second: jaw1
+  - first:
+      4: 400016
+    second: left arm0
+  - first:
+      4: 400018
+    second: left arm1
+  - first:
+      4: 400020
+    second: left eye
+  - first:
+      4: 400022
+    second: left finger0
+  - first:
+      4: 400024
+    second: left finger1
+  - first:
+      4: 400026
+    second: left finger2
+  - first:
+      4: 400028
+    second: left fingerA0
+  - first:
+      4: 400030
+    second: left fingerA1
+  - first:
+      4: 400032
+    second: left fingerB0
+  - first:
+      4: 400034
+    second: left fingerB1
+  - first:
+      4: 400036
+    second: left foot0
+  - first:
+      4: 400038
+    second: left foot1
+  - first:
+      4: 400040
+    second: left hand0
+  - first:
+      4: 400042
+    second: left hand1
+  - first:
+      4: 400044
+    second: left hips
+  - first:
+      4: 400046
+    second: left leg
+  - first:
+      4: 400048
+    second: left toe0
+  - first:
+      4: 400050
+    second: left toe1
+  - first:
+      4: 400052
+    second: left toe2
+  - first:
+      4: 400054
+    second: left toeA0
+  - first:
+      4: 400056
+    second: left toeA1
+  - first:
+      4: 400058
+    second: left toeB0
+  - first:
+      4: 400060
+    second: left toeB1
+  - first:
+      4: 400062
+    second: left toeC0
+  - first:
+      4: 400064
+    second: left toeC1
+  - first:
+      4: 400066
+    second: neck0
+  - first:
+      4: 400068
+    second: neck1
+  - first:
+      4: 400070
+    second: neck2
+  - first:
+      4: 400072
+    second: pelvis
+  - first:
+      4: 400074
+    second: right arm0
+  - first:
+      4: 400076
+    second: right arm1
+  - first:
+      4: 400078
+    second: right eye
+  - first:
+      4: 400080
+    second: right finger0
+  - first:
+      4: 400082
+    second: right finger1
+  - first:
+      4: 400084
+    second: right finger2
+  - first:
+      4: 400086
+    second: right fingerA0
+  - first:
+      4: 400088
+    second: right fingerA1
+  - first:
+      4: 400090
+    second: right fingerB0
+  - first:
+      4: 400092
+    second: right fingerB1
+  - first:
+      4: 400094
+    second: right foot0
+  - first:
+      4: 400096
+    second: right foot1
+  - first:
+      4: 400098
+    second: right hand0
+  - first:
+      4: 400100
+    second: right hand1
+  - first:
+      4: 400102
+    second: right hips
+  - first:
+      4: 400104
+    second: right leg
+  - first:
+      4: 400106
+    second: right toe0
+  - first:
+      4: 400108
+    second: right toe1
+  - first:
+      4: 400110
+    second: right toe2
+  - first:
+      4: 400112
+    second: right toeA0
+  - first:
+      4: 400114
+    second: right toeA1
+  - first:
+      4: 400116
+    second: right toeB0
+  - first:
+      4: 400118
+    second: right toeB1
+  - first:
+      4: 400120
+    second: right toeC0
+  - first:
+      4: 400122
+    second: right toeC1
+  - first:
+      4: 400124
+    second: root
+  - first:
+      4: 400126
+    second: spine0
+  - first:
+      4: 400128
+    second: spine1
+  - first:
+      4: 400130
+    second: spine2
+  - first:
+      4: 400132
+    second: spine3
+  - first:
+      4: 400134
+    second: spine4
+  - first:
+      4: 400136
+    second: tail0
+  - first:
+      4: 400138
+    second: tail1
+  - first:
+      4: 400140
+    second: tail2
+  - first:
+      4: 400142
+    second: tail3
+  - first:
+      4: 400144
+    second: tail4
+  - first:
+      4: 400146
+    second: tail5
+  - first:
+      4: 400148
+    second: tail6
+  - first:
+      4: 400150
+    second: tail7
+  - first:
+      4: 400152
+    second: tail8
+  - first:
+      4: 400154
+    second: tail9
+  - first:
+      4: 400156
+    second: tongue0
+  - first:
+      4: 400158
+    second: tongue1
+  - first:
+      4: 400160
+    second: tongue2
+  - first:
+      4: 400162
+    second: tongue3
+  - first:
+      4: 400164
+    second: dime_LOD_0
+  - first:
+      4: 400166
+    second: dime_LOD_1
+  - first:
+      4: 400168
+    second: dime_LOD_2
+  - first:
+      4: 400170
+    second: jaw1_end
+  - first:
+      4: 400172
+    second: left eye_end
+  - first:
+      4: 400174
+    second: left finger2_end
+  - first:
+      4: 400176
+    second: left fingerA1_end
+  - first:
+      4: 400178
+    second: left fingerB1_end
+  - first:
+      4: 400180
+    second: left toe2_end
+  - first:
+      4: 400182
+    second: left toeA1_end
+  - first:
+      4: 400184
+    second: left toeB1_end
+  - first:
+      4: 400186
+    second: left toeC1_end
+  - first:
+      4: 400188
+    second: right eye_end
+  - first:
+      4: 400190
+    second: right finger2_end
+  - first:
+      4: 400192
+    second: right fingerA1_end
+  - first:
+      4: 400194
+    second: right fingerB1_end
+  - first:
+      4: 400196
+    second: right toe2_end
+  - first:
+      4: 400198
+    second: right toeA1_end
+  - first:
+      4: 400200
+    second: right toeB1_end
+  - first:
+      4: 400202
+    second: right toeC1_end
+  - first:
+      4: 400204
+    second: tail9_end
+  - first:
+      4: 400206
+    second: tongue3_end
+  - first:
+      23: 2300000
+    second: dime.ms3d.mo
+  - first:
+      23: 2300002
+    second: dime
+  - first:
+      33: 3300000
+    second: dime.ms3d.mo
+  - first:
+      33: 3300002
+    second: dime
+  - first:
+      43: 4300000
+    second: dime.ms3d.mo
+  - first:
+      43: 4300002
+    second: dime
+  - first:
+      43: 4300004
+    second: dime_LOD_2
+  - first:
+      43: 4300006
+    second: dime_LOD_1
+  - first:
+      43: 4300008
+    second: dime_LOD_0
+  - first:
+      74: 7400000
+    second: Dime|Dime
+  - first:
+      74: 7400002
+    second: Dime|Stand1A
+  - first:
+      74: 7400004
+    second: Dime|Stand2A
+  - first:
+      74: 7400006
+    second: Dime|Step1
+  - first:
+      74: 7400008
+    second: Dime|Step2
+  - first:
+      74: 7400010
+    second: Dime|Walk
+  - first:
+      74: 7400012
+    second: Dime|WalkGrowl
+  - first:
+      74: 7400014
+    second: Dime|Stand1B
+  - first:
+      74: 7400016
+    second: Dime|Stand2B
+  - first:
+      74: 7400018
+    second: Dime|Strafe1
+  - first:
+      74: 7400020
+    second: Dime|Strafe2
+  - first:
+      74: 7400022
+    second: Dime|StepAttack1
+  - first:
+      74: 7400024
+    second: Dime|StepAttack2
+  - first:
+      74: 7400026
+    second: Dime|Die1
+  - first:
+      74: 7400028
+    second: Dime|Die2
+  - first:
+      74: 7400030
+    second: Dime|Stand2ToSleep
+  - first:
+      74: 7400032
+    second: Dime|SleepLoop
+  - first:
+      74: 7400034
+    second: Dime|EatA
+  - first:
+      74: 7400036
+    second: Dime|EatB
+  - first:
+      74: 7400038
+    second: Dime|EatC
+  - first:
+      74: 7400040
+    second: Dime|Stand1C
+  - first:
+      74: 7400042
+    second: Dime|Stand2C
+  - first:
+      74: 7400044
+    second: Dime|WalkAttack
+  - first:
+      74: 7400046
+    second: Dime|Idle1A
+  - first:
+      74: 7400048
+    second: Dime|Idle1B
+  - first:
+      74: 7400050
+    second: Dime|Idle1C
+  - first:
+      74: 7400052
+    second: Dime|Idle2A
+  - first:
+      74: 7400054
+    second: Dime|Idle2B
+  - first:
+      74: 7400056
+    second: Dime|Idle2C
+  - first:
+      74: 7400058
+    second: Dime|Sleep
+  - first:
+      74: 7400060
+    second: Dime|StepAtk1
+  - first:
+      74: 7400062
+    second: Dime|StepAtk2
+  - first:
+      74: 7400064
+    second: Dime|ToSleep
+  - first:
+      74: 7400066
+    second: Dime|WalkAtk
+  - first:
+      74: 7400068
+    second: Dime|ArmaturePose
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: dime
+  - first:
+      137: 13700002
+    second: dime_LOD_0
+  - first:
+      137: 13700004
+    second: dime_LOD_1
+  - first:
+      137: 13700006
+    second: dime_LOD_2
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Dime|ArmaturePose
+      takeName: Dime|ArmaturePose
+      internalID: 7400068
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Die1
+      takeName: Dime|Die1
+      internalID: 7400026
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Die2
+      takeName: Dime|Die2
+      internalID: 7400028
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|EatA
+      takeName: Dime|EatA
+      internalID: 7400034
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|EatB
+      takeName: Dime|EatB
+      internalID: 7400036
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|EatC
+      takeName: Dime|EatC
+      internalID: 7400038
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Idle1A
+      takeName: Dime|Idle1A
+      internalID: 7400046
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Idle1B
+      takeName: Dime|Idle1B
+      internalID: 7400048
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Idle1C
+      takeName: Dime|Idle1C
+      internalID: 7400050
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Idle2A
+      takeName: Dime|Idle2A
+      internalID: 7400052
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Idle2B
+      takeName: Dime|Idle2B
+      internalID: 7400054
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Idle2C
+      takeName: Dime|Idle2C
+      internalID: 7400056
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Sleep
+      takeName: Dime|Sleep
+      internalID: 7400058
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Step1
+      takeName: Dime|Step1
+      internalID: 7400006
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Step2
+      takeName: Dime|Step2
+      internalID: 7400008
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|StepAtk1
+      takeName: Dime|StepAtk1
+      internalID: 7400060
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|StepAtk2
+      takeName: Dime|StepAtk2
+      internalID: 7400062
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Strafe1
+      takeName: Dime|Strafe1
+      internalID: 7400018
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Strafe2
+      takeName: Dime|Strafe2
+      internalID: 7400020
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|ToSleep
+      takeName: Dime|ToSleep
+      internalID: 7400064
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|Walk
+      takeName: Dime|Walk
+      internalID: 7400010
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|WalkAtk
+      takeName: Dime|WalkAtk
+      internalID: 7400066
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dime|WalkGrowl
+      takeName: Dime|WalkGrowl
+      internalID: 7400012
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 180
+    normalImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
