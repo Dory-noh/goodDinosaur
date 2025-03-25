@@ -9,7 +9,7 @@ public class Carnivore : Animal, ICarnivore
     private bool eating;
     private bool victimDetected;
     [SerializeField] private MonoBehaviour closestVictimObject;
-    IDinosaur closestVictim;
+    public IDinosaur closestVictim;
     Vector3 victimDirection;
     private Collider[] victimColliders = new Collider[10];
 
@@ -20,6 +20,7 @@ public class Carnivore : Animal, ICarnivore
     
     public override void FixedUpdate()
     {
+        if (isDie) return;
         base.FixedUpdate();
         //먹이 추적(가장 낮은 우선 순위)
         
@@ -39,6 +40,9 @@ public class Carnivore : Animal, ICarnivore
 
     public bool canEat(IDinosaur other)
     {
+
+        //공격하려는 동물이 이미 죽었으면 공격 불가 판정.
+        if (((Animal)other).isDie) return false;
         if (other is Raptor && this is Raptor) return false;
         else if(other is Carnivore carnivore)
         {
@@ -95,6 +99,8 @@ public class Carnivore : Animal, ICarnivore
 
     public bool canTrace(IDinosaur other)
     {
+        //추적하려는 동물이 이미 죽었으면 추적 불가 판정.
+        if (((Animal)other).isDie) return false; 
         if (other is Raptor && this is Raptor)
         {
             //가까이 있는 랩터가 나의 리더이거나 팔로워면 리턴 false
@@ -144,7 +150,7 @@ public class Carnivore : Animal, ICarnivore
     void TraceVictim()
     {
         closestVictim = FindClosetVictim();
-        if (closestVictim != null)
+        if (closestVictim != null && Vector3.Distance(transform.position, (closestVictim as Animal).transform.position) > 3f)
         {
             //가장 가까운 포식자 추적
             victimDetected = true;
@@ -162,25 +168,6 @@ public class Carnivore : Animal, ICarnivore
             victimDetected = false;
         }
     }
-    //IDinosaur FindClosetVictim()
-    //{
-    //    closestVictim = null;
-    //    float closeatSqrDistance = Mathf.Infinity;
-        
-    //    foreach(var dinosaur in dinosaurs)
-    //    {
-    //        if(dinosaur != null && (object)dinosaur != this && canEat(dinosaur))
-    //        {
-    //            float sqrDistance = (transform.position - ((MonoBehaviour)dinosaur).transform.position).sqrMagnitude;
-    //            if(sqrDistance < closeatSqrDistance)
-    //            {
-    //                closeatSqrDistance = sqrDistance;
-    //                closestVictim = dinosaur;
-    //            }
-    //        }
-    //    }
-    //    return closestVictim;
-    //}
 
     IDinosaur FindClosetVictim()
     {
@@ -210,8 +197,6 @@ public class Carnivore : Animal, ICarnivore
                 }
             }
         }
-        if (closestVictim != null) Debug.Log($"내 먹이 : {((MonoBehaviour)closestVictim).name.ToString()}");
-        else Debug.Log("먹이 음슴");
         return closestVictim;
     }
 
@@ -221,25 +206,14 @@ public class Carnivore : Animal, ICarnivore
         
         if (canEat(other))
         {
-            eating = true;
-            Invoke("resetEating", eatCooltime);
-            ((MonoBehaviour)other).GetComponent<Animal>().Die();
-            Debug.Log($"{((MonoBehaviour)other).gameObject.name}을 {gameObject.name}이 잡아먹음");
-            if(this is Raptor) gameObject.GetComponent<Raptor>().raptorLevel++; //랩터 레벨 증가
-            //사이즈 비교 시 편의성을 위해 랩터를 제외한 나머지 공룡들은 사이즈가 변동되지 않도록 함.
-            //moveSpeed = CalculateSpeed(size); //속도 재계산 //사이즈 바뀌지 않으므로 필요없음.
+            Attack(other as Animal);
+            (other as Animal).SetAttacker(this);
             
         }
         else
         {
-            //Debug.Log("사냥 실패");
-        }
-    }
 
-    private void resetEating()
-    {
-        Debug.Log("다시 먹을 수 있습니다.");
-        eating = false;
+        }
     }
 
     public override void Move()
