@@ -11,7 +11,7 @@ public class Raptor : Carnivore
     public List<Raptor> followers = new List<Raptor>(); //추종자 랩터 목록
     [SerializeField] NavMeshAgent agent;
     public int raptorLevel = 0;
-    public float followingDistance = 2f; // 리더와의 유지 거리
+    public float followingDistance = 5f; // 리더와의 유지 거리
     public float rotationSpeed = 5f; // 회전 속도
 
     public override void OnEnable()
@@ -40,7 +40,6 @@ public class Raptor : Carnivore
         if (leader == this || leader == null || gameObject.CompareTag("Player")) base.Move();
         else if(leader != null)
         {
-
             //if (agent == null)
             //{
             //    gameObject.AddComponent<NavMeshAgent>();
@@ -70,8 +69,9 @@ public class Raptor : Carnivore
             }
             else
             {
-                // 리더와의 거리가 가까우면 멈춤 (선택 사항)
+                // 리더와의 거리가 가까우면 멈춤
                 Rigidbody rb = GetComponent<Rigidbody>();
+                animator.SetBool(hashMove, false);
                 if (rb != null)
                 {
                     rb.velocity = Vector3.zero;

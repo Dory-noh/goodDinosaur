@@ -19,7 +19,7 @@ public class PlayerControl : Raptor
     private float currentSpeed = 0f;
     private Vector3 targetPosition;
     public LayerMask obstacleLayer;
-    private bool obstacleDetected = false;
+    private bool obstacleDetected_player = false;
     public float turnSpeed = 60f; // 회전 속도 (초당 각도)
 
     public override void Awake()
@@ -58,9 +58,9 @@ public class PlayerControl : Raptor
         if (desiredMove != Vector3.zero && currentSpeed > 0)
         {
             // 장애물 감지
-            obstacleDetected = Physics.Raycast(rb_player.position, desiredMove.normalized, obstacleSensingDistance, obstacleLayer);
+            obstacleDetected_player = Physics.Raycast(rb_player.position, desiredMove.normalized, obstacleSensingDistance, obstacleLayer);
 
-            if (!obstacleDetected)
+            if (!obstacleDetected_player)
             {
                 Vector3 movement = desiredMove * currentSpeed * Time.deltaTime;
                 targetPosition += movement;

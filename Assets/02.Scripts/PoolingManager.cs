@@ -25,7 +25,7 @@ public class PoolingManager : MonoBehaviour
     [SerializeField] GameObject[] dinoPrefabs;
     [SerializeField] List<List<GameObject>> dinoLists = new List<List<GameObject>>();
 
-    float respawnTime = 3f;
+    [SerializeField] float respawnTime = 5f;
     WaitForSeconds ws;
     void Awake()
     {
@@ -80,7 +80,7 @@ public class PoolingManager : MonoBehaviour
             if(dino.activeSelf == false)
             {
                 Vector3 pos = SpawnPoints[(Random.Range(0, SpawnPoints.Length))].position;
-                dino.transform.position = new Vector3(Random.Range(pos.x-30, pos.x+30), pos.y+10, Random.Range(pos.z-30, pos.z+30));
+                dino.transform.position = new Vector3(Random.Range(pos.x-40, pos.x+40), pos.y+5, Random.Range(pos.z-40, pos.z+40));
                 dino.transform.rotation = Quaternion.identity;
                 dino.gameObject.SetActive(true);
                 break;
