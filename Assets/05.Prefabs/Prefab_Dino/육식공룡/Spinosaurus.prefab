@@ -112,7 +112,7 @@ MonoBehaviour:
   - 1
   - 2
   - 5
-  infoIdx: 0
+  infoIdx: 2
   size: 0
   moveSpeed: 0
   MaxHp: 0
@@ -125,10 +125,9 @@ MonoBehaviour:
   - {fileID: 0}
   obstacleSensingDistance: 5
   playerSensingDistance: 10
-  maxSlopeAngle: 10
-  currentState: 0
+  maxSlopeAngle: 30
   hpImg: {fileID: 0}
-  interactionDistance: 3
+  interactionDistance: 5
   closestVictimObject: {fileID: 0}
 --- !u!54 &8499123957226263028
 Rigidbody:

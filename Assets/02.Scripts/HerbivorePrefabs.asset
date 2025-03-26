@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aa112d0acf95d448fd718aea0edc26, type: 3}
+  m_Name: HerbivorePrefabs
+  m_EditorClassIdentifier: 
+  large:
+  - {fileID: 6379746415656592964, guid: 5bebb978c9ae6f440a0301ad2e6e3587, type: 3}
+  - {fileID: 1574675520845624924, guid: fdb33673fb2820a4f87de935812b00f4, type: 3}
+  medium:
+  - {fileID: 8837400175511215138, guid: acd7b10671256ca4c9f8313127d599b8, type: 3}
+  - {fileID: 9151687576543270065, guid: 2dd2c97700b9eaf4ba95e114e5154233, type: 3}
+  - {fileID: 3790386210562679945, guid: 9d87e2ee970cba344bbbd6089646b483, type: 3}
+  - {fileID: 5193045648678418378, guid: 8cbd8e4c75394c44481072e5bd83ac46, type: 3}
+  - {fileID: 3798513964442790570, guid: d5e31aa8122e934488837c59e0f0f9b7, type: 3}
+  small: []

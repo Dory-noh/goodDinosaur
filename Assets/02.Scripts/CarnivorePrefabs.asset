@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aa112d0acf95d448fd718aea0edc26, type: 3}
+  m_Name: CarnivorePrefabs
+  m_EditorClassIdentifier: 
+  large:
+  - {fileID: 3382266509584239155, guid: 59654d1399e9b3c4c84ad72596b20899, type: 3}
+  - {fileID: 7641692121933870670, guid: ecbede5debcc3684bb7864d435f7b769, type: 3}
+  medium:
+  - {fileID: 5231761815017605927, guid: 3f46f59035feb154aa0b6ed83f5b86ce, type: 3}
+  small:
+  - {fileID: 2399317793272194887, guid: ad5cdff9c9bfc0e499832d27ab81fdd3, type: 3}
+  - {fileID: 8077645728524778544, guid: 35a8eae7808e98044b920347806a3f8d, type: 3}
+  - {fileID: 3842904604307352142, guid: 41108a36addf2a04bb815956deffbdd0, type: 3}
+  - {fileID: 1929983073016581675, guid: 221d411ccfad0794f93833454f24c69c, type: 3}

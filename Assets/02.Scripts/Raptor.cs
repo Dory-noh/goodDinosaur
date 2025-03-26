@@ -13,7 +13,6 @@ public class Raptor : Carnivore
     public int raptorLevel = 0;
     public float followingDistance = 5f; // 리더와의 유지 거리
     public float rotationSpeed = 5f; // 회전 속도
-
     public override void OnEnable()
     {
         base.OnEnable();
@@ -37,8 +36,12 @@ public class Raptor : Carnivore
 
     public override void Move()
     {
-        if (leader == this || leader == null || gameObject.CompareTag("Player")) base.Move();
-        else if(leader != null)
+        CurrentState = AnimalState.Move;
+        if (leader == this || leader == null || gameObject.CompareTag("Player"))
+        {
+            base.Move();
+        }
+        else if (leader != null)
         {
             //if (agent == null)
             //{
@@ -69,16 +72,16 @@ public class Raptor : Carnivore
             }
             else
             {
+                CurrentState = AnimalState.Idle;
                 // 리더와의 거리가 가까우면 멈춤
                 Rigidbody rb = GetComponent<Rigidbody>();
-                animator.SetBool(hashMove, false);
                 if (rb != null)
                 {
                     rb.velocity = Vector3.zero;
                 }
             }
         }
-    
+
         else
         {
             Debug.Log("랩터 예외 발생");
@@ -162,7 +165,7 @@ public class Raptor : Carnivore
     public override void Die()
     {
         base.Die();
-        if (isDie) PoolingManager.Instance.CallSpawn(0);
+        if (isDie) PoolingManager.Instance.CallSpawn(1, infoIdx);
     }
 
 

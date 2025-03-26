@@ -72,11 +72,16 @@ PrefabInstance:
     - target: {fileID: -8433414702132842540, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}
       propertyPath: maxSlopeAngle
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8433414702132842540, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}
       propertyPath: followingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8433414702132842540, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: interactionDistance
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8433414702132842540, guid: 0cead5562e1270c4fa60a31a0aa6e364,

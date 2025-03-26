@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
         }
     }
     private bool isGamveOver;
+    public int Day;
+    //public int Day { get; private set; }
     private void Awake()
     {
         if(instance == null) { instance = this; }
@@ -25,6 +27,13 @@ public class GameManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
+        Day = 1;
+    }
 
+    public void ChangeDay()
+    {
+        Debug.Log($"{Day}일 차 입니다.");
+        Day++;
+        if (Day == 8) PoolingManager.Instance.SetDinosWithReset();
     }
 }
