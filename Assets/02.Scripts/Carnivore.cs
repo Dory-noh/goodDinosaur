@@ -17,18 +17,54 @@ public class Carnivore : Animal, ICarnivore
     {
         eating = false;
     }
-    
+
     public override void FixedUpdate()
     {
-        if (isDie) return;
-        base.FixedUpdate();
-        //먹이 추적(가장 낮은 우선 순위)
-        
-        TraceVictim(); // 포식자 회피를 우선으로 한 후, 먹이를 추적하도록 함.
+        if (isDie == true) return;
+        //InteractWithNearbyDinosaurs();
+        //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
+        AvoidObstacles();
+        if (obstacleDetected)
+        {
+            Move();
+
+            return;
+        }
+        TraceVictim(); 
         ChaseVictim();
-        closestVictimObject = (MonoBehaviour)closestVictim;
+        if (closestVictimObject != null)
+        {
+            closestVictimObject = (MonoBehaviour)closestVictim;
+            Move();
+            return;
+        }
+
+        
+        AvoidPredator();
+        if (predatorDetected)
+        {
+            Move();
+            return;
+        }
+
+
+        Wander();
         Move();
+
+
     }
+
+    //public override void FixedUpdate()
+    //{
+    //    if (isDie) return;
+    //    base.FixedUpdate();
+    //    //먹이 추적(가장 낮은 우선 순위)
+        
+    //    TraceVictim(); // 포식자 회피를 우선으로 한 후, 먹이를 추적하도록 함.
+    //    ChaseVictim();
+    //    closestVictimObject = (MonoBehaviour)closestVictim;
+    //    Move();
+    //}
     public override void OnEnable()
     {
         sizes = new int[3] { 10, 50, 100 };
@@ -150,7 +186,7 @@ public class Carnivore : Animal, ICarnivore
     void TraceVictim()
     {
         closestVictim = FindClosetVictim();
-        if (closestVictim != null && Vector3.Distance(transform.position, (closestVictim as Animal).transform.position) > 3f)
+        if (closestVictim != null && Vector3.Distance(transform.position, (closestVictim as Animal).transform.position) > 5f)
         {
             //가장 가까운 포식자 추적
             victimDetected = true;
@@ -236,7 +272,7 @@ public class Carnivore : Animal, ICarnivore
     public override void Die()
     {
         base.Die();
-        if (isDie) PoolingManager.Instance.CallSpawn(1);
+        if (isDie) PoolingManager.Instance.CallSpawn(1, infoIdx);
     }
 
     private void OnDisable()

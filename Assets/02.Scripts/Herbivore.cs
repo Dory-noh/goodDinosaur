@@ -6,7 +6,7 @@ public class Herbivore : Animal, IHerbivore
 {
     void Start()
     {
-        sizes = new int[3] { 200, 500, 1000 };
+        sizes = new int[3] { 0, 500, 1000 };
     }
 
     public override void OnEnable( )
@@ -23,7 +23,7 @@ public class Herbivore : Animal, IHerbivore
     public override void Die()
     {
         base.Die();
-        if (isDie) PoolingManager.Instance.CallSpawn(2);
+        if (isDie) PoolingManager.Instance.CallSpawn(0, infoIdx);
     }
 
     private void OnDisable()

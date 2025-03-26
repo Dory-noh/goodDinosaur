@@ -56,7 +56,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public float obstacleSensingDistance = 5f;
 
     // 장애물을 감지했는지 여부
-    private bool obstacleDetected = false;
+    protected bool obstacleDetected = false;
     // 디버그용 변수 (광선과 목표 지점을 그리기 위해 사용)
     private Vector3 hitPoint;
     private Vector3 goalPoint;
@@ -92,13 +92,21 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     protected readonly int hashDie = Animator.StringToHash("Die");
     protected readonly int hashAttack = Animator.StringToHash("Attack");
 
-    public AnimalState currentState = AnimalState.Idle;  // 현재 상태
+    private AnimalState currentState;
+
+    public AnimalState CurrentState
+    {
+        get { return currentState; }
+        set { currentState = value;
+            ChangeStateAni();
+        }
+    }
 
     //hp바
     public Image hpImg;
 
     // 상호작용 거리
-    public float interactionDistance = 3f;
+    public float interactionDistance = 5f;
 
     public virtual void Awake()
     {
@@ -116,11 +124,10 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         findLayerMask.Add(LayerMask.GetMask("Ground"));
         
         playerSensingDistance = 30f;
-        if (this is not Raptor) infoIdx = Random.Range(0, sizes.Length);
-        else infoIdx = 0;
         //Debug.Log($"인덱스 번호 : {infoIdx}");
         animator = GetComponentInChildren<Animator>();
         hpImg = GetComponentsInChildren<Image>()[1];
+        if(gameObject.CompareTag("Player") == false)
         DetectPoint = new Transform[2] { transform.GetChild(2), transform.GetChild(3)};
     }
 
@@ -134,14 +141,13 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         isDie = false;
         verticalVelocity.y = 0f; // 활성화 시 수직 속도 초기화
         hpImg.fillAmount = hp / MaxHp;
-        currentState = AnimalState.Idle;  // 현재 상태
         isAttack = false;
-        ChangeState(currentState);
+        CurrentState = AnimalState.Idle;
     }
     public virtual void FixedUpdate()
     {
         if (isDie == true) return;
-        //InteractWithNearbyDinosaurs();
+        InteractWithNearbyDinosaurs();
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
         AvoidObstacles();
         if (obstacleDetected)
@@ -169,35 +175,43 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         
     }
 
-    public void ChangeState(AnimalState newState)
+    public void ChangeStateAni()
     {
-        if (currentState == newState) return;  // 현재 상태와 동일한 경우에는 아무것도 하지 않음
-        currentState = newState;
+        if (gameObject.CompareTag("Player")) return;
 
-        // 상태에 맞는 애니메이션 실행
-        switch (currentState)
+        try
         {
-            case AnimalState.Idle:
-                animator.SetBool(hashMove, false);
-                animator.SetBool(hashAttack, false);
-                break;
-            case AnimalState.Move:
-                animator.SetBool(hashMove, true);
-                animator.SetBool(hashAttack, false);
-                break;
-            case AnimalState.Attack:
-                animator.SetTrigger(hashAttack); // Attack 애니메이션 트리거
-                animator.SetBool(hashMove, false);
-                break;
-            case AnimalState.Die:
-                animator.SetTrigger(hashDie); // Die 애니메이션 트리거
-                animator.SetBool(hashMove, false);
-                break;
+            // 상태에 맞는 애니메이션 실행
+            switch (currentState)
+            {
+                case AnimalState.Idle:
+                    animator.SetBool(hashMove, false);
+                    animator.SetBool(hashAttack, false);
+                    break;
+                case AnimalState.Move:
+                    animator.SetBool(hashMove, true);
+                    animator.SetBool(hashAttack, false);
+                    break;
+                case AnimalState.Attack:
+                    animator.SetTrigger(hashAttack); // Attack 애니메이션 트리거
+                    animator.SetBool(hashMove, false);
+                    break;
+                case AnimalState.Die:
+                    animator.SetTrigger(hashDie); // Die 애니메이션 트리거
+                    animator.SetBool(hashMove, false);
+                    break;
+            }
         }
+        catch
+        {
+            Debug.Log($"{gameObject.name} 애니메이션 에러 발생");
+        }
+            
+        
     }
 
     /// 장애물 감지 및 회피 로직.
-    void AvoidObstacles()
+    protected void AvoidObstacles()
     {
         RaycastHit headHit;
         bool headObstacleDetected = Physics.Raycast(DetectPoint[0].position, moveDirection, out headHit, obstacleSensingDistance, findLayerMask[3]);
@@ -326,7 +340,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if (!isAttack)
         {
             isAttack = true;
-            ChangeState(AnimalState.Attack);
+            CurrentState = AnimalState.Attack;
             animal.Damage(power);
 
             StartCoroutine(ResetAttack(1f));
@@ -344,7 +358,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if (!isDie)
         {
             isDie = true;
-            ChangeState(AnimalState.Die);  // 죽음 상태로 전환
+            CurrentState = AnimalState.Die;
             if(Attacker is Raptor raptor) raptor.raptorLevel++; //랩터 레벨 증가
             if(Attacker != null && ((Carnivore)Attacker).closestVictim != null && ((Carnivore)Attacker).closestVictim == (IDinosaur)this) ((Carnivore)Attacker).closestVictim = null;
             StartCoroutine(HideDelay(3f));
@@ -367,7 +381,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         }
     }
 
-    void AvoidPredator()
+    protected void AvoidPredator()
     {
         
         IDinosaur closestPredator = FindClosetPredator();
@@ -420,9 +434,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public virtual void Move()
     {
         if (isDie) return;
-
-        ChangeState(AnimalState.Move);
-
+        CurrentState = AnimalState.Move;
         if (rb != null)
         {
             RaycastHit hit;
@@ -471,6 +483,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             IDinosaur otherDinosaur = nearbyColliders[i].GetComponent<IDinosaur>();
             if (otherDinosaur != null && (Object)otherDinosaur != this)
             {
+                Debug.Log("상호작용합니다.");
                 Interact(otherDinosaur);
                 return;
             }
@@ -480,7 +493,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public virtual void Interact(IDinosaur other)
     {
         if (isDie) return;
-        Debug.Log("상호작용합니다.");
+        
     }
 
     //private void OnTriggerEnter(Collider other)

@@ -37,6 +37,7 @@ public class DaytoNight : MonoBehaviour
 
     void Awake()
     {
+        daytime = 10f;
         dayRatio = time / daytime;
         time = 0f;
         // 스카이박스 복사본 생성 후 적용
@@ -52,7 +53,10 @@ public class DaytoNight : MonoBehaviour
     void Update()
     {
         time +=Time.deltaTime; //시간을 계속 업데이트 
-        if (time > daytime) { time = 0f; } //하루가 지나면 시간초기화
+        if (time > daytime) { 
+            time = 0f;
+            GameManager.Instance.ChangeDay();
+        } //하루가 지나면 시간초기화
         sunRise();
         Day2Night();
     }
