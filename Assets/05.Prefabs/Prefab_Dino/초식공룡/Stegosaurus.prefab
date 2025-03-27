@@ -157,6 +157,7 @@ MonoBehaviour:
   obstacleSensingDistance: 5
   playerSensingDistance: 10
   maxSlopeAngle: 30
+  slideThresholdAngle: 30
   hpImg: {fileID: 0}
   interactionDistance: 5
 --- !u!54 &318436865906048274

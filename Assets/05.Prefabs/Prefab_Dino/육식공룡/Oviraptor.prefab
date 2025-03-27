@@ -157,7 +157,7 @@ MonoBehaviour:
   obstacleSensingDistance: 5
   playerSensingDistance: 10
   maxSlopeAngle: 30
-  currentState: 0
+  slideThresholdAngle: 30
   hpImg: {fileID: 0}
   interactionDistance: 5
   closestVictimObject: {fileID: 0}
@@ -444,6 +444,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1608010922775512620, guid: 9881033bda9ba5d4b989055253afa2e1,
         type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608010922775512620, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608010922775512620, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608010922775512620, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -651,6 +666,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
         type: 3}

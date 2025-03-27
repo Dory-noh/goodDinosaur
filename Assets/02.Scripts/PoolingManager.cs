@@ -27,6 +27,7 @@ public class PoolingManager : MonoBehaviour
     
     // 초식 공룡 스폰 위치
     [Header("초식 공룡 스폰위치")]
+    [SerializeField] private Transform[] herbivorousSpawnEmpty;
     [SerializeField] private Transform[] herbivorousSpawnGreen;
     [SerializeField] private Transform[] herbivorousSpawnBlue;
 
@@ -42,10 +43,10 @@ public class PoolingManager : MonoBehaviour
 
     public List<GameObject>[,] dinoPools = new List<GameObject>[2, 3];
     private int[] createCounts = { 0, 2, 2, 5, 2, 2 };
-    private int[,] spawnCounts = { {0, 6, 2, 12, 1, 2 }, { 0, 4, 2, 12, 2, 4 } };
+    private int[,] spawnCounts = { {0, 6, 2, 15, 1, 2 }, { 0, 4, 2, 15, 2, 4 } };
     GameObject CarnParent;
     GameObject HerbParent;
-    [SerializeField] float[,] respawnTime = { {0, 150, 300, 90, 180, 300}, {0, 180, 240, 60, 150, 180} };
+    [SerializeField] float[,] respawnTime = { {0, 150, 300, 30, 180, 300}, {0, 180, 240, 60, 150, 180} };
     int countMode;
     WaitForSeconds[,] ws = new WaitForSeconds[2,6];
     void Awake()
@@ -57,8 +58,9 @@ public class PoolingManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-        
+
         //스폰 포인트 설정
+        SpawnPoints.Add(herbivorousSpawnEmpty);
         SpawnPoints.Add(herbivorousSpawnGreen);
         SpawnPoints.Add(herbivorousSpawnBlue);
         SpawnPoints.Add(carnivoreSpawnWhite);
@@ -143,34 +145,36 @@ public class PoolingManager : MonoBehaviour
             }
         }
     }
-    //public void AdjustDinoCount()
-    //{
-    //    Debug.Log("추가생성 시작");
-    //    countMode = GameManager.Instance.Day <= 7 ? 0 : 1;
-    //    Debug.Log(countMode);
-    //    for (int typeIdx = 0; typeIdx < dinoPrefabs.Length; typeIdx++)
-    //    {
-    //        for (int sizeIdx = 0; sizeIdx < 3; sizeIdx++)
-    //        {
-    //            int currentActiveCount = dinoPools[typeIdx, sizeIdx].FindAll(d => d.activeSelf).Count;
-    //            int requiredCount = spawnCounts[countMode, (typeIdx * 3 + sizeIdx)];
+    public void AdjustDinoCount()
+    {
+        //Debug.Log("추가생성 시작");
+        StopAllCoroutines();
+        countMode = GameManager.Instance.Day <= 1 ? 0 : 1;
+        Debug.Log(countMode);
+        for (int typeIdx = 0; typeIdx < dinoPrefabs.Length; typeIdx++)
+        {
+            for (int sizeIdx = 0; sizeIdx < 3; sizeIdx++)
+            {
+                int currentActiveCount = dinoPools[typeIdx, sizeIdx].FindAll(d => d.activeSelf).Count;
+                int requiredCount = spawnCounts[countMode, (typeIdx * 3 + sizeIdx)];
+                Debug.Log($"{typeIdx} : {sizeIdx} : {currentActiveCount} : {requiredCount} : {requiredCount - currentActiveCount}");
+                if (currentActiveCount < requiredCount)
+                {
+                    // 부족한 개수만큼 추가 스폰
+                    int needToSpawn = requiredCount - currentActiveCount;
+                    for (int i = 0; i < needToSpawn; i++)
+                    {
+                        
+                        RandomSpawnDino(typeIdx, sizeIdx);
+                    }
+                }
+            }
+        }
+    }
 
-    //            if (currentActiveCount < requiredCount)
-    //            {
-    //                // 부족한 개수만큼 추가 스폰
-    //                int needToSpawn = requiredCount - currentActiveCount;
-    //                for (int i = 0; i < needToSpawn; i++)
-    //                {
-    //                    Debug.Log("추가생성됨");
-    //                    RandomSpawnDino(typeIdx, sizeIdx);
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
     public void SetDinosWithReset()
     {
-        Debug.Log("공룡 수 조절");
+        //Debug.Log("공룡 수 조절");
         // 기존 공룡들 비활성화
         for (int typeIdx = 0; typeIdx < dinoPrefabs.Length; typeIdx++)
         {
@@ -210,20 +214,20 @@ public class PoolingManager : MonoBehaviour
             GameObject dino = dinoPools[typeIdx, sizeIdx][Random.Range(0, dinoPools[typeIdx, sizeIdx].Count)];
             if (dino.activeSelf == false)
             {
-                int spawnPointArrayIndex = 2 * typeIdx + sizeIdx;
+                int spawnPointArrayIndex = 3 * typeIdx + sizeIdx;
                 if (spawnPointArrayIndex >= 0 && spawnPointArrayIndex < SpawnPoints.Count && SpawnPoints[spawnPointArrayIndex] != null && SpawnPoints[spawnPointArrayIndex].Length > 0)
                 {
                     Transform[] currentSpawnPoints = SpawnPoints[spawnPointArrayIndex];
                     int randomIndex = Random.Range(0, currentSpawnPoints.Length);
                     Vector3 pos = currentSpawnPoints[randomIndex].position;
-                    dino.transform.position = new Vector3(Random.Range(pos.x - 5, pos.x + 5), pos.y + 2, Random.Range(pos.z - 5, pos.z + 5));
+                    dino.transform.position = new Vector3(Random.Range(pos.x - 5, pos.x + 5), pos.y, Random.Range(pos.z - 5, pos.z + 5));
                     dino.transform.rotation = Quaternion.identity;
                     dino.gameObject.SetActive(true);
                     break;
                 }
                 else
                 {
-                    Debug.LogError($"Invalid or empty spawn point array at index: {spawnPointArrayIndex}");
+                    //Debug.LogError($"Invalid or empty spawn point array at index: {spawnPointArrayIndex}");
                     break;
                 }
             }
@@ -232,13 +236,25 @@ public class PoolingManager : MonoBehaviour
 
     IEnumerator WaitSpawnDino(int typeIdx, int sizeIdx)
     {
-        Debug.Log($"{respawnTime[countMode, (typeIdx * 3 + sizeIdx)]}초 후 공룡 리스폰합니다.");
+        //Debug.Log($"{respawnTime[countMode, (typeIdx * 3 + sizeIdx)]}초 후 공룡 리스폰합니다.");
         yield return ws[countMode, (typeIdx * 3 + sizeIdx)];
         RandomSpawnDino(typeIdx, sizeIdx);
     }
 
     public void CallSpawn(int typeIdx,int sizeIdx)
     {
-        StartCoroutine(PoolingManager.Instance.WaitSpawnDino(typeIdx, sizeIdx));
+        int currentActiveCount = dinoPools[typeIdx, sizeIdx].FindAll(d => d.activeSelf).Count;
+        int requiredCount = spawnCounts[countMode, (typeIdx * 3 + sizeIdx)];
+        if (currentActiveCount < requiredCount) //리스폰할 동물 값보다 적을때 리스폰한다.
+        {
+            //Debug.Log($"{typeIdx} : {sizeIdx} | {currentActiveCount} {requiredCount} 리스폰합니다.");
+
+            StartCoroutine(PoolingManager.Instance.WaitSpawnDino(typeIdx, sizeIdx));
+        }
+        else
+        {
+            //Debug.Log($"{typeIdx} : {sizeIdx} | {currentActiveCount} {requiredCount} 현재 필요 개체 수를 만족하므로 리스폰하지 않습니다.");
+        }
+        
     }
 }

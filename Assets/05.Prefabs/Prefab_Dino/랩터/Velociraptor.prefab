@@ -86,6 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8433414702132842540, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}
+      propertyPath: slideThresholdAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -8433414702132842540, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
       propertyPath: speeds.Array.data[0]
       value: 5
       objectReference: {fileID: 0}
@@ -119,6 +124,36 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7c2c64943a4ef52459cf3baf11206bd2, type: 2}
+    - target: {fileID: 1410143552752106360, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410143552752106360, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410143552752106360, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413692450592841406, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413692450592841406, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413692450592841406, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3994064816281971743, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}
       propertyPath: m_RootOrder

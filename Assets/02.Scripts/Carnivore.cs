@@ -20,7 +20,8 @@ public class Carnivore : Animal, ICarnivore
 
     public override void FixedUpdate()
     {
-        if (isDie == true) return;
+        if (isDie == true || isAttack) return;
+        InteractWithNearbyDinosaurs();
         //InteractWithNearbyDinosaurs();
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
         AvoidObstacles();
@@ -32,7 +33,7 @@ public class Carnivore : Animal, ICarnivore
         }
         TraceVictim(); 
         ChaseVictim();
-        if (closestVictimObject != null)
+        if (closestVictim != null)
         {
             closestVictimObject = (MonoBehaviour)closestVictim;
             Move();
@@ -80,7 +81,7 @@ public class Carnivore : Animal, ICarnivore
         //공격하려는 동물이 이미 죽었으면 공격 불가 판정.
         if (((Animal)other).isDie) return false;
         if (other is Raptor && this is Raptor) return false;
-        else if(other is Carnivore carnivore)
+        else if(other is Carnivore)
         {
             if(this is Raptor)
             {
@@ -94,6 +95,7 @@ public class Carnivore : Animal, ICarnivore
                 else if (count >= 3)
                 {
                     if (((MonoBehaviour)other).GetComponent<Animal>().infoIdx <= 1) return true;
+                    
                     return false;
                 }
                 else
@@ -101,8 +103,12 @@ public class Carnivore : Animal, ICarnivore
                     if (((MonoBehaviour)other).GetComponent<Animal>().infoIdx == 0) return true;
                     else return false;
                 }
-            }  
-            return size >= ((MonoBehaviour)other).gameObject.GetComponent<Animal>().size; 
+            }
+            else{
+                //Debug.Log($"{gameObject.name}이 {((MonoBehaviour)other).gameObject.name}을 공격 : {size >= ((MonoBehaviour)other).gameObject.GetComponent<Animal>().size}");
+                return size >= ((MonoBehaviour)other).gameObject.GetComponent<Animal>().size;
+            }
+
                 //&& this != carnivore;
         }
         else if(other is Herbivore herbivore)
@@ -186,7 +192,7 @@ public class Carnivore : Animal, ICarnivore
     void TraceVictim()
     {
         closestVictim = FindClosetVictim();
-        if (closestVictim != null && Vector3.Distance(transform.position, (closestVictim as Animal).transform.position) > 5f)
+        if (closestVictim != null)
         {
             //가장 가까운 포식자 추적
             victimDetected = true;
@@ -197,6 +203,8 @@ public class Carnivore : Animal, ICarnivore
             Vector3 eulerAngles = rotation.eulerAngles;
             eulerAngles.x = 0;
             eulerAngles.z = 0;
+            float distanceToVictim = Vector3.Distance(transform.position, ((Animal)closestVictim).transform.position);
+            if((infoIdx != 2 && distanceToVictim > 7f) || (infoIdx == 3 && distanceToVictim > 20f))
             transform.rotation = Quaternion.Euler(eulerAngles);
         }
         else
@@ -207,32 +215,46 @@ public class Carnivore : Animal, ICarnivore
 
     IDinosaur FindClosetVictim()
     {
-        
+        //Debug.Log($"[{gameObject.name}] FindClosetVictim 호출됨"); // 호출 여부 확인
+
         if (this is Raptor && gameObject.GetComponent<Raptor>().leader != null)
         {
-            if (gameObject.GetComponent<Raptor>().leader.followers.Contains(((MonoBehaviour)this).GetComponent<Raptor>())) { return null; }
+            if (gameObject.GetComponent<Raptor>().leader.followers.Contains(((MonoBehaviour)this).GetComponent<Raptor>()))
+            {
+                //Debug.Log($"[{gameObject.name}] 랩터 그룹원이라 null 반환");
+                return null;
+            }
         }
-        closestVictim = null;
         float closestSqrDistance = Mathf.Infinity;
+        closestVictim = null; // Reset closestVictim at the beginning of the search
 
         // 콜라이더 배열 재사용
         int colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, victimColliders, findLayerMask[0] | findLayerMask[1] | findLayerMask[2]);
+        //Debug.Log($"[{gameObject.name}] 감지된 콜라이더 수: {colliderCount}"); // 감지된 콜라이더 수 확인
 
         for (int i = 0; i < colliderCount; i++)
         {
             IDinosaur dinosaur = victimColliders[i].GetComponent<IDinosaur>();
+            //Debug.Log($"[{gameObject.name}] 감지된 오브젝트: {victimColliders[i].gameObject.name}, IDinosaur 컴포넌트: {dinosaur != null}"); // 감지된 오브젝트 및 컴포넌트 확인
 
             // 자기 자신과 충돌하지 않으며, 먹을 수 있는 대상을 찾는다.
             if (dinosaur != null && (Object)dinosaur != this && canTrace(dinosaur))
             {
+                //Debug.Log($"[{gameObject.name}] {dinosaur.GetType().Name} 추적 가능"); // 추적 가능 여부 확인
                 float sqrDistance = (transform.position - victimColliders[i].transform.position).sqrMagnitude;
                 if (sqrDistance < closestSqrDistance)
                 {
                     closestSqrDistance = sqrDistance;
                     closestVictim = dinosaur;
+                    //Debug.Log($"[{gameObject.name}] 가장 가까운 먹잇감 발견: {closestVictim.GetType().Name}"); // 찾은 먹잇감 확인
                 }
             }
+            else if (dinosaur != null && (Object)dinosaur != this)
+            {
+                //Debug.Log($"[{gameObject.name}] {dinosaur.GetType().Name} 추적 불가능 (canTrace: {canTrace(dinosaur)})"); // 추적 불가능 이유 확인
+            }
         }
+        //Debug.Log($"[{gameObject.name}] 최종 closestVictim: {closestVictim?.GetType().Name}"); // 최종 결과 확인
         return closestVictim;
     }
 
@@ -254,8 +276,34 @@ public class Carnivore : Animal, ICarnivore
 
     public override void Move()
     {
-        base.Move();
+        if (obstacleDetected)
+        {
+            base.Move();
+        }
+        if (closestVictim == null)
+        {
+            //Debug.Log($"[{gameObject.name}] Move 호출됨 - closestVictim이 null이므로 base.Move() 호출");
+            base.Move();
+        }
+        else
+        {
+            float distanceToVictim = Vector3.Distance(transform.position, ((Animal)closestVictim).transform.position);
+            //Debug.Log($"[{gameObject.name}] Move 호출됨 - closestVictim: {closestVictim.GetType().Name}, 거리: {distanceToVictim}");
+
+            if ((infoIdx != 2 && distanceToVictim > 6f) || (infoIdx == 2 && distanceToVictim > 25f))
+            {
+                //Debug.Log($"[{gameObject.name}] 먹잇감과의 거리가 5보다 크므로 base.Move() 호출");
+                base.Move();
+            }
+            else
+            {
+                //Debug.Log($"[{gameObject.name}] 먹잇감과의 거리가 5 이하이므로 움직임 멈춤");
+                // base.Move()를 호출하지 않아 움직임이 멈춥니다.
+                CurrentState = AnimalState.Idle;
+            }
+        }
     }
+
 
     public override void Interact(IDinosaur other)
     {
@@ -272,11 +320,12 @@ public class Carnivore : Animal, ICarnivore
     public override void Die()
     {
         base.Die();
-        if (isDie) PoolingManager.Instance.CallSpawn(1, infoIdx);
+        
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
-        
+        base.OnDisable();
+        if (isDie) PoolingManager.Instance.CallSpawn(1, infoIdx);
     }
 }

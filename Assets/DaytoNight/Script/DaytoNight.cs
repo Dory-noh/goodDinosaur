@@ -37,7 +37,7 @@ public class DaytoNight : MonoBehaviour
 
     void Awake()
     {
-        daytime = 10f;
+        daytime = 60f;
         dayRatio = time / daytime;
         time = 0f;
         // 스카이박스 복사본 생성 후 적용

@@ -188,8 +188,9 @@ MonoBehaviour:
   obstacleSensingDistance: 5
   playerSensingDistance: 10
   maxSlopeAngle: 30
+  slideThresholdAngle: 30
   hpImg: {fileID: 0}
-  interactionDistance: 5
+  interactionDistance: 10
   closestVictimObject: {fileID: 0}
 --- !u!54 &7641692121933870665
 Rigidbody:

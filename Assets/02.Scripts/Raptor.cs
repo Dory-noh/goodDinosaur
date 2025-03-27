@@ -143,8 +143,16 @@ public class Raptor : Carnivore
                         foreach(var rapter in followers)
                         {
                             if (rapter == this) continue;
-                            otherRaptor.AddFollower(rapter);
-                            rapter.leader = otherRaptor;
+                            //리더 포함 최대 팀원 수는 5이다. 팀원 수가 5를 초과하면 나머지 랩터들은 리더를 잃음.
+                            if (otherRaptor.followers.Count + 1 >= 5)
+                            {
+                                rapter.leader = null;
+                            }
+                            else //팀원 수가 5를 초과하지 않은 경우, otherRapter의 팀원으로 해당 랩터를 추가한다.
+                            {
+                                otherRaptor.AddFollower(rapter);
+                                rapter.leader = otherRaptor;
+                            }
                         }
                         followers.Clear();
                         leader = otherRaptor;
@@ -164,17 +172,11 @@ public class Raptor : Carnivore
     }
     public override void Die()
     {
-        base.Die();
-        if (isDie) PoolingManager.Instance.CallSpawn(1, infoIdx);
-    }
-
-
-    private void OnDisable()
-    {
         if (leader != null)
         {
+            Debug.Log("랩터가 죽어 리더의 팔로워 리스트에서 해당 랩터를 제거합니다.");
             if (leader != this) leader.followers.Remove(this); //해당 Rapter가 리더가 아닐때, 리더의 Follow 목록에서 해당 Rapter를 지운다.
-            
+
             if (this == leader)
             {
                 foreach (var rapter in followers)
@@ -186,6 +188,13 @@ public class Raptor : Carnivore
             leader = null;
         }
         followers.Clear();
-        
+        base.Die();
+    }
+
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        if (isDie) PoolingManager.Instance.CallSpawn(1, infoIdx);
     }
 }

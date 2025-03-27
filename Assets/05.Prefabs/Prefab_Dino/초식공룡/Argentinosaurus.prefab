@@ -157,6 +157,7 @@ MonoBehaviour:
   obstacleSensingDistance: 5
   playerSensingDistance: 10
   maxSlopeAngle: 30
+  slideThresholdAngle: 30
   hpImg: {fileID: 0}
   interactionDistance: 5
 --- !u!54 &3383660713171928241
@@ -449,3 +450,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1126826105497412374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7275856310761688012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7735568550335834330, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1126826105497412374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &7710220170417172864
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275856310761688012}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4
+  m_Height: 15
+  m_Direction: 1
+  m_Center: {x: 0, y: -4.48, z: 1.44}

@@ -8,16 +8,16 @@ using UnityEngine.UI;
 
 public enum AnimalState
 {
-    Idle,       // 대기 상태
-    Move,       // 이동 상태
-    Attack,     // 공격 상태
-    Die         // 죽음 상태
+    Idle,         // 대기 상태
+    Move,         // 이동 상태
+    Attack,       // 공격 상태
+    Die           // 죽음 상태
 }
 
 public class Animal : MonoBehaviour, IMovable, IDinosaur
 {
-    public int[] sizes = new int[3] { 10, 50 ,100};
-    public float[] speeds = new float[3] {8, 5, 3};
+    public int[] sizes = new int[3] { 10, 50, 100 };
+    public float[] speeds = new float[3] { 8, 5, 3 };
     public int[] HPs = new int[3] { 5, 10, 20 };
     public float[] powers = new float[3] { 1, 2, 5 };
     public int infoIdx = 0;
@@ -28,7 +28,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public float power;
     public bool isDie;
     public Animal Attacker;
-    
+
 
     public float moveSpeedMin { get; set; } = 3.0f; //최소 이동 속도
     public float moveSpeedMax { get; set; } = 8.0f; //최대 이동 속도
@@ -51,7 +51,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     // 장애물 회피 시 기준점으로 사용됨.
     public Transform tankCenterGoal;
     public Transform[] DetectPoint;
-    // 장애물 감지 거리 (단위: 미터).  
+    // 장애물 감지 거리 (단위: 미터).
     // 이 거리 안에 장애물이 있으면 회피 행동을 시작함.
     public float obstacleSensingDistance = 5f;
 
@@ -75,14 +75,16 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     //레이어 마스크 리스트
     protected List<int> findLayerMask = new List<int>();
 
-    public float maxSlopeAngle = 10f; // 오를 수 있는 최대 경사 각도 (수정 가능)
+    float unclimbableSlopeAngle;
+    public float maxSlopeAngle = 30f; // 오를 수 있는 최대 경사 각도
+    public float slideThresholdAngle = 30f; // 미끄러지기 시작하는 경사 각도
 
     private bool attemptingSecondaryAvoidance = false;
     private Quaternion secondaryGoalLookRotation;
     private bool initialAvoidanceTried = false;
 
     private bool isGrounded;
-    private bool isAttack;
+    protected bool isAttack;
     //private bool isOnSlope;
     private Vector3 slopeNormal;
 
@@ -97,7 +99,9 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public AnimalState CurrentState
     {
         get { return currentState; }
-        set { currentState = value;
+        set
+        {
+            currentState = value;
             ChangeStateAni();
         }
     }
@@ -106,7 +110,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public Image hpImg;
 
     // 상호작용 거리
-    public float interactionDistance = 5f;
+    public float interactionDistance = 8f;
 
     public virtual void Awake()
     {
@@ -114,7 +118,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         dinosaurs.AddRange(FindObjectsOfType<MonoBehaviour>().OfType<IDinosaur>());
         tankCenterGoal = GameObject.Find("center").transform;
         rb = GetComponent<Rigidbody>();
-        
+
         //랩터인 경우 랩터는 추적 제외
         findLayerMask.Add(LayerMask.GetMask("Carnivore"));
         //포식자 레이어 마스크 설정
@@ -122,13 +126,13 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         findLayerMask.Add(LayerMask.GetMask("Herbivore"));
         findLayerMask.Add(LayerMask.GetMask("Obstacle"));
         findLayerMask.Add(LayerMask.GetMask("Ground"));
-        
+
         playerSensingDistance = 30f;
         //Debug.Log($"인덱스 번호 : {infoIdx}");
         animator = GetComponentInChildren<Animator>();
         hpImg = GetComponentsInChildren<Image>()[1];
-        if(gameObject.CompareTag("Player") == false)
-        DetectPoint = new Transform[2] { transform.GetChild(2), transform.GetChild(3)};
+        if (gameObject.CompareTag("Player") == false)
+            DetectPoint = new Transform[2] { transform.GetChild(2), transform.GetChild(3) };
     }
 
     public virtual void OnEnable()
@@ -143,11 +147,12 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         hpImg.fillAmount = hp / MaxHp;
         isAttack = false;
         CurrentState = AnimalState.Idle;
+        TogglePhysicsComponents(true);
     }
-    public virtual void FixedUpdate()
+    public virtual void FixedUpdate() //육식 공룡은 해당 메서드를 오버라이드해서 사용하기 때문에 해당 메서드에 접근하지 않음.
     {
-        if (isDie == true) return;
-        InteractWithNearbyDinosaurs();
+        if (isDie == true || isAttack) return;
+
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
         AvoidObstacles();
         if (obstacleDetected)
@@ -166,13 +171,13 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
         //2. 장애물 회피(두 번째 우선 순위)
         // 장애물을 피하는 방향으로 회전했을 수 있으므로, 이동 방향을 업데이트한다.
-        
+
 
         //3. 기본 움직임(방황)
         Wander();
         Move();
 
-        
+
     }
 
     public void ChangeStateAni()
@@ -186,15 +191,14 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             {
                 case AnimalState.Idle:
                     animator.SetBool(hashMove, false);
-                    animator.SetBool(hashAttack, false);
                     break;
                 case AnimalState.Move:
                     animator.SetBool(hashMove, true);
-                    animator.SetBool(hashAttack, false);
                     break;
                 case AnimalState.Attack:
                     animator.SetTrigger(hashAttack); // Attack 애니메이션 트리거
                     animator.SetBool(hashMove, false);
+                    //Debug.Log("공격 애니메이션 재생");
                     break;
                 case AnimalState.Die:
                     animator.SetTrigger(hashDie); // Die 애니메이션 트리거
@@ -206,22 +210,23 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             Debug.Log($"{gameObject.name} 애니메이션 에러 발생");
         }
-            
-        
+
+
     }
 
     /// 장애물 감지 및 회피 로직.
     protected void AvoidObstacles()
     {
         RaycastHit headHit;
-        bool headObstacleDetected = Physics.Raycast(DetectPoint[0].position, moveDirection, out headHit, obstacleSensingDistance, findLayerMask[3]);
+        bool headObstacleDetected = Physics.Raycast(DetectPoint[0].position, moveDirection, out headHit, obstacleSensingDistance, findLayerMask[3] | findLayerMask[4]);
 
         RaycastHit feetHit;
-        bool feetObstacleDetected = Physics.Raycast(DetectPoint[1].position, moveDirection, out feetHit, obstacleSensingDistance, findLayerMask[3]);
+        bool feetObstacleDetected = Physics.Raycast(DetectPoint[1].position, moveDirection, out feetHit, obstacleSensingDistance, findLayerMask[3] | findLayerMask[4]);
 
         obstacleDetected = headObstacleDetected || feetObstacleDetected;
 
-        RaycastHit hit;
+        RaycastHit hit = new RaycastHit(); // hit 변수 초기화
+
         if (headObstacleDetected)
         {
             hit = headHit;
@@ -232,53 +237,38 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         }
         else
         {
-            // 둘 다 감지 안됨
             attemptingSecondaryAvoidance = false;
             initialAvoidanceTried = false;
+            // return; // 직접적인 장애물이 없으면 바로 리턴하지 않음
+        }
+
+        // obstacleDetected가 true이고, hit에 유효한 collider가 있으며, 해당 collider의 레이어가 "Obstacle"인 경우
+        if (obstacleDetected && hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            hitPoint = hit.point;
+            Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
+            float goalPointMinDistanceFromHit = 1f;
+            Vector3 reflectedPoint = hit.point + reflectionVector * Mathf.Max(hit.distance, goalPointMinDistanceFromHit);
+            Debug.DrawRay(transform.position, moveDirection * obstacleSensingDistance, Color.red);
+            goalPoint = (reflectedPoint * 0.7f + tankCenterGoal.position * 0.3f);
+            Vector3 goalDirection = goalPoint - transform.position;
+            goalDirection.y = 0;
+            goalLookRotation = Quaternion.LookRotation(goalDirection.normalized);
+
+            float dangerLevel = Mathf.Clamp01(1 - (hit.distance / obstacleSensingDistance));
+            dangerLevel = Mathf.Max(0.01f, dangerLevel);
+
+            float turnRate = maxTurnRateY * dangerLevel;
+            Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * turnRate);
+            Vector3 eulerAngles = rotation.eulerAngles;
+            eulerAngles.x = 0;
+            eulerAngles.z = 0;
+            transform.rotation = Quaternion.Euler(eulerAngles);
+            initialAvoidanceTried = true;
+            attemptingSecondaryAvoidance = false;
             return;
         }
 
-        if (obstacleDetected)
-        {
-            if (!attemptingSecondaryAvoidance)
-            {
-                // Initial avoidance attempt (reflection)
-                hitPoint = hit.point;
-                Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
-                float goalPointMinDistanceFromHit = 1f;
-                Vector3 reflectedPoint = hit.point + reflectionVector * Mathf.Max(hit.distance, goalPointMinDistanceFromHit);
-                Debug.DrawRay(transform.position, moveDirection * obstacleSensingDistance, Color.red);
-                goalPoint = (reflectedPoint * 0.7f + tankCenterGoal.position * 0.3f); // tankCenterGoal 영향 감소
-                Vector3 goalDirection = goalPoint - transform.position;
-                goalDirection.y = 0;
-                goalLookRotation = Quaternion.LookRotation(goalDirection.normalized);
-
-                float dangerLevel = Mathf.Clamp01(1 - (hit.distance / obstacleSensingDistance));
-                dangerLevel = Mathf.Max(0.01f, dangerLevel);
-
-                float turnRate = maxTurnRateY * dangerLevel;
-                Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * turnRate);
-                Vector3 eulerAngles = rotation.eulerAngles;
-                eulerAngles.x = 0;
-                eulerAngles.z = 0;
-                transform.rotation = Quaternion.Euler(eulerAngles);
-                initialAvoidanceTried = true;
-                attemptingSecondaryAvoidance = false; // 초기 회피 시도 후 이차 시도 플래그 초기화
-            }
-            else
-            {
-                // Secondary avoidance attempt (turn opposite direction)
-                Vector3 oppositeDirection = -moveDirection; // 정반대 방향으로 회전
-                secondaryGoalLookRotation = Quaternion.LookRotation(oppositeDirection);
-                Quaternion rotation = Quaternion.Slerp(transform.rotation, secondaryGoalLookRotation, Time.fixedDeltaTime * maxTurnRateY * 0.5f); // 약간 느린 회전
-                Vector3 eulerAngles = rotation.eulerAngles;
-                eulerAngles.x = 0;
-                eulerAngles.z = 0;
-                transform.rotation = Quaternion.Euler(eulerAngles);
-            }
-        }
-
-        // 초기 회피 시도 후에도 여전히 장애물이 감지되면 이차 회피 시도
         if (obstacleDetected && !attemptingSecondaryAvoidance && initialAvoidanceTried && Vector3.Distance(transform.position, goalPoint) < 2f)
         {
             attemptingSecondaryAvoidance = true;
@@ -289,8 +279,91 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             initialAvoidanceTried = false;
         }
 
-        // 높은 곳에서 떨어지면 "추락" 메시지 출력
-        if (!isGrounded && verticalVelocity.y < -5f) // 수직 속도가 일정 값보다 빠르게 떨어지면 추락으로 간주
+        // 가파른 경사면 감지 로직 (수정)
+        RaycastHit hitGroundForward;
+        float groundCheckDistance = 2f;
+        Vector3 groundCheckOrigin = transform.position + Vector3.up * 0.1f + moveDirection * 1f;
+        if (Physics.Raycast(groundCheckOrigin, Vector3.down, out hitGroundForward, groundCheckDistance, findLayerMask[4]))
+        {
+            Vector3 groundNormalForward = hitGroundForward.normal;
+            float slopeAngleForward = Vector3.Angle(Vector3.up, groundNormalForward);
+
+            // 경사각이 오를 수 없는 각도보다 크면 장애물로 처리
+            if (slopeAngleForward > maxSlopeAngle) // unclimbableSlopeAngle 대신 maxSlopeAngle 사용
+            {
+                obstacleDetected = true;
+                if (!attemptingSecondaryAvoidance)
+                {
+                    Vector3 oppositeDirection = -moveDirection;
+                    goalLookRotation = Quaternion.LookRotation(oppositeDirection);
+                    Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * maxTurnRateY * 2f); // 회전 속도 증가
+                    Vector3 eulerAngles = rotation.eulerAngles;
+                    eulerAngles.x = 0;
+                    eulerAngles.z = 0;
+                    transform.rotation = Quaternion.Euler(eulerAngles);
+                    attemptingSecondaryAvoidance = true;
+                    initialAvoidanceTried = true;
+                }
+                return;
+            }
+            // 전방에 장애물이 감지되었고, 경사각이 maxSlopeAngle보다 약간 작은 경우에도 회피 시도
+            else if (obstacleDetected && slopeAngleForward > maxSlopeAngle - 5f) // 추가 조건
+            {
+                if (!attemptingSecondaryAvoidance)
+                {
+                    Vector3 oppositeDirection = -moveDirection;
+                    goalLookRotation = Quaternion.LookRotation(oppositeDirection);
+                    Quaternion rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime * maxTurnRateY * 2f); // 회전 속도 증가
+                    Vector3 eulerAngles = rotation.eulerAngles;
+                    eulerAngles.x = 0;
+                    eulerAngles.z = 0;
+                    transform.rotation = Quaternion.Euler(eulerAngles);
+                    attemptingSecondaryAvoidance = true;
+                    initialAvoidanceTried = true;
+                }
+                return;
+            }
+            else
+            {
+                if (attemptingSecondaryAvoidance)
+                {
+                    attemptingSecondaryAvoidance = false;
+                    initialAvoidanceTried = false;
+                }
+            }
+        }
+        else
+        {
+            if (attemptingSecondaryAvoidance)
+            {
+                attemptingSecondaryAvoidance = false;
+                initialAvoidanceTried = false;
+            }
+        }
+
+        // 직접적인 장애물이나 가파른 경사가 감지되지 않았을 경우 obstacleDetected 초기화 (수정)
+        // 가파른 경사로 인해 obstacleDetected가 설정되었을 수도 있으므로,
+        // 전방에 직접적인 장애물이 감지되지 않았을 때 && 가파른 경사도 아닐 때만 초기화합니다.
+        if (!headObstacleDetected && !feetObstacleDetected)
+        {
+            RaycastHit hitGroundCheck;
+            Vector3 groundCheckOriginForReset = transform.position + Vector3.up * 0.1f + moveDirection * 1f;
+            if (Physics.Raycast(groundCheckOriginForReset, Vector3.down, out hitGroundCheck, groundCheckDistance, findLayerMask[4]))
+            {
+                Vector3 groundNormalForReset = hitGroundCheck.normal;
+                float slopeAngleForReset = Vector3.Angle(Vector3.up, groundNormalForReset);
+                if (slopeAngleForReset <= maxSlopeAngle) // 현재 발 밑 경사도 완만하면 초기화
+                {
+                    obstacleDetected = false;
+                }
+            }
+            else // 땅이 없으면 초기화 (공중에 떠 있는 경우)
+            {
+                obstacleDetected = false;
+            }
+        }
+
+        if (!isGrounded && verticalVelocity.y < -5f)
         {
             Debug.Log("추락");
         }
@@ -306,7 +379,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         hp -= power;
         hp = Mathf.Clamp(hp, 0, MaxHp);
         hpImg.fillAmount = (float)hp / MaxHp;
-        if(hp == 0)
+        if (hp == 0)
         {
             Die();
         }
@@ -341,6 +414,15 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isAttack = true;
             CurrentState = AnimalState.Attack;
+
+            //공격 대상을 바라보도록 회전  방향 = 목표 지점 - 기준 지점
+            Vector3 directionToTarget = animal.transform.position - transform.position;
+            directionToTarget.y = 0; //y축 회전만 고려
+            if (directionToTarget != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * maxTurnRateY * 2f);
+            }
             animal.Damage(power);
 
             StartCoroutine(ResetAttack(1f));
@@ -359,10 +441,22 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isDie = true;
             CurrentState = AnimalState.Die;
-            if(Attacker is Raptor raptor) raptor.raptorLevel++; //랩터 레벨 증가
-            if(Attacker != null && ((Carnivore)Attacker).closestVictim != null && ((Carnivore)Attacker).closestVictim == (IDinosaur)this) ((Carnivore)Attacker).closestVictim = null;
+            if (Attacker is Raptor raptor) raptor.raptorLevel++; //랩터 레벨 증가
+            if (Attacker != null && ((Carnivore)Attacker).closestVictim != null && ((Carnivore)Attacker).closestVictim == (IDinosaur)this) ((Carnivore)Attacker).closestVictim = null;
+            TogglePhysicsComponents(false);
+
             StartCoroutine(HideDelay(3f));
         }
+    }
+
+    private void TogglePhysicsComponents(bool isActive)
+    {
+        CapsuleCollider[] capsuleColliders = gameObject.GetComponents<CapsuleCollider>();
+        foreach (var collider in capsuleColliders)
+        {
+            collider.enabled = isActive;
+        }
+        GetComponent<Rigidbody>().isKinematic = !isActive;
     }
 
     private IEnumerator HideDelay(float delay)
@@ -383,7 +477,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
     protected void AvoidPredator()
     {
-        
+
         IDinosaur closestPredator = FindClosetPredator();
 
         if (closestPredator != null)
@@ -401,7 +495,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             transform.rotation = Quaternion.Euler(eulerAngles);
 
             // 가까울수록 빠르게 회피 (거리 비율 기반)
-            float speedFactor = 1 - (Mathf.Sqrt((transform.position-((MonoBehaviour)closestPredator).transform.position).sqrMagnitude) / playerSensingDistance);
+            float speedFactor = 1 - (Mathf.Sqrt((transform.position - ((MonoBehaviour)closestPredator).transform.position).sqrMagnitude) / playerSensingDistance);
             moveSpeed = Mathf.Lerp(moveSpeed, moveSpeedMax, speedFactor);
         }
         else { predatorDetected = false; }
@@ -410,48 +504,49 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     IDinosaur FindClosetPredator()
     {
         int colliderCount;
-            if (this is Raptor) colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, colliders, findLayerMask[0]);
-            else colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, colliders, findLayerMask[0]| findLayerMask[1]);
-            IDinosaur closestPredator = null;
+        if (this is Raptor) colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, colliders, findLayerMask[0]);
+        else colliderCount = Physics.OverlapSphereNonAlloc(transform.position, playerSensingDistance, colliders, findLayerMask[0] | findLayerMask[1]);
+        IDinosaur closestPredator = null;
         float closestSqrDistance = Mathf.Infinity;
-            for (int i = 0; i < colliderCount; i++)
+        for (int i = 0; i < colliderCount; i++)
+        {
+            IDinosaur dinosaur = colliders[i].GetComponent<IDinosaur>();
+            if (dinosaur != null && (Object)dinosaur != this && colliders[i].GetComponent<Animal>().size > size)
             {
-                IDinosaur dinosaur = colliders[i].GetComponent<IDinosaur>();
-                if (dinosaur != null && (Object)dinosaur != this && colliders[i].GetComponent<Animal>().size > size)
+                float sqrDistance = (transform.position - colliders[i].transform.position).sqrMagnitude;
+                if (sqrDistance < closestSqrDistance)
                 {
-                    float sqrDistance = (transform.position - colliders[i].transform.position).sqrMagnitude;
-                    if (sqrDistance < closestSqrDistance)
-                    {
-                        closestSqrDistance = sqrDistance;
-                        closestPredator = dinosaur;
-                    }
+                    closestSqrDistance = sqrDistance;
+                    closestPredator = dinosaur;
                 }
             }
-        
+        }
+
         return closestPredator;
     }
 
     public virtual void Move()
     {
-        if (isDie) return;
+        if (isDie || isAttack) return;
         CurrentState = AnimalState.Move;
         if (rb != null)
         {
             RaycastHit hit;
-            float raycastDistance = 0.6f; // Raycast 거리 증가
+            float raycastDistance = 0.5f;
 
             if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out hit, raycastDistance))
             {
                 Vector3 surfaceNormal = hit.normal;
                 float slopeAngle = Vector3.Angle(Vector3.up, surfaceNormal);
-
+                Debug.Log($"{gameObject.name}의 현재 경사 : {slopeAngle}");
                 if (slopeAngle > maxSlopeAngle)
                 {
-                    // 경사가 너무 심하면 수평 속도를 0으로 만들고, 아래로 약간의 힘을 가하여 미끄러지도록 유도
-                    rb.velocity = new Vector3(0, rb.velocity.y - 0.5f, 0); // y축 속도에 약간의 음수 값을 더함
+                    Vector3 slideDirection = Vector3.Cross(surfaceNormal, Vector3.Cross(surfaceNormal, Vector3.up)).normalized;
+                    float slideForceMultiplier = Mathf.Pow(slopeAngle / slideThresholdAngle, 2f) * 5f;
+                    rb.velocity = slideDirection * moveSpeed * slideForceMultiplier;
+                    rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
                     return;
                 }
-
                 Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, surfaceNormal).normalized;
                 Vector3 velocity = horizontalDirection * moveSpeed;
                 rb.velocity = new Vector3(velocity.x, 0f, velocity.z);
@@ -462,20 +557,28 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                 Vector3 velocity = horizontalDirection * moveSpeed;
                 rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
             }
+
+            // obstacleDetected가 true이면 위로 올라가는 속도 제한
+            if (obstacleDetected && rb.velocity.y > 0) // 추가 조건: 위로 올라가는 경우에만 제한
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            }
         }
     }
 
 
     protected float CalculateSpeed(int infoIdx)
     {
-            return speeds[infoIdx];
-        
+        return speeds[infoIdx];
+
         //크기에 따른 속도 계산 로직
         //return Mathf.Clamp(speed, moveSpeedMin, moveSpeedMax);
     }
-    private void InteractWithNearbyDinosaurs()
+    protected void InteractWithNearbyDinosaurs()
     {
-        Collider[] nearbyColliders = new Collider[10]; // 필요에 따라 배열 크기 조정
+        //if (this is Herbivore) return;
+        Collider[] nearbyColliders = new Collider[5];
+        interactionDistance = infoIdx <= 1 ? 7f : 30;
         int colliderCount = Physics.OverlapSphereNonAlloc(transform.position, interactionDistance, nearbyColliders);
 
         for (int i = 0; i < colliderCount; i++)
@@ -483,9 +586,12 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             IDinosaur otherDinosaur = nearbyColliders[i].GetComponent<IDinosaur>();
             if (otherDinosaur != null && (Object)otherDinosaur != this)
             {
-                Debug.Log("상호작용합니다.");
                 Interact(otherDinosaur);
-                return;
+                break;
+            }
+            else
+            {
+                //Debug.Log("실패");
             }
         }
     }
@@ -493,7 +599,6 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public virtual void Interact(IDinosaur other)
     {
         if (isDie) return;
-        
     }
 
     //private void OnTriggerEnter(Collider other)
@@ -505,9 +610,12 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     //        Interact(dinosaur);
     //    }
     //}
+
     private void OnCollisionEnter(Collision collision)
     {
+        //if (this is not Herbivore) return;
         if (isDie) return;
+        //Debug.Log($"초식 공룡{gameObject.name}의 공격");
         IDinosaur dinosaur = collision.transform.GetComponent<IDinosaur>();
         if (dinosaur != null)
         {
@@ -520,4 +628,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         //정보 표시
     }
 
+    public virtual void OnDisable()
+    {
+        //CurrentState = AnimalState.Idle;
+    }
 }

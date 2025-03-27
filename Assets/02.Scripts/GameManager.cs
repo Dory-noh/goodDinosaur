@@ -32,8 +32,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeDay()
     {
-        Debug.Log($"{Day}일 차 입니다.");
         Day++;
-        if (Day == 8) PoolingManager.Instance.SetDinosWithReset();
+        Debug.Log($"{Day}일 차 입니다.");
+    
+        //if (Day == 8) PoolingManager.Instance.SetDinosWithReset();
+        if (Day == 8) PoolingManager.Instance.AdjustDinoCount();
     }
 }
