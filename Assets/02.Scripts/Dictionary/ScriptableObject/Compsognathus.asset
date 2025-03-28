@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6e8dfc9d977749a5c5a308b781c4c, type: 3}
+  m_Name: Compsognathus
+  m_EditorClassIdentifier: 
+  dinoName: "\uCF64\uD504\uC18C\uADF8\uB098\uD22C\uC2A4"
+  description: "\uC950\uB77C\uAE30 \uD6C4\uAE30 \uB3C5\uC77C \uBC0F \uD504\uB791\uC2A4\uC5D0
+    \uC0B4\uC558\uB358 \uC218\uAC01\uB958 \uACF5\uB8E1. '\uC608\uC05C \uD131'\uC774\uB77C\uB294
+    \uB73B\uC758 \uC774\uB984\uC744 \uAC00\uC84C\uB2E4. \uBAB8\uAE38\uC774\uB294
+    1.25m\uC5D0 \uC57D 2.5kg\uC73C\uB85C \uC791\uC740 \uACF5\uB8E1. \uC8FC\uB85C
+    \uC11C\uC2DD\uD558\uB358 \uACF3\uC774 \uC720\uB7FD \uAD70\uB3C4\uC758 \uC12C\uC774\uC5C8\uAE30\uC5D0
+    \uC0DD\uD0DC\uACC4\uC5D0\uC11C \uCD5C\uC0C1\uC704 \uD3EC\uC2DD\uC790\uC600\uC744
+    \uAC83\uC73C\uB85C \uCD94\uC815\uD558\uACE0 \uC788\uB2E4. "

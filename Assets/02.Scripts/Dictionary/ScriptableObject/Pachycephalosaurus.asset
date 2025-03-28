@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6e8dfc9d977749a5c5a308b781c4c, type: 3}
+  m_Name: Pachycephalosaurus
+  m_EditorClassIdentifier: 
+  dinoName: "\uD30C\uD0A4\uCF00\uD314\uB85C\uC0AC\uC6B0\uB8E8\uC2A4"
+  description: "\uBC31\uC545\uAE30 \uD6C4\uAE30 \uC11C\uC2DD\uD588\uB358 \uD6C4\uB450\uB958
+    \uACF5\uB8E1. \uC18D\uBA85\uC758 \uB73B\uC740 '\uB450\uAEBC\uC6B4 \uBA38\uB9AC\uB97C
+    \uAC00\uC9C4 \uB3C4\uB9C8\uBC40'. \uC8FC\uB465\uC774 \uB05D\uC740 \uBFB0\uC871\uD55C
+    \uBD80\uB9AC \uBAA8\uC591\uC774\uC5C8\uACE0, \uB098\uBB47\uC78E\uBAA8\uC591\uC758
+    \uC774\uBE68\uC774 \uBB34\uC218\uD558\uAC8C \uB098 \uC788\uB2E4. \uC131\uCCB4\uAC00
+    \uB418\uBA74 \uBA38\uB9AC \uBD80\uBD84\uC774 \uBCFC\uB85D\uD574\uC9C0\uBA70 \uC8FC\uBCC0\uC5D0
+    \uB098 \uC788\uB294 \uAC00\uC2DC\uB4E4\uC774 \uC791\uC544\uC9C4\uB2E4. \uB450\uAC1C\uACE8\uC744
+    \uACF5\uACA9\uC758 \uC218\uB2E8\uC774\uB098 \uC9DD\uC9D3\uAE30 \uACBD\uC7C1\uC5D0
+    \uC774\uC6A9\uD588\uC744 \uAC83\uC73C\uB85C \uCD94\uC815\uD55C\uB2E4. "

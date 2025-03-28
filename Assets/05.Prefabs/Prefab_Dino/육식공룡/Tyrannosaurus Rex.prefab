@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 7641692121933870668}
   - component: {fileID: 7641692121933870665}
   - component: {fileID: -5436712385573187819}
+  - component: {fileID: 3242387757516007305}
+  - component: {fileID: -3528294333947542388}
   m_Layer: 6
   m_Name: Tyrannosaurus Rex
   m_TagString: Untagged
@@ -188,8 +190,9 @@ MonoBehaviour:
   obstacleSensingDistance: 5
   playerSensingDistance: 10
   maxSlopeAngle: 30
+  slideThresholdAngle: 30
   hpImg: {fileID: 0}
-  interactionDistance: 5
+  interactionDistance: 10
   closestVictimObject: {fileID: 0}
 --- !u!54 &7641692121933870665
 Rigidbody:
@@ -221,6 +224,123 @@ CapsuleCollider:
   m_Height: 5.25
   m_Direction: 2
   m_Center: {x: 0, y: 2, z: -1.44}
+--- !u!114 &3242387757516007305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641692121933870670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7866fc7e9417ae49ba21686967288ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinoInfo: {fileID: 11400000, guid: 7512a8d4fa0347a42918598d8dc84dde, type: 2}
+--- !u!114 &-3528294333947542388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641692121933870670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 6890851614993513568}
+  - {fileID: 6890851614993534270}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2671663624293943962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -695,6 +815,18 @@ PrefabInstance:
 --- !u!4 &6890851614988122724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 403982, guid: 07f502d91b44df14ebea9bda19da782e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6890851614988243050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6890851614993513568 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 13659146, guid: 07f502d91b44df14ebea9bda19da782e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6890851614988243050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6890851614993534270 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 13688148, guid: 07f502d91b44df14ebea9bda19da782e,
     type: 3}
   m_PrefabInstance: {fileID: 6890851614988243050}
   m_PrefabAsset: {fileID: 0}

@@ -1,0 +1,132 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class PlayerControl : Raptor //랩터 클래스 상속
+{
+    private Camera playerCamera;
+    private Rigidbody rb_player;
+    public InputActionProperty continuousMoveAction;
+
+    // PlayerMove 스크립트에서 가져온 변수들
+    public float speedMultiplier = 15f;
+    public float maxSpeed = 7f;
+    public float smoothSpeed = 5f;
+    public float acceleration = 10f;
+    public float deceleration = 5f;
+    private float currentSpeed = 0f;
+    private Vector3 targetPosition;
+    public LayerMask obstacleLayer;
+    private bool obstacleDetected_player = false;
+    public float turnSpeed = 60f; // 회전 속도 (초당 각도)
+
+    private int hungerLV;
+
+    public int HungerLV
+    {
+        get { return hungerLV; }
+        set { 
+            hungerLV = value;
+            GameManager.Instance.currentHungerLevel = hungerLV;
+        }
+    }
+
+    //공룡 울음소리 출력 이벤트
+    public UnityEvent CarnivoreOfBMAttackSFX;
+    public UnityEvent CarnivoreOfSAttackSFX;
+    public UnityEvent HerbivoreAttackSFX;
+    public UnityEvent dinoDieSFX;
+
+    public override void Awake()
+    {
+        base.Awake();
+        playerCamera = GetComponentInChildren<Camera>();
+        rb_player = GetComponent<Rigidbody>();
+        Debug.Log($"이 오브젝트는 랩터인가요? : {this is Raptor}");
+        if (rb_player == null)
+        {
+            Debug.LogError("Player 오브젝트에 Rigidbody 컴포넌트가 없습니다.");
+        }
+        targetPosition = transform.position; // 초기 목표 위치 설정
+    }
+
+    public override void FixedUpdate()
+    {
+        if (playerCamera == null || rb_player == null || GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false) return;
+        Move();
+    }
+
+    public override void Move()
+    {
+        // 로코모션 입력 값 읽기
+        Vector2 input = continuousMoveAction.action.ReadValue<Vector2>();
+
+        // 이동 처리 (조이스틱 상하 입력)
+        Vector3 desiredMove = ComputeDesiredMove(new Vector2(0, input.y)); // 세로축 입력만 사용
+
+        if (input.y != 0)
+        {
+            currentSpeed = Mathf.Clamp(currentSpeed + acceleration * Time.deltaTime, 0f, maxSpeed); // 가속
+        }
+        else
+        {
+            currentSpeed = Mathf.Clamp(currentSpeed - deceleration * Time.deltaTime, 0f, maxSpeed); // 감속
+            targetPosition = transform.position; //조이스틱 입력을 멈췄을 때 움직인 위치를 현재 위치로 설정한다.
+        }
+
+        if (desiredMove != Vector3.zero && currentSpeed > 0)
+        {
+            // 장애물 감지
+            obstacleDetected_player = Physics.Raycast(rb_player.position, desiredMove.normalized, obstacleSensingDistance, obstacleLayer);
+
+            if (!obstacleDetected_player)
+            {
+                Vector3 movement = desiredMove * currentSpeed * Time.deltaTime;
+                targetPosition += movement;
+                rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
+            }
+            else
+            {
+                currentSpeed = 0f;
+                Debug.Log("장애물 감지됨");
+                rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
+            }
+        }
+        else
+        {
+            rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
+        }
+    }
+
+    Vector3 ComputeDesiredMove(Vector2 input)
+    {
+        if (input == Vector2.zero)
+            return Vector3.zero;
+
+        Vector3 cameraForward = playerCamera.transform.forward;
+        Vector3 cameraRight = playerCamera.transform.right;
+
+        Vector3 moveDirection = (cameraForward * input.y) + (cameraRight * input.x);
+        moveDirection.Normalize();
+        moveDirection.y = 0; // 수평 이동만 고려
+
+        return moveDirection;
+    }
+
+    public void IncreaseHungerLevel()
+    {
+        HungerLV++;
+        HungerLV = Mathf.Clamp(HungerLV,0,GameManager.Instance.maxHungerLevel);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        GameManager.Instance.GamveOver = true;
+        GameManager.Instance.isPlay = false;
+    }
+}
