@@ -20,6 +20,7 @@ public class Carnivore : Animal, ICarnivore
 
     public override void FixedUpdate()
     {
+        if (GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false) return;
         if (isDie == true || isAttack) return;
         InteractWithNearbyDinosaurs();
         //InteractWithNearbyDinosaurs();

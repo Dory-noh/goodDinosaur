@@ -16,6 +16,8 @@ public class Raptor : Carnivore
     public override void OnEnable()
     {
         base.OnEnable();
+        leader = null; 
+        followers.Clear();
         if (gameObject.CompareTag("Player")) leader = this;
         /*
         if (leader != null)
@@ -91,6 +93,7 @@ public class Raptor : Carnivore
     public override void Interact(IDinosaur other)
     {
         base.Interact(other); //육식 공룡의 상호작용 로직 실행
+        if (this is PlayerControl player) GameManager.Instance.playerTeamSize = player.followers.Count + 1;
         //팀원 수 리더 포함 5마리 이하로 제한
         if (leader != null && (leader.followers.Count + 1 >= 5)) return;
         //부딪힌 공룡이 해당 랩터의 리더거나 같은 리더의 팔로워면 계산하지 않음.
@@ -169,9 +172,11 @@ public class Raptor : Carnivore
                 //둘 다 리더 아닐 때
             }
         }
+        if(this is PlayerControl _player) GameManager.Instance.playerTeamSize = _player.followers.Count + 1;
     }
     public override void Die()
     {
+        raptorLevel = 0;
         if (leader != null)
         {
             Debug.Log("랩터가 죽어 리더의 팔로워 리스트에서 해당 랩터를 제거합니다.");

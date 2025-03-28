@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 4294078472930578255}
   - component: {fileID: 318436865906048274}
   - component: {fileID: 8478652656621144038}
+  - component: {fileID: 6909872987176541229}
+  - component: {fileID: -6115346593246304923}
   m_Layer: 8
   m_Name: Stegosaurus
   m_TagString: Untagged
@@ -190,6 +192,123 @@ CapsuleCollider:
   m_Height: 3.37
   m_Direction: 2
   m_Center: {x: 0, y: 1.3, z: 0}
+--- !u!114 &6909872987176541229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790386210562679945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7866fc7e9417ae49ba21686967288ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinoInfo: {fileID: 11400000, guid: 3dc0f520110a21e4daa67cf6331ca9a4, type: 2}
+--- !u!114 &-6115346593246304923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790386210562679945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 6905799308829448909}
+  - {fileID: 6192192384943048799}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3995993598063465932
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,9 +425,21 @@ PrefabInstance:
     - {fileID: 8258156, guid: 10fc0a0d8babad0488329f7468240c71, type: 3}
     - {fileID: 11415876, guid: 10fc0a0d8babad0488329f7468240c71, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10fc0a0d8babad0488329f7468240c71, type: 3}
+--- !u!136 &6192192384943048799 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 736696741919563382, guid: 10fc0a0d8babad0488329f7468240c71,
+    type: 3}
+  m_PrefabInstance: {fileID: 6905799308816504361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6905799308816294569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488576, guid: 10fc0a0d8babad0488329f7468240c71,
+    type: 3}
+  m_PrefabInstance: {fileID: 6905799308816504361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6905799308829448909 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 13602020, guid: 10fc0a0d8babad0488329f7468240c71,
     type: 3}
   m_PrefabInstance: {fileID: 6905799308816504361}
   m_PrefabAsset: {fileID: 0}

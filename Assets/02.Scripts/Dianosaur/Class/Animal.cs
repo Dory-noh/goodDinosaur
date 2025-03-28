@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public enum AnimalState
@@ -151,6 +152,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     }
     public virtual void FixedUpdate() //육식 공룡은 해당 메서드를 오버라이드해서 사용하기 때문에 해당 메서드에 접근하지 않음.
     {
+        if (GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false) return;
         if (isDie == true || isAttack) return;
 
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
@@ -376,6 +378,21 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
     public void Damage(float power)
     {
+        PlayerControl player = null;
+        //해당 공룡을 공격한 공룡이 플레이어이거나 플레이어가 속한 랩터 무리의 일원일 경우 소리 출력
+        if (Attacker is PlayerControl) player = (PlayerControl)Attacker;
+        else if((Attacker is Raptor raptor) && (raptor.leader!=null) && (raptor.leader is PlayerControl)) player = (PlayerControl)Attacker;
+        if(player != null){
+            if (this is Herbivore)
+            {
+                player.HerbivoreAttackSFX?.Invoke();
+            }
+            else if (this is Carnivore)
+            {
+                if (this.infoIdx == 0) player.CarnivoreOfSAttackSFX?.Invoke();
+                else player.CarnivoreOfBMAttackSFX?.Invoke();
+            }
+        }
         hp -= power;
         hp = Mathf.Clamp(hp, 0, MaxHp);
         hpImg.fillAmount = (float)hp / MaxHp;
@@ -441,7 +458,26 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isDie = true;
             CurrentState = AnimalState.Die;
-            if (Attacker is Raptor raptor) raptor.raptorLevel++; //랩터 레벨 증가
+            PlayerControl player = null;
+            Raptor raptor = null;
+            if (Attacker is Raptor) raptor = (Raptor)Attacker;
+
+            //해당 공룡을 공격한 공룡이 플레이어이거나 플레이어가 속한 랩터 무리의 일원일 경우 소리 출력
+            if (Attacker is PlayerControl) player = (PlayerControl)Attacker;
+            else if ((Attacker is Raptor) && (raptor.leader != null) && (raptor.leader is PlayerControl)) player = (PlayerControl)Attacker;
+            if (player != null)
+            {
+                player.dinoDieSFX?.Invoke();
+                player.IncreaseHungerLevel();
+            }
+
+            if (Attacker is Raptor)
+            {
+                //리더 랩터가 없으면 공격 랩터 자신의 랩터 레벨이 증가한다.
+                if (raptor.leader == null) raptor.raptorLevel++;
+                //리더 랩터가 있으면 리더 랩터의 랩터 레벨이 증가한다.
+                else if(raptor.leader != player) raptor.leader.raptorLevel++; //랩터 레벨 증가
+            }
             if (Attacker != null && ((Carnivore)Attacker).closestVictim != null && ((Carnivore)Attacker).closestVictim == (IDinosaur)this) ((Carnivore)Attacker).closestVictim = null;
             TogglePhysicsComponents(false);
 
@@ -538,7 +574,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             {
                 Vector3 surfaceNormal = hit.normal;
                 float slopeAngle = Vector3.Angle(Vector3.up, surfaceNormal);
-                Debug.Log($"{gameObject.name}의 현재 경사 : {slopeAngle}");
+                //Debug.Log($"{gameObject.name}의 현재 경사 : {slopeAngle}");
                 if (slopeAngle > maxSlopeAngle)
                 {
                     Vector3 slideDirection = Vector3.Cross(surfaceNormal, Vector3.Cross(surfaceNormal, Vector3.up)).normalized;

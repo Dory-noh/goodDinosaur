@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlayerControl : Raptor
+public class PlayerControl : Raptor //랩터 클래스 상속
 {
     private Camera playerCamera;
     private Rigidbody rb_player;
@@ -22,6 +24,23 @@ public class PlayerControl : Raptor
     private bool obstacleDetected_player = false;
     public float turnSpeed = 60f; // 회전 속도 (초당 각도)
 
+    private int hungerLV;
+
+    public int HungerLV
+    {
+        get { return hungerLV; }
+        set { 
+            hungerLV = value;
+            GameManager.Instance.currentHungerLevel = hungerLV;
+        }
+    }
+
+    //공룡 울음소리 출력 이벤트
+    public UnityEvent CarnivoreOfBMAttackSFX;
+    public UnityEvent CarnivoreOfSAttackSFX;
+    public UnityEvent HerbivoreAttackSFX;
+    public UnityEvent dinoDieSFX;
+
     public override void Awake()
     {
         base.Awake();
@@ -37,8 +56,12 @@ public class PlayerControl : Raptor
 
     public override void FixedUpdate()
     {
-        if (playerCamera == null || rb_player == null) return;
+        if (playerCamera == null || rb_player == null || GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false) return;
+        Move();
+    }
 
+    public override void Move()
+    {
         // 로코모션 입력 값 읽기
         Vector2 input = continuousMoveAction.action.ReadValue<Vector2>();
 
@@ -77,11 +100,6 @@ public class PlayerControl : Raptor
         {
             rb_player.MovePosition(Vector3.Lerp(rb_player.position, targetPosition, Time.deltaTime * smoothSpeed));
         }
-
-        // 회전 처리 (조이스틱 좌우 입력)
-        float turnAmount = input.x * turnSpeed * Time.fixedDeltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0f, turnAmount, 0f);
-        rb_player.MoveRotation(rb_player.rotation * turnRotation);
     }
 
     Vector3 ComputeDesiredMove(Vector2 input)
@@ -97,5 +115,18 @@ public class PlayerControl : Raptor
         moveDirection.y = 0; // 수평 이동만 고려
 
         return moveDirection;
+    }
+
+    public void IncreaseHungerLevel()
+    {
+        HungerLV++;
+        HungerLV = Mathf.Clamp(HungerLV,0,GameManager.Instance.maxHungerLevel);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        GameManager.Instance.GamveOver = true;
+        GameManager.Instance.isPlay = false;
     }
 }

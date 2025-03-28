@@ -32,12 +32,14 @@ public class DaytoNight : MonoBehaviour
     public Color dayCloudColor; // 낮에는 흰색 구름
     public Color nightCloudColor; // 밤 구름 색 
 
-
+    //***추가된 내용***//
+    private float nextThreshold = 0.2f; // 다음 실행 시점
+    private float thresholdStep = 0.2f; // 간격
 
 
     void Awake()
     {
-        daytime = 60f;
+        daytime = 300f;
         dayRatio = time / daytime;
         time = 0f;
         // 스카이박스 복사본 생성 후 적용
@@ -52,14 +54,44 @@ public class DaytoNight : MonoBehaviour
 
     void Update()
     {
-        time +=Time.deltaTime; //시간을 계속 업데이트 
+        //***추가된 내용***// 모드 전환 시 시간 설정 초기화 필요
+        if (GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false) return;
+
+        time += Time.deltaTime; //시간을 계속 업데이트 
+
+        CheckDayRatioThreshold(); // dayRatio 임계값 확인
+
         if (time > daytime) { 
             time = 0f;
             GameManager.Instance.ChangeDay();
+            //***추가된 내용***//
+            nextThreshold = thresholdStep; // 하루가 바뀌면 다음 실행 시점 초기화
         } //하루가 지나면 시간초기화
+
         sunRise();
         Day2Night();
+        //***추가된 내용***//
+        
     }
+    //***추가된 내용***//
+    void CheckDayRatioThreshold()
+    {
+        if (dayRatio >= nextThreshold)
+        {
+            // ReduceHungerLevel 메서드를 호출한다.
+            GameManager.Instance.ReduceHungerLevel();
+
+            // 다음 임계값으로 업데이트
+            nextThreshold += thresholdStep;
+
+            // 만약 dayRatio가 1을 넘어갔다면 (하루가 끝났다면) 다음 날을 위해 초기화
+            if (nextThreshold > 1f)
+            {
+                nextThreshold = thresholdStep;
+            }
+        }
+    }
+
     void sunRise() 
     {
         dayRatio = time / daytime;

@@ -13,6 +13,7 @@ public class UIBillboard : MonoBehaviour
 
     void LateUpdate()
     {
+        if(GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false) return;
         transform.forward = cam.forward;
     }
 }

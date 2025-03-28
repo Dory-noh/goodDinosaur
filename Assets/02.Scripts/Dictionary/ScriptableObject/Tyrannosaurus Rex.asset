@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6e8dfc9d977749a5c5a308b781c4c, type: 3}
+  m_Name: Tyrannosaurus Rex
+  m_EditorClassIdentifier: 
+  dinoName: "\uD2F0\uB77C\uB178\uC0AC\uC6B0\uB8E8\uC2A4 \uB809\uC2A4"
+  description: "\uBC31\uC545\uAE30 \uD6C4\uAE30 \uBD81\uC544\uBA54\uB9AC\uCE74 \uC11C\uBD80\uC758
+    \uC218\uAC01\uB958 \uACF5\uB8E1.'\uD3ED\uAD70 \uB3C4\uB9C8\uBC40'\uC774\uB77C\uB294
+    \uB73B\uC744 \uB098\uD0C0\uB0B4\uBA70 Rex\uB294 \uB77C\uD2F4\uC5B4\uB85C \uC655\uC744
+    \uC758\uBBF8\uD55C\uB2E4. \uB450\uAC1C\uACE8\uC758 \uAE38\uC774\uB9CC 1.4m\uC5D0
+    \uD3ED\uC774 \uB113\uACE0 \uBB34\uAC70\uC6E0\uAE30 \uB54C\uBB38\uC5D0 \uC911\uC2EC\uC744
+    \uC7A1\uAE30 \uC704\uD574 \uAF2C\uB9AC\uAC00 \uBB34\uAC8C\uCD94 \uC5ED\uD560\uC744
+    \uD588\uC73C\uBA70 \uD314\uC740 \uC9E7\uC558\uB2E4\uACE0 \uD55C\uB2E4. \uC0AC\uB0E5\uC5D0
+    \uC801\uD569\uD558\uB3C4\uB85D \uC2DC\uC57C\uAC00 \uB113\uC5C8\uC73C\uBA70 \uCCAD\uAC01
+    \uB610\uD55C \uB6F0\uC5B4\uB0AC\uB2E4\uACE0 \uD55C\uB2E4. "

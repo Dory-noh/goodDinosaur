@@ -67,6 +67,7 @@ public class PoolingManager : MonoBehaviour
         SpawnPoints.Add(carnivoreSpawnYellow);
         SpawnPoints.Add(carnivoreSpawnRed);
 
+        //씬 로드시 미리 공룡 생성해둔다.
         createDinos();
         for (int i = 0; i < 2; i++) //초식: 0, 육식: 1
         {
@@ -79,7 +80,11 @@ public class PoolingManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (GameManager.Instance.GamveOver || GameManager.Instance.IsPlay == false)
+        {
+            StopAllCoroutines();
+            return;
+        }
     }
 
     void createDinos()
@@ -96,7 +101,6 @@ public class PoolingManager : MonoBehaviour
             for(int size = 0; size < 3; size++)
                 CreateBySize(i, size);
         }
-        SetDinos();
     }
 
     private void CreateBySize(int typeIdx, int sizeIdx)
@@ -129,7 +133,7 @@ public class PoolingManager : MonoBehaviour
         }
     }
 
-    void SetDinos()
+    public void SetDinos()
     {
         for (int typeIdx = 0; typeIdx < dinoPrefabs.Length; typeIdx++)
         {
@@ -141,7 +145,6 @@ public class PoolingManager : MonoBehaviour
                 {
                     RandomSpawnDino(typeIdx, sizeIdx);
                 }
-
             }
         }
     }
@@ -172,9 +175,8 @@ public class PoolingManager : MonoBehaviour
         }
     }
 
-    public void SetDinosWithReset()
+    public void ResetDinos()
     {
-        //Debug.Log("공룡 수 조절");
         // 기존 공룡들 비활성화
         for (int typeIdx = 0; typeIdx < dinoPrefabs.Length; typeIdx++)
         {
@@ -186,9 +188,6 @@ public class PoolingManager : MonoBehaviour
                 }
             }
         }
-
-        // 새로운 스폰 로직 실행
-        SetDinos();
     }
 
     //void SpawnDino(int size)
