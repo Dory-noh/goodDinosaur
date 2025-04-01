@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class StarFlicker : MonoBehaviour
     float time;
     public SpriteRenderer starLight;
     public Color colorB;
+    public Color colorA;
     public Color colorNone;
     public float speed = 2f;
     void Start()
@@ -19,17 +21,28 @@ public class StarFlicker : MonoBehaviour
     }
     void Update()
     {
+        time += Time.deltaTime;
+        if (time > daytime) { time = 0f; } //하루가 지나면 시간초기화
+        dayRatio = time / daytime;
         Flicker();
     }
     public void Flicker() 
     {
-        if (dayRatio >0.2 && dayRatio < 0.7)
+        if (dayRatio <= 0.5f)
         {
             starLight.color = colorNone;
         }
-        else 
+        else if (dayRatio > 0.5f && dayRatio <= 0.75f)
         {
-            starLight.color = Color.Lerp(colorNone, colorB, (dayRatio-0.5f)*2f);
+            float ratio = (dayRatio - 0.5f) * 4f;
+            starLight.color = Color.Lerp(colorNone, colorA, ratio);
+        }
+        else
+        {
+            // 밤 (0.75 ~ 1.0): 태양 사라짐, 대기 어두워짐
+            float ratio = (dayRatio - 0.75f) * 4f; // 밤 구간을 0~1로 매핑
+            starLight.color = Color.Lerp(colorA, colorB, ratio);
+
         }
     }
 

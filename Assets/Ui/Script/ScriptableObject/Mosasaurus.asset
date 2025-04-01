@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6e8dfc9d977749a5c5a308b781c4c, type: 3}
+  m_Name: Mosasaurus
+  m_EditorClassIdentifier: 
+  dinoName: "\uBAA8\uC0AC\uC0AC\uC6B0\uB8E8\uC2A4"
+  description: "\uBC31\uC545\uAE30 \uD6C4\uAE30 \uC720\uB7FD, \uC544\uBA54\uB9AC\uCE74,
+    \uC544\uD504\uB9AC\uCE74, \uC544\uC2DC\uC544, \uC624\uC138\uC544\uB2C8\uC544,
+    \uB0A8\uADF9\uC5D0\uC11C \uC11C\uC2DD\uD55C \uBAA8\uC0AC\uC0AC\uC6B0\uB8E8\uC2A4\uACFC
+    \uD30C\uCDA9\uB958. \uAF2C\uB9AC \uC9C0\uB290\uB7EC\uBBF8\uB294 \uC77C\uBD80\uC758
+    \uC5B4\uC885\uB4E4\uACFC \uD761\uC0AC\uD55C \uBAA8\uC2B5\uC744 \uB744\uACE0 \uC788\uB2E4. 
+    \uBD84\uB958\uC0C1 \uBC40\uBAA9\uC5D0 \uC18D\uD558\uB294 \uB3D9\uBB3C\uC5D0 \uAC00\uAE4C\uC6CC
+    \uBC40\uC774\uB098 \uC655\uB3C4\uB9C8\uBC40\uACFC \uC720\uC0AC\uD55C \uC810\uC774
+    \uB9CE\uB2E4\uACE0 \uD55C\uB2E4."

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- Generated using SpeedTree tools -->
+<Materials Count="4" Mesh="AmericanElm.obj" FlipOpacity="0">
+	<Material ID="1" Name="AmericanElmBark_Mat" TwoSided="0" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="AmericanElmBark.jpg" />
+		<Map Name="Opacity" File="AmericanElmBark_Opacity.jpg" />
+		<Map Name="Normal" File="AmericanElmBark_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="8" Name="AmericanElmLeaf_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="AmericanElmLeaf.jpg" />
+		<Map Name="Opacity" File="AmericanElmLeaf_Opacity.jpg" />
+		<Map Name="Normal" File="AmericanElmLeaf_Normal.jpg" />
+		<Map Name="Gloss" Value="0.327798" />
+		<Map Name="Specular" ColorR="0.74549" ColorG="0.745882" ColorB="0.741569" />
+		<Map Name="SubsurfaceColor" ColorR="0.875" ColorG="1" ColorB="0.625" />
+		<Map Name="SubsurfaceAmount" Value="0.2" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="2" Name="Branches_03_Mat" TwoSided="1" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="Branches_03.jpg" />
+		<Map Name="Opacity" File="Branches_03_Opacity.jpg" />
+		<Map Name="Normal" File="Branches_03_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+	<Material ID="5" Name="Cap_01_Mat" TwoSided="0" UserData="" VertexOpacity="0">
+		<Map Name="Color" File="Cap_01.jpg" />
+		<Map Name="Opacity" File="Cap_01_Opacity.jpg" />
+		<Map Name="Normal" File="Cap_01_Normal.jpg" />
+		<Map Name="Gloss" Value="0.25" />
+		<Map Name="Specular" ColorR="0.75" ColorG="0.75" ColorB="0.75" />
+		<Map Name="Custom" ColorR="0" ColorG="0" ColorB="0" />
+	</Material>
+</Materials>

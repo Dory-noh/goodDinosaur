@@ -1,0 +1,39 @@
+# Wavefront Object Material File
+# Generated using SpeedTree tools
+
+newmtl AmericanElmBark_Mat
+map_Kd AmericanElmBark.jpg
+map_d AmericanElmBark_Opacity.jpg
+map_bump AmericanElmBark_Normal.jpg
+bump AmericanElmBark_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl AmericanElmLeaf_Mat
+map_Kd AmericanElmLeaf.jpg
+map_d AmericanElmLeaf_Opacity.jpg
+map_bump AmericanElmLeaf_Normal.jpg
+bump AmericanElmLeaf_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl Branches_03_Mat
+map_Kd Branches_03.jpg
+map_d Branches_03_Opacity.jpg
+map_bump Branches_03_Normal.jpg
+bump Branches_03_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl Cap_01_Mat
+map_Kd Cap_01.jpg
+map_d Cap_01_Opacity.jpg
+map_bump Cap_01_Normal.jpg
+bump Cap_01_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+

@@ -117,7 +117,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AtmosphereThickness: 1
+    - _AtmosphereThickness: 0.5722629
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -128,7 +128,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Exposure: 1.79
+    - _Exposure: 0.67
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
