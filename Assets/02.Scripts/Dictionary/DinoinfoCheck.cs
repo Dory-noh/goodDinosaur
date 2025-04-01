@@ -30,7 +30,7 @@ public class DinoinfoCheck : MonoBehaviour
     {
         if (!isRegistered)
         {
-            //DictionaryManager.Instance.AddDino(dinoInfo);
+            DictionaryManager.Instance.AddDino(dinoInfo);
             isRegistered = true;
         }
     }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6e8dfc9d977749a5c5a308b781c4c, type: 3}
+  m_Name: Argentinosaurus
+  m_EditorClassIdentifier: 
+  dinoName: 
+  description: "\uB0A8\uC544\uBA54\uB9AC\uCE74\uC5D0\uC11C \uBC31\uC545\uAE30 \uD6C4\uAE30
+    \uC11C\uC2DD\uD588\uB358 \uC6A9\uAC01\uB958 \uACF5\uB8E1. \uC18D\uBA85\uC740
+    '\uC544\uB974\uD5E8\uD2F0\uB098 \uB3C4\uB9C8\uBC40'\uC774\uB77C\uB294 \uBC1C\uACAC\uC9C0\uC778
+    \uC544\uB974\uD5E8\uD2F0\uB098\uB97C \uAE30\uB150\uD558\uAE30 \uC704\uD574 \uC791\uBA85\uB418\uC5C8\uB2E4.
+    \uBAB8\uC774 35m, \uBAB8\uBB34\uAC8C\uB294 65t\uC73C\uB85C \uCD94\uC815\uB418\uB294
+    \uD604\uC7AC\uAE4C\uC9C0 \uC9C0\uAD6C \uC5ED\uC0AC\uC0C1 \uAC00\uC7A5 \uAC70\uB300\uD55C
+    \uC721\uC0C1 \uB3D9\uBB3C\uC774\uC790 \uAC00\uC7A5 \uD070 \uACF5\uB8E1\uC73C\uB85C
+    \uC54C\uB824\uC838 \uC788\uB2E4. \uAC70\uB300\uD55C \uB369\uCE58\uB85C \uC778\uD574
+    \uCD5C\uC0C1\uC704 \uD3EC\uC2DD\uC790\uB4E4\uC758 \uBAA9\uD45C\uAC00 \uB418\uC9C0
+    \uC54A\uC558\uC744 \uAC83\uC774\uBA70 \uCC9C\uC801\uC774 \uC5C6\uC5C8\uC744 \uAC83\uC73C\uB85C
+    \uCD94\uC815\uD55C\uB2E4. "

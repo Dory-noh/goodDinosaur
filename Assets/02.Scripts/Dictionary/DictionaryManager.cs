@@ -22,15 +22,14 @@ public class DictionaryManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        infoContainer = DictionaryUi.transform.GetChild(1).GetChild(0);
     }
     public void AddDino(DinoInfo newDino)
     {
         if (!collectedDino.Contains(newDino)) 
         {
             collectedDino.Add(newDino);
-
-            Debug.Log($"Dino Name : {newDino.name}");
+            CreateDino(newDino);
+            //Debug.Log($"Dino Name : {newDino.name}");
         }
     }
     private void CreateDino(DinoInfo Dino) 

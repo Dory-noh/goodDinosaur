@@ -10,6 +10,7 @@ public class WaterDeathHandler : MonoBehaviour
         Animal dinosaur = other.gameObject.GetComponent<Animal>();
         if (dinosaur != null)
         {
+            sceneManager.Instance.OnPlayerFallIntoWater();
             dinosaur.Die();
         }
     }

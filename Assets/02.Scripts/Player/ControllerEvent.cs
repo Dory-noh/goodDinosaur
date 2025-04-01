@@ -17,8 +17,7 @@ public class ControllerEvent : MonoBehaviour
 
     private void Start()
     {
-        DisableRayInteractor();
-        ToggleRayOff.Invoke();
+        EnableRayInteractor();
     }
 
     //fish를 ray로 hover할 때 작동하는 메서드
@@ -29,10 +28,10 @@ public class ControllerEvent : MonoBehaviour
         {
             //감지한 공룡이 랩터면 공의 색을 노란 색으로 한다.
             if (dinosaur.GetComponent<Raptor>() != null) { colorBall.GetComponent<MeshRenderer>().material.color = Color.yellow; return; }
-            Debug.Log($"공룡 감지 : {dinosaur.name}");
+            //Debug.Log($"공룡 감지 : {dinosaur.name}");
             int level = dinosaur.GetComponent<Animal>().infoIdx;
             int count;
-            if (GetComponent<PlayerControl>().leader != null) count = GetComponent<PlayerControl>().leader.followers.Count + 1; //리더 포함 팀원 수 세기
+            if (GetComponent<PlayerControl>().leader != null) count = GameManager.Instance.playerTeamSize;
             else //플레이어는 항상 리더이기 때문에 leader가 null이 되지 않지만 오류 방지를 막기 위해 넣어 두었다.
             {
                 count = 1;
@@ -86,7 +85,6 @@ public class ControllerEvent : MonoBehaviour
 
     private void OnTriggerPressed(InputAction.CallbackContext context)
     {
-        if(GameManager.Instance.IsPlay == false) GameManager.Instance.IsPlay = true;
         leftController.GetComponent<XRRayInteractor>().enabled = true;
         rightController.GetComponent<XRRayInteractor>().enabled = true;
         ToggleRay.Invoke();
@@ -94,14 +92,20 @@ public class ControllerEvent : MonoBehaviour
 
     private void OnTriggerReleased(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         Invoke("DisableRayInteractor", 0.5f);
 
         ToggleRayOff.Invoke();
     }
 
-    private void DisableRayInteractor()
+    public void DisableRayInteractor()
     {
         leftController.GetComponent<XRRayInteractor>().enabled = false;
         rightController.GetComponent<XRRayInteractor>().enabled = false;
+    }
+    public void EnableRayInteractor()
+    {
+        leftController.GetComponent<XRRayInteractor>().enabled = true;
+        rightController.GetComponent<XRRayInteractor>().enabled = true;
     }
 }
