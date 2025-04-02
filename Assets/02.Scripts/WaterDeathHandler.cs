@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class WaterDeathHandler : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("물에 빠지다");
         Animal dinosaur = other.gameObject.GetComponent<Animal>();
         if (dinosaur != null)
         {
-            sceneManager.Instance.OnPlayerFallIntoWater();
-            dinosaur.Die();
+
+            if (dinosaur is PlayerControl)
+                sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[0]);
+            //dinosaur.Die();
+            else dinosaur.Die();
         }
     }
 }
