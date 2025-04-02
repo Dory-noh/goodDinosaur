@@ -117,6 +117,9 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     // 상호작용 거리
     public float interactionDistance = 8f;
 
+    // HP 자동 회복 관련 변수
+    protected float lastDamageTime = 0f;
+    protected float regenerationInterval = 60f; // 1분 (60초)
     public virtual void Awake()
     {
         //초기화 시에 오브젝트 검색 및 캐싱
@@ -153,11 +156,20 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         isAttack = false;
         CurrentState = AnimalState.Idle;
         TogglePhysicsComponents(true);
+        lastDamageTime = Time.time; // 활성화 시 초기화
     }
     public virtual void FixedUpdate() //육식 공룡은 해당 메서드를 오버라이드해서 사용하기 때문에 해당 메서드에 접근하지 않음.
     {
         if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         if (isDie == true || isAttack) return;
+
+        // HP 자동 회복 로직
+        if (Time.time - lastDamageTime >= regenerationInterval && hp < MaxHp)
+        {
+            Debug.Log($"{gameObject.name} Hp회복합니다.");
+            lastDamageTime = Time.time; // 데미지 타임 초기화
+            RecoverHP();
+        }
 
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
         AvoidObstacles();
@@ -386,11 +398,23 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         hp -= power;
         hp = Mathf.Clamp(hp, 0, MaxHp);
+        lastDamageTime = Time.time; // 데미지 받은 시간 업데이트
         hpImg.fillAmount = (float)hp / MaxHp;
         if (hp == 0)
         {
+            if(this is PlayerControl)
+            {
+                sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[2]);
+            }
             Die();
+
         }
+    }
+    public void RecoverHP()
+    {
+        hp++;
+        hp = Mathf.Clamp(hp, 0, MaxHp);
+        hpImg.fillAmount = (float)hp / MaxHp;
     }
 
     public void Wander()
@@ -419,7 +443,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     public void Attack(Animal animal)
     {
         AttackSFX?.Invoke();
-        if (!isAttack || animal != null)
+        if (!isAttack && animal != null)
         {
             isAttack = true;
             CurrentState = AnimalState.Attack;
@@ -435,9 +459,18 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * maxTurnRateY * 2f);
                 }
             }
+            if(this is PlayerControl)
+            {
+                Debug.Log($"{gameObject.name}의 공격. 데미지 {power}");
+                Debug.Log($"공격 전 공격한 공룡 HP값 {animal.hp}");
+            }
+            
             animal.Damage(power);
+            if(this is PlayerControl)
+                Debug.Log($"공격 후 공격한 공룡 HP값 {animal.hp}");
+            animal.Attacker = this;
 
-            if(this.gameObject.activeSelf) StartCoroutine(ResetAttack(1f));
+            if(this.gameObject.activeSelf) StartCoroutine(ResetAttack(1.5f));
         }
     }
 
@@ -453,26 +486,36 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isDie = true;
             CurrentState = AnimalState.Die;
-            dinoDieSFX?.Invoke();
             
             if (this is not PlayerControl)
             {
                 //해당 공룡을 공격(하여 죽게)한 공룡이 플레이어이거나 플레이어가 속한 랩터 무리의 일원일 경우 HungerLevel 증가
 
-                if (Attacker is Raptor raptor)
+                if (Attacker != null)
                 {
-                    //리더 랩터가 없으면 공격 랩터 자신의 랩터 레벨이 증가한다.
-                    if (raptor.leader == null) raptor.raptorLevel++;
-                    //리더 랩터가 있으면 리더 랩터의 랩터 레벨이 증가한다.
-                    else {
-                        raptor.leader.raptorLevel++; //랩터 레벨 증가
-                        if (raptor.leader is PlayerControl player)
-                            player.IncreaseHungerLevel();
+                    try
+                    { Attacker.dinoDieSFX?.Invoke(); } //공격 공룡쪽에서 먹는 소리가 플레이되도록 한다.
+                    catch
+                    {
+                        Debug.Log($"{gameObject.name} 소리 재생 실패");
+                    }
+                    if (Attacker is Raptor raptor)
+                    {
+                        //리더 랩터가 없으면 공격 랩터 자신의 랩터 레벨이 증가한다.
+                        if (raptor.leader == null) raptor.raptorLevel++;
+                        //리더 랩터가 있으면 리더 랩터의 랩터 레벨이 증가한다.
+                        else
+                        {
+                            raptor.leader.raptorLevel++; //랩터 레벨 증가
+                            if (raptor.leader is PlayerControl player)
+                                player.IncreaseHungerLevel();
                             Debug.Log("HungerLevel + 1");
+                        }
                     }
                 }
-                //(해당 공룡을 공격하고 있던 )육식 공룡의 타겟에서 해당 공룡을 해제한다.
-                if (Attacker != null && ((Carnivore)Attacker).closestVictim != null && ((Carnivore)Attacker).closestVictim == (IDinosaur)this) ((Carnivore)Attacker).closestVictim = null;
+                //(해당 공룡을 공격하고 있던) 육식 공룡의 타겟에서 해당 공룡을 해제한다.
+                if (Attacker != null && Attacker is Carnivore carnDino && carnDino.closestVictim != null && carnDino.closestVictim == (IDinosaur)this) 
+                    carnDino.closestVictim = null;
                 TogglePhysicsComponents(false);
 
                 StartCoroutine(HideDelay(3f));
@@ -609,14 +652,15 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         //if (this is Herbivore) return;
         Collider[] nearbyColliders = new Collider[5];
-        interactionDistance = infoIdx <= 1 ? 7f : 30f;
-        int colliderCount = Physics.OverlapSphereNonAlloc(transform.position, interactionDistance, nearbyColliders);
+        interactionDistance = infoIdx == 0 ? 7f : infoIdx == 1 ? 15f : 30f;
+        int colliderCount = Physics.OverlapSphereNonAlloc(transform.position, interactionDistance, nearbyColliders, findLayerMask[0] | findLayerMask[1] | findLayerMask[2]);
 
         for (int i = 0; i < colliderCount; i++)
         {
             IDinosaur otherDinosaur = nearbyColliders[i].GetComponent<IDinosaur>();
             if (otherDinosaur != null && (Object)otherDinosaur != this)
             {
+                if (otherDinosaur is PlayerControl) Debug.Log($"{gameObject.name}이 플레이어와 상호작용합니다.");
                 Interact(otherDinosaur);
                 break;
             }

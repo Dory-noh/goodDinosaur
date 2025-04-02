@@ -11,6 +11,7 @@ public class Raptor : Carnivore
     public int raptorLevel = 0;
     public float followingDistance = 5f; // 리더와의 유지 거리
     public float rotationSpeed = 5f; // 회전 속도
+    public float leaderSpeedMultiplier = 1.7f; //리더 있을 때 속도 증가 배율
     public override void OnEnable()
     {
         base.OnEnable();
@@ -37,6 +38,20 @@ public class Raptor : Carnivore
     public override void Move()
     {
         CurrentState = AnimalState.Move;
+        //플레이어가 리더일 때, 플레이어를 잘 따라다니도록 플레이어의 Follower들 이동 속도를 증가시킴
+        float currentMoveSpeed = base.moveSpeed; //기본 속도 저장
+
+        //플레이어가 리더인 경우 Follower들 속도 증가
+        if (leader != null && leader is PlayerControl && leader != this)
+        {
+            currentMoveSpeed *= leaderSpeedMultiplier;
+            Debug.Log($"플레이어의 팀원 이동 속도 증가 {currentMoveSpeed}");
+        }
+        else
+        {
+            currentMoveSpeed = base.moveSpeed;
+        }
+        moveSpeed = currentMoveSpeed;
         if (leader == this || leader == null || gameObject.CompareTag("Player"))
         {
             base.Move();

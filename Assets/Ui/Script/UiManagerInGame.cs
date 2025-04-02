@@ -91,6 +91,7 @@ public class UiManagerInGame : MonoBehaviour
     }
     void LoadLobby() 
     {
+        if (GameManager.Instance.IsPlay != true) return;
         GameManager.Instance.IsPlay = false;
         GameManager.Instance.GameOver = false;
         GameMode.SetActive(GameManager.Instance.IsPlay);
@@ -126,6 +127,7 @@ public class UiManagerInGame : MonoBehaviour
     }
     public void StartGame() 
     {
+        if (GameManager.Instance.IsPlay == true) return;
         GameManager.Instance.IsPlay = true;
         GameManager.Instance.GameOver = false;
         PlayerControl player = Player.GetComponent<PlayerControl>();

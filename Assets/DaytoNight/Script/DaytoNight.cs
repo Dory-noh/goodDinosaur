@@ -53,9 +53,14 @@ public class DaytoNight : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
-        time += Time.deltaTime; //시간을 계속 업데이트
+        if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false)
+        {
+            time = 0;
+            nextThreshold = thresholdStep;
+            return;
+        }
 
+        time += Time.deltaTime; //시간을 계속 Update desu(찡긋)
         dayRatio = time / daytime;
 
         CheckDayRatioThreshold();

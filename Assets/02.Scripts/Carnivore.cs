@@ -8,6 +8,7 @@ public class Carnivore : Animal, ICarnivore
     //private int eatCooltime; //식사 쿨타임
     private bool eating;
     private bool victimDetected;
+
     [SerializeField] private MonoBehaviour closestVictimObject;
     public IDinosaur closestVictim;
     Vector3 victimDirection;
@@ -22,6 +23,13 @@ public class Carnivore : Animal, ICarnivore
     {
         if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         if (isDie == true || isAttack) return;
+
+        // HP 자동 회복 로직
+        if (Time.time - lastDamageTime >= regenerationInterval && hp < MaxHp)
+        {
+            RecoverHP();
+        }
+
         InteractWithNearbyDinosaurs();
         //InteractWithNearbyDinosaurs();
         //if (isBumped == true) Invoke("ResetBumpCheck", 3f);
@@ -266,7 +274,6 @@ public class Carnivore : Animal, ICarnivore
         {
             Attack(other as Animal);
             (other as Animal).SetAttacker(this);
-            
         }
         else
         {
@@ -320,7 +327,6 @@ public class Carnivore : Animal, ICarnivore
     public override void Die()
     {
         base.Die();
-        
     }
 
     public override void OnDisable()
