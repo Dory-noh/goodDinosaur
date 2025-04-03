@@ -134,6 +134,7 @@ public class UiManagerInGame : MonoBehaviour
         player.isDie = false;
         player.hp = player.MaxHp;
         player.hpImg.fillAmount = (float)player.hp / player.MaxHp;
+        player.GetComponent<ControllerEvent>().DisableRayInteractor();
         GameManager.Instance.currentHungerLevel = GameManager.Instance.maxHungerLevel;
         GameMode.SetActive(GameManager.Instance.IsPlay);
         LobbyMode.SetActive(!GameManager.Instance.IsPlay);
@@ -169,14 +170,14 @@ public class UiManagerInGame : MonoBehaviour
         GameOverUi.SetActive(true);
         PlayerHpBar.SetActive(false);
         MenuInGame.SetActive(false);
-        GameManager.Instance.IsPlay = false;
+        //GameManager.Instance.IsPlay = false;
     }
 
     void AdjustVolume(AudioSource source, Slider slider) //볼륨조절 
     {
         if (source != null && slider != null)
         {
-            source.volume = slider.value * (source.gameObject.CompareTag("dinoEffSource")?0.1f:1f);
+            source.volume = slider.value * (source.gameObject.CompareTag("dinoEffSource")?0.2f:1f);
         }
     }
     public void AdjustBGM() //BGM 조절 

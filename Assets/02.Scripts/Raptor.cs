@@ -45,7 +45,7 @@ public class Raptor : Carnivore
         if (leader != null && leader is PlayerControl && leader != this)
         {
             currentMoveSpeed *= leaderSpeedMultiplier;
-            Debug.Log($"플레이어의 팀원 이동 속도 증가 {currentMoveSpeed}");
+            //Debug.Log($"플레이어의 팀원 이동 속도 증가 {currentMoveSpeed}");
         }
         else
         {

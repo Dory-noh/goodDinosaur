@@ -53,7 +53,7 @@ public class ControllerEvent : MonoBehaviour
                 if (level == 0) colorBall.GetComponent<MeshRenderer>().material.color = Color.blue;
                 else colorBall.GetComponent<MeshRenderer>().material.color = Color.red;
             }
-            Invoke("resetColorBall", 5f);
+            Invoke("resetColorBall", 3f);
         }
         else
         {
@@ -85,27 +85,26 @@ public class ControllerEvent : MonoBehaviour
 
     private void OnTriggerPressed(InputAction.CallbackContext context)
     {
-        leftController.GetComponent<XRRayInteractor>().enabled = true;
-        rightController.GetComponent<XRRayInteractor>().enabled = true;
-        ToggleRay.Invoke();
+        EnableRayInteractor();
     }
 
     private void OnTriggerReleased(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         Invoke("DisableRayInteractor", 0.5f);
-
-        ToggleRayOff.Invoke();
     }
 
     public void DisableRayInteractor()
     {
         leftController.GetComponent<XRRayInteractor>().enabled = false;
         rightController.GetComponent<XRRayInteractor>().enabled = false;
+
+        ToggleRayOff.Invoke();
     }
     public void EnableRayInteractor()
     {
         leftController.GetComponent<XRRayInteractor>().enabled = true;
         rightController.GetComponent<XRRayInteractor>().enabled = true;
+        ToggleRay.Invoke();
     }
 }

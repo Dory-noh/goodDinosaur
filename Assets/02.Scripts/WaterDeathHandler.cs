@@ -6,15 +6,21 @@ public class WaterDeathHandler : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("물에 빠지다");
+        if (GameManager.Instance.GameOver == true) return;
+        
+        
         Animal dinosaur = other.gameObject.GetComponent<Animal>();
         if (dinosaur != null)
         {
-
+            Debug.Log("물에 빠지다");
             if (dinosaur is PlayerControl)
+            {
+                GameManager.Instance.GameOver = true;
                 sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[0]);
+            }
+
             //dinosaur.Die();
-            else dinosaur.Die();
+            dinosaur.Die();
         }
     }
 }
