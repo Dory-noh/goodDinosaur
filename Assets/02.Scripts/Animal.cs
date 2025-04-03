@@ -167,7 +167,6 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if (Time.time - lastDamageTime >= regenerationInterval && hp < MaxHp)
         {
             Debug.Log($"{gameObject.name} Hp회복합니다.");
-            lastDamageTime = Time.time; // 데미지 타임 초기화
             RecoverHP();
         }
 
@@ -263,8 +262,9 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         }
 
         // obstacleDetected가 true이고, hit에 유효한 collider가 있으며, 해당 collider의 레이어가 "Obstacle"인 경우
-        if (obstacleDetected && hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        if (obstacleDetected && hit.collider != null && (hit.collider.gameObject.layer == findLayerMask[3] | hit.collider.gameObject.layer == findLayerMask[4]))
         {
+            Debug.Log($"{gameObject.name} 장애물 감지함");
             hitPoint = hit.point;
             Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
             float goalPointMinDistanceFromHit = 1f;
@@ -394,8 +394,9 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         Attacker = other;
     }
 
-    public void Damage(float power)
+    public IEnumerator Damage(float power)
     {
+        yield return new WaitForSeconds(0.6f);
         hp -= power;
         hp = Mathf.Clamp(hp, 0, MaxHp);
         lastDamageTime = Time.time; // 데미지 받은 시간 업데이트
@@ -404,6 +405,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             if(this is PlayerControl)
             {
+                GameManager.Instance.GameOver = true;
                 sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[2]);
             }
             Die();
@@ -412,6 +414,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     }
     public void RecoverHP()
     {
+        lastDamageTime = Time.time; // 데미지 타임 초기화
         hp++;
         hp = Mathf.Clamp(hp, 0, MaxHp);
         hpImg.fillAmount = (float)hp / MaxHp;
@@ -447,30 +450,35 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isAttack = true;
             CurrentState = AnimalState.Attack;
-            
+            Debug.Log($" {gameObject.name}의 {animal.gameObject.name} 공격");
+
             if(this is not PlayerControl)
             {
                 //공격 대상을 바라보도록 회전  방향 = 목표 지점 - 기준 지점
                 Vector3 directionToTarget = animal.transform.position - transform.position;
-                directionToTarget.y = 0; //y축 회전만 고려
                 if (directionToTarget != Vector3.zero)
                 {
                     Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * maxTurnRateY * 2f);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * maxTurnRateY * 5f);
                 }
             }
-            if(this is PlayerControl)
+            if(this is Raptor raptor) raptor.power = raptor.leader == null ? powers[0] : raptor.leader.followers.Count + 1 < 3 ? powers[0] : raptor.leader.followers.Count + 1 < 5 ? powers[1] : powers[2];
+            if (this is PlayerControl)
             {
                 Debug.Log($"{gameObject.name}의 공격. 데미지 {power}");
                 Debug.Log($"공격 전 공격한 공룡 HP값 {animal.hp}");
             }
-            
-            animal.Damage(power);
+            StartCoroutine(animal.Damage(power));
+
             if(this is PlayerControl)
                 Debug.Log($"공격 후 공격한 공룡 HP값 {animal.hp}");
             animal.Attacker = this;
 
-            if(this.gameObject.activeSelf) StartCoroutine(ResetAttack(1.5f));
+            if (this.gameObject.activeSelf)
+            {
+                if(this is PlayerControl) StartCoroutine(ResetAttack(1.5f));
+                else StartCoroutine(ResetAttack(0.5f));
+            }
         }
     }
 
@@ -606,8 +614,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if (rb != null)
         {
             RaycastHit hit;
+            float maxVelocity = 20f; // 예시 값, 상황에 맞게 조정
             float raycastDistance = 0.5f;
-
             if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out hit, raycastDistance))
             {
                 Vector3 surfaceNormal = hit.normal;
@@ -615,27 +623,68 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                 //Debug.Log($"{gameObject.name}의 현재 경사 : {slopeAngle}");
                 if (slopeAngle > maxSlopeAngle)
                 {
-                    Vector3 slideDirection = Vector3.Cross(surfaceNormal, Vector3.Cross(surfaceNormal, Vector3.up)).normalized;
-                    float slideForceMultiplier = Mathf.Pow(slopeAngle / slideThresholdAngle, 2f) * 5f;
-                    rb.velocity = slideDirection * moveSpeed * slideForceMultiplier;
-                    rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
-                    return;
+                    if (surfaceNormal != Vector3.zero)
+                    {
+                        Vector3 cross1 = Vector3.Cross(surfaceNormal, Vector3.up);
+                        if (cross1 != Vector3.zero)
+                        {
+                            Vector3 slideDirection = Vector3.Cross(surfaceNormal, cross1).normalized;
+                            if (slideThresholdAngle > 0)
+                            {
+                                float slideForceMultiplier = Mathf.Pow(slopeAngle / slideThresholdAngle, 2f) * 5f;
+                                Vector3 rawVelocity = slideDirection * moveSpeed * slideForceMultiplier;
+                                // 속도 성분을 특정 범위로 제한
+                                
+                                rb.velocity = new Vector3(
+                                    Mathf.Clamp(rawVelocity.x, -maxVelocity, maxVelocity),
+                                    Mathf.Clamp(rawVelocity.y, -maxVelocity, maxVelocity),
+                                    Mathf.Clamp(rawVelocity.z, -maxVelocity, maxVelocity)
+                                );
+                                rb.AddForce(Vector3.down * 20f, ForceMode.Acceleration);
+                                return;
+                            }
+                            else
+                            {
+                                Debug.LogError($"slideThresholdAngle is zero on {gameObject.name}");
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogError($"First cross product resulted in zero vector on {gameObject.name}");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError($"Surface normal is zero on {gameObject.name}");
+                    }
                 }
                 Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, surfaceNormal).normalized;
                 Vector3 velocity = horizontalDirection * moveSpeed;
-                rb.velocity = new Vector3(velocity.x, 0f, velocity.z);
+                rb.velocity = new Vector3(
+                    Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity),
+                    0f,
+                    Mathf.Clamp(velocity.z, -maxVelocity, maxVelocity)
+                );
             }
             else
             {
                 Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
                 Vector3 velocity = horizontalDirection * moveSpeed;
-                rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
+                rb.velocity = new Vector3(
+                    Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity),
+                    Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity),
+                    Mathf.Clamp(velocity.z, -maxVelocity, maxVelocity)
+                );
             }
 
             // obstacleDetected가 true이면 위로 올라가는 속도 제한
-            if (obstacleDetected && rb.velocity.y > 0) // 추가 조건: 위로 올라가는 경우에만 제한
+            if (obstacleDetected && rb.velocity.y > 0) //위로 올라가는 경우에만 제한
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                rb.velocity = new Vector3(
+                    Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity),
+                    0f,
+                    Mathf.Clamp(rb.velocity.z, -maxVelocity, maxVelocity)
+                );
             }
         }
     }

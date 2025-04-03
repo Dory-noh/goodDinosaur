@@ -56,6 +56,7 @@ public class DaytoNight : MonoBehaviour
         if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false)
         {
             time = 0;
+            GameManager.Instance.Day = 1;
             nextThreshold = thresholdStep;
             return;
         }

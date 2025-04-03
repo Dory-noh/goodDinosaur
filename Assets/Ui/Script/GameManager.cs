@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("³¡!");
                 UiManagerInGame.Instance.SetGameOverUI();
+                PoolingManager.Instance.ResetDinos();
+                EnableRay();
             }
         }
 
@@ -37,8 +39,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                PoolingManager.Instance.ResetDinos();
-                EnableRay();
+                
             }
         }
     }
@@ -113,8 +114,8 @@ public class GameManager : MonoBehaviour
         if (currentHungerLevel <= 0)
         {
             Debug.Log("±¾¾î Á×¾ú½À´Ï´Ù.");
-            sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[1]);
             GameOver = true;
+            sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[1]);
             player.Die();
         }
     }

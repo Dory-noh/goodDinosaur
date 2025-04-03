@@ -25,15 +25,10 @@ public class PlayerControl : Raptor //랩터 클래스 상속
     private float currentSpeed = 0f;
     private Vector3 targetPosition;
     public LayerMask obstacleLayer;
-    private bool obstacleDetected_player = false;
+    //private bool obstacleDetected_player = false;
     public float turnSpeed = 60f; // 회전 속도 (초당 각도)
 
     private int hungerLV;
-
-    [Header("사운드 관련")]
-    public AudioSource _audio;
-    public AudioClip walk;
-
     public int HungerLV
     {
         get { return hungerLV = GameManager.Instance.currentHungerLevel; }
@@ -43,6 +38,14 @@ public class PlayerControl : Raptor //랩터 클래스 상속
             GameManager.Instance.currentHungerLevel = hungerLV;
         }
     }
+
+    [Header("사운드 관련")]
+    public AudioSource _audio;
+    public AudioClip walk;
+
+
+    public GameObject target;
+    float targetDistance;
 
     public override void Awake()
     {
@@ -59,6 +62,8 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         {
             return;
         }
+
+        targetDistance = Vector3.Distance(target.transform.position, transform.position);
 
         // HP 자동 회복 로직
         if (Time.time - lastDamageTime >= regenerationInterval && hp < MaxHp)
@@ -81,18 +86,17 @@ public class PlayerControl : Raptor //랩터 클래스 상속
                 if (raptor != null && !raptor.isDie)
                 {
                     float distanceToTarget = Vector3.Distance(raptor.transform.position, targetPosition);
-                    if (distanceToTarget > 8f)
+                    float attackDistance = ((Animal)closestVictim).infoIdx == 0 ? 7f : ((Animal)closestVictim).infoIdx == 1 ? 15f : 30f;
+                    raptor.closestVictim = closestVictim;
+                    if (distanceToTarget > attackDistance)
                     {
-                        raptor.closestVictim = closestVictim;
                         raptor.Move();
                     }
+                    else
+                    {
+                        raptor.Hunt(closestVictim);
+                    }
                 }
-                else
-                {
-                    raptor.Hunt(closestVictim);
-                }
-
-
             }
             Debug.Log("A 키로 공격합니다.");
             Hunt(closestVictim);
@@ -100,6 +104,7 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         else
         {
             Debug.Log("공격할 대상이 없습니다."); // 공격 대상이 없을 경우 메시지 출력 (선택 사항)
+            Debug.Log($"타겟과의 거리 : {targetDistance}");
         }
     }
 
@@ -193,8 +198,9 @@ public class PlayerControl : Raptor //랩터 클래스 상속
     public override void Die()
     {
         base.Die();
-        GameManager.Instance.GameOver = true;
-        GameManager.Instance.IsPlay = false;
+        //GameManager.Instance.GameOver = true;
+        //GameManager.Instance.IsPlay = false;
+        GetComponent<ControllerEvent>().EnableRayInteractor();
     }
 
     void PlaySound(AudioClip clip, bool loop)
