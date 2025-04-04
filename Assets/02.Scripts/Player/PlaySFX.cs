@@ -13,6 +13,6 @@ public class PlaySFX : MonoBehaviour
 
     public void Call()
     {
-        target.Play();
+        if(target.isPlaying == false) target.Play();
     }
 }
