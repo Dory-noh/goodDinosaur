@@ -32,9 +32,9 @@ public class DaytoNight : MonoBehaviour
     public Color dayCloudColor; // 낮에는 흰색 구름
     public Color nightCloudColor; // 밤 구름 색 
 
-    [Header("허기짐체크용")]
-    private float nextThreshold = 0.2f; // 다음 실행 시점
-    private float thresholdStep = 0.2f; // 간격
+    //[Header("허기짐체크용")]
+    //private float nextThreshold = 0.2f; // 다음 실행 시점
+    //private float thresholdStep = 0.2f; // 간격
 
 
 
@@ -57,41 +57,41 @@ public class DaytoNight : MonoBehaviour
         {
             time = 0;
             GameManager.Instance.Day = 1;
-            nextThreshold = thresholdStep;
+            //nextThreshold = thresholdStep;
             return;
         }
 
-        time += Time.deltaTime; //시간을 계속 Update desu(찡긋)
+        time += Time.deltaTime; //시간을 계속 Update
         dayRatio = time / daytime;
 
-        CheckDayRatioThreshold();
+        //CheckDayRatioThreshold();
         normalizedRatio = dayRatio <= 0.3f ? dayRatio * 2 : (dayRatio - 0.5f) * 2;
         if (time > daytime) 
         { 
             time = 0f; 
             GameManager.Instance.ChangeDay();
-            nextThreshold = thresholdStep;
+            //nextThreshold = thresholdStep;
         } //하루가 지나면 시간초기화
         sunRise();
         Day2Night();
     }
-    void CheckDayRatioThreshold()
-    {
-        if (dayRatio >= nextThreshold)
-        {
-            // ReduceHungerLevel 메서드를 호출한다.
-            GameManager.Instance.ReduceHungerLevel();
+    //void CheckDayRatioThreshold()
+    //{
+    //    if (dayRatio >= nextThreshold)
+    //    {
+    //        // ReduceHungerLevel 메서드를 호출한다.
+    //        GameManager.Instance.ReduceHungerLevel();
 
-            // 다음 임계값으로 업데이트
-            nextThreshold += thresholdStep;
+    //        // 다음 임계값으로 업데이트
+    //        nextThreshold += thresholdStep;
 
-            // 만약 dayRatio가 1을 넘어갔다면 (하루가 끝났다면) 다음 날을 위해 초기화
-            if (nextThreshold > 1f)
-            {
-                nextThreshold = thresholdStep;
-            }
-        }
-    }
+    //        // 만약 dayRatio가 1을 넘어갔다면 (하루가 끝났다면) 다음 날을 위해 초기화
+    //        if (nextThreshold > 1f)
+    //        {
+    //            nextThreshold = thresholdStep;
+    //        }
+    //    }
+    //}
     void sunRise() 
     {
         float sunAng = dayRatio * 360f ; //낮과 밤에 비율에 대한 태양의 각
