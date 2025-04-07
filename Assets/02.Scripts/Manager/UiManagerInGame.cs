@@ -18,6 +18,7 @@ public class UiManagerInGame : MonoBehaviour
     public GameObject Title;
     public GameObject Menu;
     public GameObject Dictionary;
+    public GameObject GameClear;
 
     [Header("UI ¿ä¼Òµé")]
     public Slider bgmSlider;
@@ -68,6 +69,7 @@ public class UiManagerInGame : MonoBehaviour
 
     private void StartingSetup()
     {
+
         LobbyMode.SetActive(true);
         GameMode.SetActive(false);
         Title.SetActive(true);
@@ -75,6 +77,7 @@ public class UiManagerInGame : MonoBehaviour
         MenuInGame.SetActive(false);
         Menu.SetActive(false);
         PlayerHpBar.SetActive(false);
+        GameClear.SetActive(false);
         isPause = false;
     }
 
@@ -99,7 +102,8 @@ public class UiManagerInGame : MonoBehaviour
         Player.transform.position = LobbyTr.position;
         Player.transform.rotation = LobbyTr.rotation;
         PlayerHpBar.SetActive(false);
-        
+        GameClear.SetActive(false);
+
     }
     public void Quit()
     {
@@ -142,6 +146,7 @@ public class UiManagerInGame : MonoBehaviour
         Player.transform.position = RespawnTr.position;
         Player.transform.rotation = RespawnTr.rotation;
         PlayerHpBar.SetActive(true);
+        GameClear.SetActive(false);
         player.followers.Clear();
     }
 
@@ -167,7 +172,12 @@ public class UiManagerInGame : MonoBehaviour
 
     public void SetGameOverUI()
     {
-        GameOverUi.SetActive(true);
+        if (GameManager.Instance.Day == 15)        
+            GameClear.SetActive(true);
+        else
+            GameOverUi.SetActive(true);
+
+
         PlayerHpBar.SetActive(false);
         MenuInGame.SetActive(false);
         //GameManager.Instance.IsPlay = false;

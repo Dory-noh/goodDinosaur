@@ -8,7 +8,7 @@ public class StarFlicker : MonoBehaviour
 {
     float dayRatio;
     public float daytime = 60f;
-    float time;
+    float time = 0f;
     public SpriteRenderer starLight;
     public Color colorB;
     public Color colorA;
@@ -21,8 +21,14 @@ public class StarFlicker : MonoBehaviour
     }
     void Update()
     {
-        time += Time.deltaTime;
-        if (time > daytime) { time = 0f; } //하루가 지나면 시간초기화
+        if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false)
+        {
+            time = 0;
+            GameManager.Instance.Day = 1;
+            return;
+        }
+
+        time += Time.deltaTime; //시간을 계속 Update
         dayRatio = time / daytime;
         Flicker();
     }

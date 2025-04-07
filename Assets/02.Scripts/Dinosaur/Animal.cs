@@ -443,7 +443,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             {
                 dinoDieSFX?.Invoke();
                 GameManager.Instance.GameOver = true;
-                sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[2]);
+                sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.DeathScenes[2]);
             }
             Die();
 

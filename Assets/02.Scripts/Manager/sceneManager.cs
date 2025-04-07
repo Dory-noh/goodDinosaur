@@ -16,6 +16,7 @@ public class sceneManager : MonoBehaviour
     public PlayableDirector timeline;  // 애니메이션용 타임라인
     private bool isPlayingCutscene = false;  // 중복 실행 방지
     [Header("Death Scene 불러오기용")]
+    public string[] AnimationScene = { "OpeningScene", "Day_8Scene", "VolcanoScene" };
     public string[] DeathScenes = { "WaterDeathScene", "StarveDeathScene", "EatenDeathScene" };
     GameObject AnimationCam;
     GameObject Player;
@@ -37,7 +38,7 @@ public class sceneManager : MonoBehaviour
     }
 
     //씬이 모두 로드되었을 때 넘어가게 한다
-    public void OnPlayerDie(string SceneName)
+    public void OnPlayCutScene(string SceneName)
     {
 
         if (isPlayingCutscene) return; // 중복 실행 방지
