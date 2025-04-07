@@ -19,7 +19,7 @@ public class DaytoNight : MonoBehaviour
 
     [Header("시간")]
     public float daytime = 300f;
-    float time;
+    float time = 0f; 
     float dayRatio;
     float normalizedRatio;
 
@@ -41,7 +41,6 @@ public class DaytoNight : MonoBehaviour
     void Awake()
     {
         Day.SetFloat("_AtmosphereThickness", ThicknessLevel);
-        time = 0f;
         // 스카이박스 복사본 생성 후 적용
         RenderSettings.skybox = Day;
 

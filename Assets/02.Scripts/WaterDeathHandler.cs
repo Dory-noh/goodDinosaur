@@ -16,7 +16,7 @@ public class WaterDeathHandler : MonoBehaviour
             if (dinosaur is PlayerControl)
             {
                 GameManager.Instance.GameOver = true;
-                sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[0]);
+                sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.DeathScenes[0]);
             }
 
             //dinosaur.Die();

@@ -109,9 +109,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"{Day}일 차 입니다.");
         Day++;
-        if (Day == 8) PoolingManager.Instance.AdjustDinoCount();
+        if (Day == 8)
+        {
+            sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.AnimationScene[1]); //***8일차 컷씬 재생 
+            PoolingManager.Instance.AdjustDinoCount();
+        }
         else if (Day == 15)
         {
+            sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.AnimationScene[2]);
             Debug.Log("게임 종료");
             GameOver = true;
         }
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("굶어 죽었습니다.");
             GameOver = true;
-            sceneManager.Instance.OnPlayerDie(sceneManager.Instance.DeathScenes[1]);
+            sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.DeathScenes[1]);
             player.Die();
         }
     }
