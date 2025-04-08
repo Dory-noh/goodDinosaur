@@ -36,6 +36,7 @@ public class Raptor : Carnivore
         CurrentState = AnimalState.Move;
         float currentMoveSpeed = base.moveSpeed;
 
+        //리더가 있는 경우, 랩터 속도를 증가시킨다.
         if (leader != null && leader is PlayerControl && leader != this)
         {
             currentMoveSpeed *= leaderSpeedMultiplier;
@@ -45,7 +46,7 @@ public class Raptor : Carnivore
             currentMoveSpeed = base.moveSpeed;
         }
         moveSpeed = currentMoveSpeed;
-        if (leader == this || leader == null || this is PlayerControl)
+        if (leader == this || leader == null || this is PlayerControl) //리더이거나 리더가 없는 경우, 기본 움직임 진행
         {
             base.Move();
         }
@@ -54,7 +55,7 @@ public class Raptor : Carnivore
             Vector3 directionToLeader = leader.transform.position - transform.position;
             directionToLeader.y = 0;
 
-            if (closestVictim == null)
+            if (closestVictim == null) //사냥 대상이 없는 경우, 리더 따라다님
             {
                 if (directionToLeader != Vector3.zero)
                 {
@@ -62,7 +63,7 @@ public class Raptor : Carnivore
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
                 }
             }
-            else
+            else //사냥 대상 있는 경우, 사냥 대상을 향해 돌진 후 공격
             {
                 Vector3 directionToVictim = ((MonoBehaviour)closestVictim).transform.position - transform.position;
                 if (directionToVictim != Vector3.zero)
@@ -72,11 +73,12 @@ public class Raptor : Carnivore
                 }
 
                 float distanceToTarget = Vector3.Distance(transform.position, ((MonoBehaviour)closestVictim).transform.position);
-                float attackDistance = ((Animal)closestVictim).infoIdx == 0 ? 3f : ((Animal)closestVictim).infoIdx == 1 ? 7f : 15f;
+                float attackDistance = ((Animal)closestVictim).infoIdx == 0 ? 3f : ((Animal)closestVictim).infoIdx == 1 ? 5f : 7f;
 
                 if (distanceToTarget > attackDistance)
                 {
                     base.Move();
+                    //Hunt(closestVictim);
                 }
                 else
                 {
@@ -130,12 +132,13 @@ public class Raptor : Carnivore
     public void InitiateAttack(IDinosaur target)
     {
         closestVictim = target;
-
+        
         foreach (var follower in followers)
         {
             if (follower != null && !follower.isDie)
             {
                 follower.closestVictim = target;
+                follower.Move();
             }
         }
     }
@@ -171,6 +174,32 @@ public class Raptor : Carnivore
                         playerOther.AddFollower(this);
                         this.leader = playerOther;
                         Debug.Log($"{gameObject.name}이(가) 플레이어의 팔로워가 되었습니다.");
+
+                        // 상호작용한 랩터의 팔로워들도 플레이어의 팔로워로 편입
+                        if (this is Raptor interactedRaptor)
+                        {
+                            List<Raptor> followersToTransfer = interactedRaptor.followers.ToList(); // 복사본으로 순회
+
+                            foreach (var follower in followersToTransfer)
+                            {
+                                if (playerOther.followers.Count < 4) // 팔로워 수가 아직 4마리 미만인지 확인
+                                {
+                                    if (follower != null && follower.leader != playerOther && !playerOther.followers.Contains(follower))
+                                    {
+                                        if (follower.leader == interactedRaptor) follower.leader = null; // 기존 리더 해제
+                                        interactedRaptor.RemoveFollower(follower);
+                                        playerOther.AddFollower(follower);
+                                        follower.leader = playerOther;
+                                        Debug.Log($"{interactedRaptor.gameObject.name}의 팔로워 {follower.gameObject.name}도 플레이어의 팔로워가 되었습니다.");
+                                    }
+                                }
+                                else
+                                {
+                                    Debug.Log($"플레이어의 팔로워 수가 최대치에 도달하여 더 이상 팔로워를 편입할 수 없습니다.");
+                                    break; // 더 이상 팔로워를 편입하지 않고 루프 종료
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -185,7 +214,7 @@ public class Raptor : Carnivore
             return; // 플레이어와의 상호작용 후에는 더 이상 다른 랩터 로직을 실행하지 않음
         }
 
-        if (other is Raptor otherRaptor) // 부딪힌 공룡도 랩터인 경우 실행하는 부분
+            if (other is Raptor otherRaptor) // 부딪힌 공룡도 랩터인 경우 실행하는 부분
         {
             Debug.Log($"Interact: {gameObject.name} (leader: {leader?.gameObject.name}), 부딪힌 대상: {otherRaptor.gameObject.name} (leader: {otherRaptor.leader?.gameObject.name})");
 

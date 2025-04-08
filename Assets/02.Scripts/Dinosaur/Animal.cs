@@ -112,7 +112,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         get { return currentState; }
         set
         {
-            if (value == AnimalState.Eat)
+            if (value == AnimalState.Eat && isEating == false)
             {
                 StartCoroutine(EatingDelay());
             }
@@ -425,7 +425,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         Attacker = other;
     }
 
-    public IEnumerator Damage(float power)
+    public virtual IEnumerator Damage(float power)
     {
         if (Attacker != null && Attacker.infoIdx == 2) yield return new WaitForSeconds(0.6f);
         else yield return new WaitForSeconds(0.3f);
@@ -436,6 +436,10 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if(Attacker != null && this is Carnivore carn)
         {
             carn.closestVictim = Attacker;
+        }
+        if(this is PlayerControl player)
+        {
+            player.InitiateAttack(Attacker);
         }
         if (hp == 0)
         {
@@ -453,6 +457,20 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     private IEnumerator EatingDelay()
     {
         isEating = true;
+        if (this is not PlayerControl && this is Carnivore carn && carn.closestVictim != null)
+        {
+            //공격 대상을 바라보도록 회전  방향 = 목표 지점 - 기준 지점
+            Vector3 directionToTarget = ((Animal)carn.closestVictim).transform.position - transform.position;
+            if (directionToTarget != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+                Vector3 targetEuler = targetRotation.eulerAngles;
+                targetEuler.x = 0f;
+                targetEuler.z = 0f;
+                Quaternion yRotationOnly = Quaternion.Euler(targetEuler);
+                transform.rotation = Quaternion.Slerp(transform.rotation, yRotationOnly, Time.fixedDeltaTime * maxTurnRateY * 3f);
+            }
+        }
         yield return new WaitForSeconds(2f); // 2초 동안 대기
         isEating = false;
         if (currentState == AnimalState.Eat) // 먹는 애니메이션이 끝났다면 상태를 Idle로 변경 (선택 사항)
@@ -499,7 +517,6 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isAttack = true;
             CurrentState = AnimalState.Attack;
-            Debug.Log($" {gameObject.name}의 {animal.gameObject.name} 공격");
 
             if(this is not PlayerControl)
             {
@@ -508,19 +525,23 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                 if (directionToTarget != Vector3.zero)
                 {
                     Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * maxTurnRateY * 5f);
+                    Vector3 targetEuler = targetRotation.eulerAngles;
+                    targetEuler.x = 0f;
+                    targetEuler.z = 0f;
+                    Quaternion yRotationOnly = Quaternion.Euler(targetEuler);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, yRotationOnly, Time.fixedDeltaTime * maxTurnRateY * 3f);
                 }
             }
-            if(this is Raptor raptor) raptor.power = raptor.leader == null ? powers[0] : raptor.leader.followers.Count + 1 < 3 ? powers[0] : raptor.leader.followers.Count + 1 < 5 ? powers[1]/2.0f : powers[2]/2.0f;
-            if (this is PlayerControl)
-            {
-                Debug.Log($"{gameObject.name}의 공격. 데미지 {power}");
-                Debug.Log($"공격 전 공격한 공룡 HP값 {animal.hp}");
-            }
+            if(this is Raptor raptor) raptor.power = raptor.leader == null ? powers[0] : raptor.leader.followers.Count + 1 < 3 ? powers[0] : raptor.leader.followers.Count + 1 < 5 ? powers[1]/2f : powers[2]/2f;
+            //if (this is PlayerControl player) player.power = powers[0];
+            //{
+            //    Debug.Log($"{gameObject.name}의 공격. 데미지 {power}");
+            //    Debug.Log($"공격 전 공격한 공룡 HP값 {animal.hp}");
+            //}
             StartCoroutine(animal.Damage(power));
 
-            if(this is PlayerControl)
-                Debug.Log($"공격 후 공격한 공룡 HP값 {animal.hp}");
+            //if(this is PlayerControl)
+                //Debug.Log($"공격 후 공격한 공룡 HP값 {animal.hp}");
             animal.Attacker = this;
 
             if (this.gameObject.activeSelf)
@@ -559,7 +580,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                     } //공격 공룡쪽에서 먹는 소리가 플레이되도록 한다.
                     catch
                     {
-                        Debug.Log($"{gameObject.name} 소리 재생 실패");
+                        //Debug.Log($"{gameObject.name} 소리 재생 실패");
                     }
                     if (Attacker is Raptor raptor)
                     {
@@ -674,6 +695,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         if (isDie || isAttack) return;
         CurrentState = AnimalState.Move;
+
+
         if (rb != null)
         {
             RaycastHit hit;
@@ -692,6 +715,12 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                         if (cross1 != Vector3.zero)
                         {
                             Vector3 slideDirection = Vector3.Cross(surfaceNormal, cross1).normalized;
+                            if (slideDirection == Vector3.zero)
+                            {
+                                rb.velocity = Vector3.zero;
+                                return;
+                            }
+                            slideDirection.Normalize();
                             if (slideThresholdAngle > 0)
                             {
                                 float slideForceMultiplier = Mathf.Pow(slopeAngle / slideThresholdAngle, 2f) * 5f;
@@ -721,23 +750,36 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                         Debug.LogError($"Surface normal is zero on {gameObject.name}");
                     }
                 }
-                Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, surfaceNormal).normalized;
-                Vector3 velocity = horizontalDirection * moveSpeed;
-                rb.velocity = new Vector3(
-                    Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity),
-                    0f,
-                    Mathf.Clamp(velocity.z, -maxVelocity, maxVelocity)
-                );
+                Vector3 projectedVelocity = Vector3.ProjectOnPlane(transform.forward, surfaceNormal);
+                if(projectedVelocity == Vector3.zero) rb.velocity = Vector3.zero;
+                else
+                {
+                    Vector3 horizontalDirection = projectedVelocity.normalized;
+                    Vector3 velocity = horizontalDirection * moveSpeed;
+                    rb.velocity = new Vector3(
+                        Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity),
+                        0f,
+                        Mathf.Clamp(velocity.z, -maxVelocity, maxVelocity)
+                    );
+                }
             }
             else
             {
-                Vector3 horizontalDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
-                Vector3 velocity = horizontalDirection * moveSpeed;
-                rb.velocity = new Vector3(
-                    Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity),
-                    Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity),
-                    Mathf.Clamp(velocity.z, -maxVelocity, maxVelocity)
-                );
+                Vector3 projectedVelocity = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                if(projectedVelocity == Vector3.zero)
+                {
+                    rb.velocity = Vector3.zero;
+                }
+                else
+                {
+                    Vector3 horizontalDirection = projectedVelocity.normalized;
+                    Vector3 velocity = horizontalDirection * moveSpeed;
+                    rb.velocity = new Vector3(
+                        Mathf.Clamp(velocity.x, -maxVelocity, maxVelocity),
+                        Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity),
+                        Mathf.Clamp(velocity.z, -maxVelocity, maxVelocity)
+                    );
+                }
             }
 
             // obstacleDetected가 true이면 위로 올라가는 속도 제한
@@ -764,7 +806,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         //if (this is Herbivore) return;
         Collider[] nearbyColliders = new Collider[5];
-        interactionDistance = infoIdx == 0 ? 7f : infoIdx == 1 ? 15f : 26f;
+        if(this is not PlayerControl || (this is PlayerControl player) && player.followers.Count == 0) interactionDistance = infoIdx == 0 ? 7f : infoIdx == 1 ? 15f : 26f;
+        else interactionDistance = infoIdx == 0 ? 7f : infoIdx == 1 ? 15f : 35f;
         int colliderCount = Physics.OverlapSphereNonAlloc(transform.position, interactionDistance, nearbyColliders, findLayerMask[0] | findLayerMask[1] | findLayerMask[2]);
 
         for (int i = 0; i < colliderCount; i++)

@@ -1765,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 1101876747862979163, guid: c197d8726c985d044ae8fdad4e10777d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.66
+      value: -2.09
       objectReference: {fileID: 0}
     - target: {fileID: 1743351516756977765, guid: c197d8726c985d044ae8fdad4e10777d,
         type: 3}
@@ -1890,7 +1890,7 @@ PrefabInstance:
     - target: {fileID: 5759836119055519843, guid: c197d8726c985d044ae8fdad4e10777d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 47.5
+      value: 48.72
       objectReference: {fileID: 0}
     - target: {fileID: 5844072501749368399, guid: c197d8726c985d044ae8fdad4e10777d,
         type: 3}
@@ -2102,7 +2102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LineWidth: 0.005
   m_OverrideInteractorLineLength: 1
-  m_LineLength: 1500
+  m_LineLength: 4000
   m_AutoAdjustLineLength: 1
   m_MinLineLength: 100
   m_UseDistanceToHitAsMaxLineLength: 1
@@ -3227,7 +3227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LineWidth: 0.005
   m_OverrideInteractorLineLength: 1
-  m_LineLength: 1500
+  m_LineLength: 4000
   m_AutoAdjustLineLength: 0
   m_MinLineLength: 100
   m_UseDistanceToHitAsMaxLineLength: 1
@@ -4255,10 +4255,10 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -4578891117036521716, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  speedMultiplier: 15
+  speedMultiplier: 12
   maxSpeed: 7
   smoothSpeed: 5
-  acceleration: 10
+  acceleration: 15
   deceleration: 5
   obstacleLayer:
     serializedVersion: 2
@@ -4266,6 +4266,10 @@ MonoBehaviour:
   turnSpeed: 60
   _audio: {fileID: 659333913}
   walk: {fileID: 8300000, guid: 8643fdb1911c4bc4d8a9bcb8799623a5, type: 3}
+  hapticIntansity: 1
+  hapticDuration: 0.2
+  leftController: {fileID: 1310388984}
+  rightController: {fileID: 1452286052}
 --- !u!54 &1461915134
 Rigidbody:
   m_ObjectHideFlags: 0

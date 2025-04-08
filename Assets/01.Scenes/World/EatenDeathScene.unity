@@ -236,6 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeline: {fileID: 119075407}
+  AnimationScene:
+  - OpeningScene
+  - Day_8Scene
+  - VolcanoScene
   DeathScenes:
   - WaterDeathScene
   - StarveDeathScene
@@ -811,7 +815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467916559537412802}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 438.87, y: 62.92, z: 581.86}
+  m_LocalPosition: {x: 438.87, y: 62.74, z: 581.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

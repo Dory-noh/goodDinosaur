@@ -7,7 +7,7 @@ using UnityEngine;
 public class StarFlicker : MonoBehaviour
 {
     float dayRatio;
-    public float daytime = 60f;
+    public float daytime = 300f;
     float time = 0f;
     public SpriteRenderer starLight;
     public Color colorB;
@@ -15,7 +15,8 @@ public class StarFlicker : MonoBehaviour
     public Color colorNone;
     public float speed = 2f;
     void Start()
-    { 
+    {
+        daytime = 300f;
         dayRatio = time / daytime;
         starLight = GetComponent<SpriteRenderer>();
     }

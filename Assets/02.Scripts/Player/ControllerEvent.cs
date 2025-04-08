@@ -12,8 +12,8 @@ public class ControllerEvent : MonoBehaviour
     public UnityEvent ToggleRay;
     public UnityEvent ToggleRayOff;
     [SerializeField] private GameObject colorBall;
-    [SerializeField] private GameObject leftController;
-    [SerializeField] private GameObject rightController;
+    [SerializeField] public GameObject leftController;
+    [SerializeField] public GameObject rightController;
 
     private void Start()
     {

@@ -187,7 +187,7 @@ public class UiManagerInGame : MonoBehaviour
     {
         if (source != null && slider != null)
         {
-            source.volume = slider.value * (source.gameObject.CompareTag("dinoEffSource")?0.4f:1f);
+            source.volume = slider.value * (source.gameObject.CompareTag("dinoEffSource")?0.3f:1f);
         }
     }
     public void AdjustBGM() //BGM Á¶Àý 

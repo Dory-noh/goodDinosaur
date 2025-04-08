@@ -297,7 +297,7 @@ public class Carnivore : Animal, ICarnivore
             (other as Animal).SetAttacker(this);
 
             //해당 공룡이 랩터이고, 플레이어가 아니며 무리의 리더라면...
-            if(this is Raptor raptor && !(this is not PlayerControl) && raptor.leader == this)
+            if(this is Raptor raptor && raptor.leader == this)
             {
                 raptor.InitiateAttack(other);
             }
@@ -313,32 +313,46 @@ public class Carnivore : Animal, ICarnivore
         if (obstacleDetected)
         {
             base.Move();
+            return;
         }
         if (closestVictim == null)
         {
             //Debug.Log($"[{gameObject.name}] Move 호출됨 - closestVictim이 null이므로 base.Move() 호출");
             base.Move();
+            return;
         }
         else //타겟이 있을 때
         {
             float distanceToVictim = Vector3.Distance(transform.position, ((Animal)closestVictim).transform.position);
+            float attackRange = (this is Raptor) ? (infoIdx == 0 ? 3f : infoIdx == 1 ? 7f : 10f) : (infoIdx == 0 ? 5f : infoIdx == 1 ? 15f : 25f); // 공격 거리, 랩터인지 아닌지에 따라, 그리고 infoIdx에 따라 달라진다.
             //Debug.Log($"[{gameObject.name}] Move 호출됨 - closestVictim: {closestVictim.GetType().Name}, 거리: {distanceToVictim}");
 
-            if ((infoIdx != 2 && distanceToVictim > 6f) || (infoIdx == 2 && distanceToVictim > 20f))
+            if (distanceToVictim > attackRange)
             {
-                //Debug.Log($"[{gameObject.name}] 먹잇감과의 거리가 5보다 크므로 base.Move() 호출");
+                //Debug.Log($"[{gameObject.name}] 먹잇감과의 거리가 멀어 추격을 시작합니다.");
+                // 먹잇감 방향으로 회전합니다.
+                Vector3 directionToTarget = ((Animal)closestVictim).transform.position - transform.position;
+                if (directionToTarget != Vector3.zero)
+                {
+                    goalLookRotation = Quaternion.LookRotation(directionToTarget);
+                    goalLookRotation.z = 0;
+                    goalLookRotation.x = 0;
+                    transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.fixedDeltaTime / 2f); // 회전 속도를 조절할 수 있습니다.
+                }
+                // 이동합니다. base.Move()는 보통 forward 방향으로 움직이도록 구현되어 있습니다.
                 base.Move();
+                CurrentState = AnimalState.Move; // 현재 상태를 움직이는 상태로 설정합니다.
             }
-            else
+            else if (distanceToVictim <= attackRange)
             {
-                //Debug.Log($"[{gameObject.name}] 먹잇감과의 거리가 5 이하이므로 움직임 멈춤");
-                // base.Move()를 호출하지 않아 움직임이 멈춥니다.
-                CurrentState = AnimalState.Idle;
+                //Debug.Log($"[{gameObject.name}] 먹잇감과의 거리가 {attackRange} 이하이므로 공격 준비를 합니다.");
+                CurrentState = AnimalState.Idle; // 현재 상태를 움직이지 않는 (공격 준비) 상태로 변경
+                Hunt(closestVictim); // Hunt 함수를 호출하여 공격 로직을 실행
             }
         }
     }
 
-
+   
     public override void Interact(IDinosaur other)
     {
         if (other is IHerbivore herbivore)

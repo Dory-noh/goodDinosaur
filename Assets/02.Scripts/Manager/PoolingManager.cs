@@ -225,7 +225,7 @@ public class PoolingManager : MonoBehaviour
                     Transform[] currentSpawnPoints = SpawnPoints[spawnPointArrayIndex];
                     int randomIndex = Random.Range(0, currentSpawnPoints.Length);
                     Vector3 pos = currentSpawnPoints[randomIndex].position;
-                    dino.transform.position = new Vector3(Random.Range(pos.x - 20, pos.x + 20), pos.y, Random.Range(pos.z - 20, pos.z + 20));
+                    dino.transform.position = new Vector3(Random.Range(pos.x - 15, pos.x + 15), pos.y, Random.Range(pos.z - 15, pos.z + 15));
                     dino.transform.rotation = Quaternion.identity;
                     dino.gameObject.SetActive(true);
                     break;
