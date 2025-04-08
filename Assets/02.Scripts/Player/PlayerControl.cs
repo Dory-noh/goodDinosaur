@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+//using UnityEngine.InputSystem.XR;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -20,13 +20,13 @@ public class PlayerControl : Raptor //랩터 클래스 상속
     public float speedMultiplier = 15f;
     public float maxSpeed = 7f;
     public float smoothSpeed = 5f;
-    public float acceleration = 10f;
+    public float acceleration = 15f;
     public float deceleration = 5f;
     private float currentSpeed = 0f;
     private Vector3 targetPosition;
     public LayerMask obstacleLayer;
     //private bool obstacleDetected_player = false;
-    public float turnSpeed = 120f; // 회전 속도 (초당 각도)
+    public float turnSpeed = 60f; // 회전 속도 (초당 각도)
 
     private int hungerLV;
     public int HungerLV
@@ -43,6 +43,18 @@ public class PlayerControl : Raptor //랩터 클래스 상속
     public AudioSource _audio;
     public AudioClip walk;
 
+    [Header("햅틱 피드백 설정")]
+    [Tooltip("햅틱 효과 강도 (0 ~ 1")]
+    [Range(0f, 1f)]
+    [SerializeField] private float hapticIntansity = 1f;
+
+    [Tooltip("햅틱 효과 지속 시간 (초)")]
+    [SerializeField] float hapticDuration = 0.2f;
+
+    [SerializeField] private ActionBasedController leftController;
+    [SerializeField] private ActionBasedController rightController;
+
+
     public override void Awake()
     {
         base.Awake();
@@ -50,6 +62,8 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         rb_player = GetComponent<Rigidbody>();
         HungerLV = GameManager.Instance.currentHungerLevel;
         targetPosition = transform.position; // 초기 목표 위치 설정
+        if (leftController != null && rightController != null) Debug.Log("컨트롤러 연결 완료");
+        else Debug.Log("컨트롤러 연결 실패");
     }
 
     public override void FixedUpdate()
@@ -69,18 +83,38 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         Turn(); // 회전 기능
     }
 
+    public override IEnumerator Damage(float power)
+    {
+        base.Damage(power);
+        TriggerHaptic(leftController, hapticIntansity, hapticDuration);
+        TriggerHaptic(rightController, hapticIntansity, hapticDuration);
+        yield return null;
+    }
+
     private void OnAttackPerformed(InputAction.CallbackContext context)
     {
         closestVictim = FindClosestVictim();
         if (closestVictim != null) // closestVictim이 null이 아닌지 확인
         {
-            InitiateAttack(closestVictim);
-            Debug.Log("A 키로 공격합니다.");
             Hunt(closestVictim);
+            Debug.Log("A 키로 공격합니다.");
+            TriggerHaptic(leftController, hapticIntansity, hapticDuration);
+            TriggerHaptic(rightController, hapticIntansity, hapticDuration);
         }
         else
         {
             Debug.Log("공격할 대상이 없습니다."); // 공격 대상이 없을 경우 메시지 출력 (선택 사항)
+        }
+    }
+
+    private void TriggerHaptic(ActionBasedController controller, float intensity, float duration)
+    {
+        if (controller != null)
+        {
+            if (controller.hapticDeviceAction != null)
+            {
+                    controller.SendHapticImpulse(intensity, duration);
+            }
         }
     }
 
@@ -143,11 +177,12 @@ public class PlayerControl : Raptor //랩터 클래스 상속
 
             // Rigidbody를 사용하여 안전하게 회전
             Quaternion targetRotation = rb_player.rotation * Quaternion.Euler(0f, rotationAmount, 0f);
-            float rotationDamping = 30f;
+            float rotationDamping = 20f;
             rb_player.MoveRotation(Quaternion.Slerp(rb_player.rotation, targetRotation, Time.deltaTime * rotationDamping));
         }
     }
 
+    
     Vector3 ComputeDesiredMove(Vector2 input)
     {
         if (input == Vector2.zero)
