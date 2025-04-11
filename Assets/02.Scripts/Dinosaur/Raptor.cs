@@ -16,11 +16,13 @@ public class Raptor : Carnivore
     public override void OnEnable()
     {
         base.OnEnable();
-        leader = null;
-        followers.Clear();
-        if (gameObject.CompareTag("Player")) leader = this;
+        if(this is not PlayerControl)
+        {
+            leader = null;
+            followers.Clear();
+        }
     }
-
+    
     public void AddFollower(Raptor follower)
     {
         followers.Add(follower);
@@ -146,7 +148,7 @@ public class Raptor : Carnivore
     public override void Interact(IDinosaur other)
     {
         if (this is PlayerControl playerThis) { Debug.Log("플레이어의 리더 결정전을 시작합니다."); }
-        base.Interact(other); // 육식 공룡의 상호작용 로직 실행
+        if((this is not PlayerControl && leader == null) || (this is not PlayerControl && leader == this))  base.Interact(other); // 육식 공룡의 상호작용 로직 실행
         if (other == (this as IDinosaur)) return; // 본인을 감지했을 때 리턴
 
         if (other is PlayerControl playerOther)
@@ -340,7 +342,11 @@ public class Raptor : Carnivore
 
     public override void OnDisable()
     {
-        base.OnDisable();
+        if (Attacker != null && Attacker is Carnivore carnDino && carnDino.closestVictim != null && carnDino.closestVictim == (IDinosaur)this)
+            carnDino.closestVictim = null;
+
+        if (this is PlayerControl) return;
+
         raptorLevel = 0;
         if (leader != null)
         {

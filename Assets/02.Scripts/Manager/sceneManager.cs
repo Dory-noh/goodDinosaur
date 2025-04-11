@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.XR.CoreUtils;
-using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -41,6 +40,13 @@ public class sceneManager : MonoBehaviour
     public void OnPlayCutScene(string SceneName)
     {
 
+        if (SceneName == AnimationScene[1])
+        {
+            GameManager.Instance.isStop = true;
+            Debug.Log($"8일차, 잠시 멈춤 : {GameManager.Instance.isStop}");
+        }
+        GameManager.Instance.IsPlay = false;
+        
         if (isPlayingCutscene) return; // 중복 실행 방지
 
         isPlayingCutscene = true; // 컷신 실행 중
@@ -58,7 +64,6 @@ public class sceneManager : MonoBehaviour
 
     IEnumerator PlayCutscene(string Scene)
     {
-        
         yield return new WaitForSeconds(1f); // 씬 로딩 기다리기 (필요 시 조절)
         timeline = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
         GameObject timelineRoot = GameObject.Find("TimeLineRoot"); // 타임라인 오브젝트 이름 확인 후 변경!
@@ -77,13 +82,19 @@ public class sceneManager : MonoBehaviour
         if (timeline != null && isPlayingCutscene)
         {
             timeline.Play();
-            Debug.Log("타임라인 실행 중...");
+            //Debug.Log("타임라인 실행 중...");
             yield return new WaitForSeconds((float)timeline.duration); // 타임라인이 끝날 때까지 대기
             isPlayingCutscene = false; // 컷신 종료
         }
+        GameManager.Instance.IsPlay = true;
+        //Debug.Log("게임 다시 재생");
+        yield return null;
+        GameManager.Instance.isStop = false;
+        //Debug.Log("멈춤 해제");
         // 컷신 종료 후 원래 게임 상태 복구
-         Debug.Log("컷신 종료, 애니메이션 씬 언로드...");
-         BackToGame(Scene);
+        //Debug.Log("컷신 종료, 애니메이션 씬 언로드...");
+        
+        BackToGame(Scene);
 
     }
 
@@ -94,22 +105,22 @@ public class sceneManager : MonoBehaviour
         //InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Controller, new List<InputDevice>());
         //StartCoroutine(ControlReset());
     }
-    IEnumerator ControlReset()
-    {
-        Player.SetActive(true);
-        yield return null; // 프레임 대기
-        Debug.Log("리셋 시작");
+    //IEnumerator ControlReset()
+    //{
+    //    Player.SetActive(true);
+    //    yield return null; // 프레임 대기
+    //    Debug.Log("리셋 시작");
 
-        // XR 시스템 완전히 종료
-        XRGeneralSettings.Instance.Manager.StopSubsystems();
-        XRGeneralSettings.Instance.Manager.DeinitializeLoader();
+    //    // XR 시스템 완전히 종료
+    //    XRGeneralSettings.Instance.Manager.StopSubsystems();
+    //    XRGeneralSettings.Instance.Manager.DeinitializeLoader();
 
 
 
-        // XR 시스템 다시 시작
-        XRGeneralSettings.Instance.Manager.InitializeLoaderSync();
-        XRGeneralSettings.Instance.Manager.StartSubsystems();
+    //    // XR 시스템 다시 시작
+    //    XRGeneralSettings.Instance.Manager.InitializeLoaderSync();
+    //    XRGeneralSettings.Instance.Manager.StartSubsystems();
 
-        Debug.Log("시스템 리셋 완료");
-    }
+    //    Debug.Log("시스템 리셋 완료");
+    //}
 }

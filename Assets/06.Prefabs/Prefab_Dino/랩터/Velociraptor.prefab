@@ -342,6 +342,12 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 1410143552752106360, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 1413692450592841406, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}
       propertyPath: m_Size.x
@@ -362,6 +368,12 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 1413692450592841406, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 1722949235056884212, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}
       propertyPath: m_FillAmount
@@ -371,6 +383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997280157198778313, guid: 0cead5562e1270c4fa60a31a0aa6e364,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9172639660192731776, guid: 0cead5562e1270c4fa60a31a0aa6e364,
         type: 3}

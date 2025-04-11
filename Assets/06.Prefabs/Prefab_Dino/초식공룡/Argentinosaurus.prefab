@@ -506,14 +506,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2477216447274457514, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
         type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
+    - target: {fileID: 2477216447274457514, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7645857695314420609, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
         type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
+    - target: {fileID: 7645857695314420609, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7718479052868245281, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 7718479052868245281, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
         type: 3}
       propertyPath: m_IsTrigger
@@ -584,6 +602,12 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ce98b168b1f22a349875ac3882daae3b, type: 2}
+    - target: {fileID: 8149245101940870321, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 8149245101940870321, guid: af03bd2a5f214ab4c895585b3dd6bdf3,
         type: 3}
       propertyPath: m_IsTrigger

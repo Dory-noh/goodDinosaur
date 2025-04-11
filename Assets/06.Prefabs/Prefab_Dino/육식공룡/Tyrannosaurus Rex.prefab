@@ -840,9 +840,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65547808387588968, guid: 07f502d91b44df14ebea9bda19da782e,
         type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
+    - target: {fileID: 65547808387588968, guid: 07f502d91b44df14ebea9bda19da782e,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65570194045163922, guid: 07f502d91b44df14ebea9bda19da782e,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 65570194045163922, guid: 07f502d91b44df14ebea9bda19da782e,
         type: 3}
       propertyPath: m_IsTrigger

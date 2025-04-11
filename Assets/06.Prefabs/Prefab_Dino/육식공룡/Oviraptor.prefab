@@ -615,6 +615,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1608010922775512620, guid: 9881033bda9ba5d4b989055253afa2e1,
         type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
+    - target: {fileID: 1608010922775512620, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -843,6 +849,12 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 4545786580576871928, guid: 9881033bda9ba5d4b989055253afa2e1,
         type: 3}
       propertyPath: m_IsTrigger

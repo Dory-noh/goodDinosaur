@@ -47,15 +47,22 @@ public class DaytoNight : MonoBehaviour
         // 구름 머티리얼 복사본 생성
         cloudMaterialInstance_L = new Material(cloudMaterial_L);
         cloudMaterialInstance_H = new Material(cloudMaterial_H);
+        daytime = 300f;
     }
 
 
     void Update()
     {
-        if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false)
+        if (GameManager.Instance.GameOver || (GameManager.Instance.IsPlay == false))
         {
             time = 0;
+            if (GameManager.Instance.isStop == true)
+            {
+                //Debug.Log("8일차 애니메이션 재생 중이므로 Day를 바꾸지 않음.");
+                return;
+            }
             GameManager.Instance.Day = 1;
+            //Debug.Log($"Day를 1로 바꿉니다.");
             //nextThreshold = thresholdStep;
             return;
         }

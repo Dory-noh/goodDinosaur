@@ -682,9 +682,21 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 27dcc4338ecd83541ba4ffdbb99b9be7, type: 2}
     - target: {fileID: 65593926846886596, guid: 411c6c223d399774392d90113b18009f,
         type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
+    - target: {fileID: 65593926846886596, guid: 411c6c223d399774392d90113b18009f,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65847749285981012, guid: 411c6c223d399774392d90113b18009f,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a7745bedde5f16c4d922ae4d7bd091b2,
+        type: 2}
     - target: {fileID: 65847749285981012, guid: 411c6c223d399774392d90113b18009f,
         type: 3}
       propertyPath: m_IsTrigger

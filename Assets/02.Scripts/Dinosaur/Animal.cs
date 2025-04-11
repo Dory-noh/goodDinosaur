@@ -112,7 +112,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         get { return currentState; }
         set
         {
-            if (value == AnimalState.Eat && isEating == false)
+            if (value == AnimalState.Eat && isEating == false && isDie == false)
             {
                 StartCoroutine(EatingDelay());
             }
@@ -121,6 +121,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         }
     }
 
+    public AnimalState StateForCheck;
     private bool isEating = false; // 먹는 상태 여부를 추적하는 변수
 
     //hp바
@@ -159,6 +160,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     {
         moveSpeed = CalculateSpeed(infoIdx);
         MaxHp = HPs[infoIdx];
+        if (this is PlayerControl player) MaxHp *= 1.5f;
         hp = MaxHp;
         power = powers[infoIdx];
         randomOffset = Random.value;
@@ -176,13 +178,14 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     }
     public virtual void FixedUpdate() //육식 공룡은 해당 메서드를 오버라이드해서 사용하기 때문에 해당 메서드에 접근하지 않음.
     {
+        
         if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         if (isDie == true || isAttack || isEating) return;
 
         // HP 자동 회복 로직
         if (Time.time - lastDamageTime >= regenerationInterval && hp < MaxHp)
         {
-            Debug.Log($"{gameObject.name} Hp회복합니다.");
+            //Debug.Log($"{gameObject.name} Hp회복합니다.");
             RecoverHP();
         }
 
@@ -229,36 +232,22 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                     animator.SetBool(hashMove, true);
                     break;
                 case AnimalState.Attack:
-                    animator.SetTrigger(hashAttack); // Attack 애니메이션 트리거
-                    animator.SetBool(hashMove, false);
+                        animator.SetTrigger(hashAttack); // Attack 애니메이션 트리거
+                        animator.SetBool(hashMove, false);
                     //AttackSFX?.Invoke();
                     //Debug.Log("공격 애니메이션 재생");
                     break;
-                case AnimalState.Eat:
-                    animator.SetTrigger(hashEat);
-                    animator.SetBool(hashMove, false);
-                    //공격 대상을 바라보도록 회전  방향 = 목표 지점 - 기준 지점
-                    if (this is Carnivore carn && carn.closestVictim != null)
-                    {
-                        Vector3 directionToTarget = ((Animal)carn.closestVictim).transform.position - transform.position;
-                        if (directionToTarget != Vector3.zero)
-                        {
-                            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-                            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * maxTurnRateY * 5f);
-                        }
-                    }
-                    
-                    break;
                 case AnimalState.Die:
-                    animator.SetTrigger(hashDie); // Die 애니메이션 트리거
                     animator.SetBool(hashMove, false);
+                    animator.SetTrigger(hashDie); // Die 애니메이션 트리거
                     //dinoDieSFX?.Invoke();
                     break;
+                
             }
         }
         catch
         {
-            Debug.Log($"{gameObject.name} 애니메이션 에러 발생");
+            //Debug.Log($"{gameObject.name} 애니메이션 에러 발생");
         }
 
 
@@ -295,7 +284,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         // obstacleDetected가 true인 경우
         if (obstacleDetected)
         {
-            Debug.Log($"{gameObject.name} 장애물 감지함");
+            //Debug.Log($"{gameObject.name} 장애물 감지함");
             hitPoint = hit.point;
             Vector3 reflectionVector = Vector3.Reflect(moveDirection, hit.normal);
             float goalPointMinDistanceFromHit = 1f;
@@ -436,16 +425,19 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if(Attacker != null && this is Carnivore carn)
         {
             carn.closestVictim = Attacker;
+            if(this is not PlayerControl)
+                carn.Hunt(carn.closestVictim);
         }
         if(this is PlayerControl player)
         {
             player.InitiateAttack(Attacker);
         }
-        if (hp == 0)
+        if (hp <= 0)
         {
             if(this is PlayerControl)
             {
                 dinoDieSFX?.Invoke();
+                
                 GameManager.Instance.GameOver = true;
                 sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.DeathScenes[2]);
             }
@@ -456,26 +448,37 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
 
     private IEnumerator EatingDelay()
     {
-        isEating = true;
-        if (this is not PlayerControl && this is Carnivore carn && carn.closestVictim != null)
+        yield return null;
+        if (isDie != true)
         {
-            //공격 대상을 바라보도록 회전  방향 = 목표 지점 - 기준 지점
-            Vector3 directionToTarget = ((Animal)carn.closestVictim).transform.position - transform.position;
-            if (directionToTarget != Vector3.zero)
+            isEating = true;
+            if (this is not PlayerControl && this is Carnivore carn && carn.closestVictim != null)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-                Vector3 targetEuler = targetRotation.eulerAngles;
-                targetEuler.x = 0f;
-                targetEuler.z = 0f;
-                Quaternion yRotationOnly = Quaternion.Euler(targetEuler);
-                transform.rotation = Quaternion.Slerp(transform.rotation, yRotationOnly, Time.fixedDeltaTime * maxTurnRateY * 3f);
+                //공격 대상을 바라보도록 회전  방향 = 목표 지점 - 기준 지점
+                Vector3 directionToTarget = ((Animal)carn.closestVictim).transform.position - transform.position;
+                if (directionToTarget != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+                    Vector3 targetEuler = targetRotation.eulerAngles;
+                    targetEuler.x = 0f;
+                    targetEuler.z = 0f;
+                    Quaternion yRotationOnly = Quaternion.Euler(targetEuler);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, yRotationOnly, Time.fixedDeltaTime * maxTurnRateY * 3f);
+                }
             }
-        }
-        yield return new WaitForSeconds(2f); // 2초 동안 대기
-        isEating = false;
-        if (currentState == AnimalState.Eat) // 먹는 애니메이션이 끝났다면 상태를 Idle로 변경 (선택 사항)
-        {
-            CurrentState = AnimalState.Idle;
+            if (isDie) currentState = AnimalState.Die;
+            animator.SetTrigger(hashEat);
+            animator.SetBool(hashMove, false);
+            yield return new WaitForSeconds(2f); // 2초 동안 대기
+            isEating = false;
+            if (currentState == AnimalState.Eat) // 먹는 애니메이션이 끝났다면 상태를 Idle로 변경
+            {
+                if(isDie == true) {
+                    CurrentState = AnimalState.Die;
+                    yield break;
+                }
+                else CurrentState = AnimalState.Idle;
+            }
         }
     }
 
@@ -516,7 +519,13 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         if (!isAttack && animal != null)
         {
             isAttack = true;
-            CurrentState = AnimalState.Attack;
+            if(isDie == false)
+                CurrentState = AnimalState.Attack;
+            else
+            {
+                CurrentState = AnimalState.Die;
+                return;
+            }
 
             if(this is not PlayerControl)
             {
@@ -532,8 +541,8 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                     transform.rotation = Quaternion.Slerp(transform.rotation, yRotationOnly, Time.fixedDeltaTime * maxTurnRateY * 3f);
                 }
             }
-            if(this is Raptor raptor) raptor.power = raptor.leader == null ? powers[0] : raptor.leader.followers.Count + 1 < 3 ? powers[0] : raptor.leader.followers.Count + 1 < 5 ? powers[1]/2f : powers[2]/2f;
-            //if (this is PlayerControl player) player.power = powers[0];
+            if(this is Raptor raptor) raptor.power = raptor.leader == null ? powers[0]*1.3f : raptor.leader.followers.Count + 1 < 3 ? powers[0] : raptor.leader.followers.Count + 1 < 5 ? powers[1] : powers[2];
+            //if (this is PlayerControl player) player.power = powers[0]*2;
             //{
             //    Debug.Log($"{gameObject.name}의 공격. 데미지 {power}");
             //    Debug.Log($"공격 전 공격한 공룡 HP값 {animal.hp}");
@@ -543,10 +552,9 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             //if(this is PlayerControl)
                 //Debug.Log($"공격 후 공격한 공룡 HP값 {animal.hp}");
             animal.Attacker = this;
-
             if (this.gameObject.activeSelf)
             {
-                StartCoroutine(ResetAttack(1f));
+                StartCoroutine(ResetAttack(1.5f));
             }
         }
     }
@@ -554,6 +562,14 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
     private IEnumerator ResetAttack(float delay)
     {
         yield return new WaitForSeconds(delay);
+        if (isDie == true)
+        {
+            CurrentState = AnimalState.Die;
+            yield break;
+            //animator.SetTrigger(hashDie);
+            //animator.SetBool(hashMove, false);
+        }
+        else CurrentState = AnimalState.Idle;
         isAttack = false;
     }
 
@@ -563,56 +579,47 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
         {
             isDie = true;
             CurrentState = AnimalState.Die;
-            
+
             if (this is not PlayerControl)
             {
-                //해당 공룡을 공격(하여 죽게)한 공룡이 플레이어이거나 플레이어가 속한 랩터 무리의 일원일 경우 HungerLevel 증가
-
-                if (Attacker != null)
-                {
-                    try
-                    { 
-                        if(Attacker is Carnivore && Attacker is not Raptor)
-                        {
-                            Attacker.dinoDieSFX?.Invoke();
-                            Attacker.CurrentState = AnimalState.Eat;
-                        }
-                    } //공격 공룡쪽에서 먹는 소리가 플레이되도록 한다.
-                    catch
-                    {
-                        //Debug.Log($"{gameObject.name} 소리 재생 실패");
-                    }
-                    if (Attacker is Raptor raptor)
-                    {
-                        //리더 랩터가 없으면 공격 랩터 자신의 랩터 레벨이 증가한다.
-                        if (raptor.leader == null) raptor.raptorLevel++;
-                        //리더 랩터가 있으면 리더 랩터의 랩터 레벨이 증가한다.
-                        else
-                        {
-                            raptor.leader.raptorLevel++; //랩터 레벨 증가
-                            raptor.leader.dinoDieSFX?.Invoke();
-                            raptor.leader.CurrentState = AnimalState.Eat;
-                            foreach(var rap in raptor.leader.followers)
-                            {
-                                rap.dinoDieSFX?.Invoke();
-                                rap.CurrentState = AnimalState.Eat;
-                            }
-                            if (raptor.leader is PlayerControl player)
-                            {
-                                player.IncreaseHungerLevel();
-                                GameManager.Instance.nextHungerTime = Time.time + GameManager.Instance.hungerInterval;
-                                Debug.Log("허기짐 시간 재설정");
-                            }
-                            Debug.Log("HungerLevel + 1");
-                        }
-                    }
-                }
-                
                 TogglePhysicsComponents(false);
-
                 StartCoroutine(HideDelay(3f));
             }
+            // 공격에 성공했을 때 (상대방 체력이 0 이하가 되었을 때) 공격자의 상태를 Eat으로 변경
+            if (Attacker is Carnivore && Attacker is not Raptor && Attacker.CurrentState != AnimalState.Die)
+            {
+                StartCoroutine(SetEatState(Attacker));
+            }
+            else if (Attacker is Raptor _raptor && Attacker.CurrentState != AnimalState.Die)
+            {
+                if (_raptor.leader == null)
+                {
+                    _raptor.raptorLevel++;
+                    StartCoroutine(SetEatState(_raptor));
+                }
+                else
+                {
+                    _raptor.leader.raptorLevel++;
+                    StartCoroutine(SetEatState(_raptor.leader));
+                    foreach (var rap in _raptor.leader.followers)
+                    {
+                        if (rap.currentState != AnimalState.Die)
+                            StartCoroutine(SetEatState(rap));
+                    }
+                    if (_raptor.leader is PlayerControl player)
+                    {
+                        player.IncreaseHungerLevel();
+                        GameManager.Instance.nextHungerTime = Time.time + GameManager.Instance.hungerInterval;
+                    }
+                }
+            }
         }
+    }
+
+    IEnumerator SetEatState(Animal target)
+    {
+        yield return new WaitForSeconds(0.3f);
+        target.CurrentState = AnimalState.Eat;
     }
 
     private void TogglePhysicsComponents(bool isActive)
@@ -737,17 +744,17 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
                             }
                             else
                             {
-                                Debug.LogError($"slideThresholdAngle is zero on {gameObject.name}");
+                                //Debug.LogError($"slideThresholdAngle is zero on {gameObject.name}");
                             }
                         }
                         else
                         {
-                            Debug.LogError($"First cross product resulted in zero vector on {gameObject.name}");
+                            //Debug.LogError($"First cross product resulted in zero vector on {gameObject.name}");
                         }
                     }
                     else
                     {
-                        Debug.LogError($"Surface normal is zero on {gameObject.name}");
+                        //Debug.LogError($"Surface normal is zero on {gameObject.name}");
                     }
                 }
                 Vector3 projectedVelocity = Vector3.ProjectOnPlane(transform.forward, surfaceNormal);
@@ -815,7 +822,7 @@ public class Animal : MonoBehaviour, IMovable, IDinosaur
             IDinosaur otherDinosaur = nearbyColliders[i].GetComponent<IDinosaur>();
             if (otherDinosaur != null && (Object)otherDinosaur != this)
             {
-                if (otherDinosaur is PlayerControl) Debug.Log($"{gameObject.name}이 플레이어와 상호작용합니다.");
+                //if (otherDinosaur is PlayerControl) Debug.Log($"{gameObject.name}이 플레이어와 상호작용합니다.");
                 Interact(otherDinosaur);
                 break;
             }

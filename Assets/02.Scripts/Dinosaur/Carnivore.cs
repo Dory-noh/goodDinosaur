@@ -21,6 +21,7 @@ public class Carnivore : Animal, ICarnivore
 
     public override void FixedUpdate()
     {
+        StateForCheck = CurrentState;
         if (GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         if (isDie == true || isAttack) return;
 

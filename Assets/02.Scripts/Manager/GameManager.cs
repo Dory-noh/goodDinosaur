@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     }
     [SerializeField ]private bool isPlay;
+    [SerializeField] public bool isStop;
     public bool IsPlay
     {
         get { return isPlay; }
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
             isPlay = value;
             if (isPlay == true)
             {
+                if (isStop == true) return;
                 PoolingManager.Instance.SetDinos();
                 DisableRay();
             }
@@ -107,8 +109,8 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeDay()
     {
-        Debug.Log($"{Day}일 차 입니다.");
         Day++;
+        Debug.Log($"{Day}일 차 입니다.");
         if (Day == 8)
         {
             sceneManager.Instance.OnPlayCutScene(sceneManager.Instance.AnimationScene[1]); //***8일차 컷씬 재생 

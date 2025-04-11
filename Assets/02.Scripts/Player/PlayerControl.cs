@@ -65,6 +65,17 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         if (leftController != null && rightController != null) Debug.Log("컨트롤러 연결 완료");
         else Debug.Log("컨트롤러 연결 실패");
     }
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        if(GameManager.Instance.Day == 1)
+        {
+            leader = null;
+            followers.Clear();
+            leader = this;
+        }
+        AttackAction.action.performed += OnAttackPerformed;
+    }
 
     public override void FixedUpdate()
     {
@@ -85,7 +96,7 @@ public class PlayerControl : Raptor //랩터 클래스 상속
 
     public override IEnumerator Damage(float power)
     {
-        base.Damage(power);
+        StartCoroutine(base.Damage(power));
         TriggerHaptic(leftController, hapticIntansity, hapticDuration);
         TriggerHaptic(rightController, hapticIntansity, hapticDuration);
         yield return null;
@@ -107,7 +118,7 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         }
     }
 
-    private void TriggerHaptic(ActionBasedController controller, float intensity, float duration)
+    public void TriggerHaptic(ActionBasedController controller, float intensity, float duration)
     {
         if (controller != null)
         {
@@ -226,11 +237,7 @@ public class PlayerControl : Raptor //랩터 클래스 상속
         _audio.Play();
     }
 
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        AttackAction.action.performed += OnAttackPerformed;
-    }
+
 
     public override void OnDisable()
     {

@@ -94,7 +94,7 @@ public class UiManagerInGame : MonoBehaviour
     }
     void LoadLobby() 
     {
-        if (GameManager.Instance.IsPlay != true) return;
+        //if (GameManager.Instance.IsPlay != true) return;
         GameManager.Instance.IsPlay = false;
         GameManager.Instance.GameOver = false;
         GameMode.SetActive(GameManager.Instance.IsPlay);
@@ -161,7 +161,7 @@ public class UiManagerInGame : MonoBehaviour
             }
         }
 
-        SurvivalDay.text = $"Day - {GameManager.Instance.Day.ToString("00")}";
+        SurvivalDay.text = $"Day : {GameManager.Instance.Day.ToString("00")}";
         RaptorCrew.text = $"Member : {GameManager.Instance.playerTeamSize.ToString("00")}";
         HungerMetershow();
         AdjustBGM();

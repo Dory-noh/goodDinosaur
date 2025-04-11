@@ -57,7 +57,7 @@ public class ControllerEvent : MonoBehaviour
         }
         else
         {
-            Debug.Log("현재 Ray에 감지된 Fish가 없습니다. ColorBall 초기화");
+            Debug.Log("현재 Ray에 감지된 Raptor가 없습니다. ColorBall 초기화");
             resetColorBall();
         }
     }

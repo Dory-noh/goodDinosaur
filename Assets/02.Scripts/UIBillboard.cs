@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class UIBillboard : MonoBehaviour
 {
-    private Transform cam;
+    [SerializeField] private Transform cam;
 
     void Start()
     {
-        cam = Camera.main.transform;
+        if (cam == null && Camera.main != null) cam = Camera.main.transform;
     }
 
     void LateUpdate()
     {
+        if(cam == null && Camera.main != null) { cam = Camera.main.transform; }
+        if (cam == null) return;
         if(GameManager.Instance.GameOver || GameManager.Instance.IsPlay == false) return;
         transform.forward = cam.forward;
     }
